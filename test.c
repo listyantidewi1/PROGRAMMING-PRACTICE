@@ -1,6 +1,11 @@
 #include <stdio.h>
 
-int main(){
+
+void main(){
+    int a;
     printf("hello world");
-    return 0;
+    printf("hello world");
+    printf("hello world");
+    scanf("%d", &a);
+    //getch();
 }
