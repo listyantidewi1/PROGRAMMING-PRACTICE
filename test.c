@@ -3,8 +3,8 @@
 
 void main(){
 
-    printf("hello world");
-    printf("hello world");
-    printf("hello world");
-    system("pause");
+    printf("hello world\n");
+    printf("hello world\n");
+    printf("hello world\n");
+    getchar();
 }
