@@ -5,12 +5,16 @@ int main(void)
 {
     // TODO: Prompt for start size
     int start_size = 0;
+    int end_size =0;
 
     while(population_size < 9){
         printf("Start size: ");
         scanf("%d", &start_size);
-        printf("End size : ");
-        scanf("%d", &end_size);
+        while(end_size < = 9){
+            printf("End size : ");
+            scanf("%d", &end_size);
+        }
+
 
     }
 
