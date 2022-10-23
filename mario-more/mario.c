@@ -6,7 +6,7 @@ int main(void)
     int height = 0;
     int i,j,k,l;
 
-    while (height <= 0)
+    while ((height <= 0) || (height > 8))
     {
         height = get_int("Height: ");
     }
