@@ -30,7 +30,7 @@ int main(void)
 
     // TODO: Calculate number of years until we reach threshold
 
-    while (curr_size <= end_size)
+    while (curr_size < end_size)
     {
         curr_size = curr_size + (curr_size / 3) - (curr_size / 4);
         year++;
