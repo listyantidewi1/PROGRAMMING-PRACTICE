@@ -19,7 +19,7 @@ int main(void)
     }
 
     // TODO: Prompt for end size
-    while (end_size <= start_size)
+    while (end_size < start_size)
     {
         printf("End size : ");
         scanf("%d", &end_size);
