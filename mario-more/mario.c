@@ -13,7 +13,15 @@ int main(void)
 
     for(i=0; i<height; i++)
     {
-        printf("\n");
+         printf("\n");
+
+        for(k=height; k>=0; k--){
+
+            printf(" ");
+        }
+
+
+
         for(j=0; j<=i; j++)
         {
             printf("#");
