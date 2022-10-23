@@ -8,8 +8,8 @@ int main(void)
     int end_size = 0;
     int curr_size; //current population size
     int year = 0; //number of years to reach the end size
-    int born = 0; //how many are born per year
-    int death = 0; //how many are dead per year
+   // int born = 0; //how many are born per year
+   // int death = 0; //how many are dead per year
 
     while (start_size < 9)
     {
@@ -34,9 +34,9 @@ int main(void)
 
     while (curr_size < end_size)
     {
-        born = curr_size / 3;
-        death = curr_size / 4;
-        curr_size = curr_size + born - death;
+        //born = curr_size / 3;
+        //death = curr_size / 4;
+        curr_size = curr_size + (curr_size / 3) - (curr_size / 4);
         year++;
     }
 
