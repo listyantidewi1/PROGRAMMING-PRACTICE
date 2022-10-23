@@ -19,7 +19,7 @@ int main(void)
     }
 
     // TODO: Prompt for end size
-    while (end_size <= 9)
+    while (end_size <= start_size)
     {
         printf("End size : ");
         scanf("%d", &end_size);
@@ -32,7 +32,7 @@ int main(void)
 
     // TODO: Calculate number of years until we reach threshold
 
-    while (curr_size < end_size)
+    while (curr_size <= end_size)
     {
         //born = curr_size / 3;
         //death = curr_size / 4;
