@@ -13,18 +13,18 @@ int main(void)
     while (start_size < 9)
     {
         printf("Start size: ");
-        scanf("%d", &start_size);
+        scanf("%i", &start_size);
     }
 
     // TODO: Prompt for end size
     while (end_size < start_size)
     {
         printf("End size : ");
-        scanf("%d", &end_size);
+        scanf("%i", &end_size);
     }
 
-    printf("\nStart size %d", start_size);
-    printf("\nEnd size %d", end_size);
+    printf("\nStart size %i", start_size);
+    printf("\nEnd size %i", end_size);
 
     curr_size = start_size;
 
@@ -32,10 +32,10 @@ int main(void)
 
     while (curr_size <= end_size)
     {
-        curr_size = ceil(curr_size + (curr_size / 3) - (curr_size / 4));
+        curr_size = curr_size + (curr_size / 3) - (curr_size / 4);
         year++;
     }
 
     // TODO: Print number of years
-    printf("\nYear : %d\n", year);
+    printf("\nYear : %i\n", year);
 }
