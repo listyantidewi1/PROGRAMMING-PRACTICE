@@ -39,5 +39,5 @@ int main(void)
     }
 
     // TODO: Print number of years
-    printf("Year : %i\n", year);
+    printf("Year : %i", year);
 }
