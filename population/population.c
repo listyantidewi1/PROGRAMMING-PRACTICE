@@ -6,10 +6,10 @@ int main(void)
     // TODO: Prompt for start size
     int start_size = 0;
     int end_size = 0;
-    int curr_size;
-    int year = 0;
-    int born = 0;
-    int death = 0;
+    int curr_size; //current population size
+    int year = 0; //number of years to reach the end size
+    int born = 0; //how many are born per year
+    int death = 0; //how many are dead per year
 
     while(start_size < 9){
         printf("Start size: ");
@@ -31,14 +31,10 @@ int main(void)
     // TODO: Calculate number of years until we reach threshold
 
     while(curr_size < end_size){
-
         born = curr_size/3;
         death = curr_size/4;
         curr_size = curr_size + born - death;
         year++;
-        //printf("\nCurrent size: %d", curr_size);
-        //printf("\nborn: %d", born);
-        //printf("\ndeath: %d", death);
     }
 
     // TODO: Print number of years
