@@ -24,7 +24,7 @@ int main(void)
     }
 
     printf("\nStart size %d", start_size);
-    printf("\nEnd size %d\n", end_size);
+    printf("\nEnd size %d", end_size);
 
     curr_size = start_size;
 
@@ -36,9 +36,9 @@ int main(void)
         death = curr_size/4;
         curr_size = curr_size + born - death;
         year++;
-        printf("\nCurrent size: %d", curr_size);
-        printf("\nborn: %d", born);
-        printf("\ndeath: %d", death);
+        //printf("\nCurrent size: %d", curr_size);
+        //printf("\nborn: %d", born);
+        //printf("\ndeath: %d", death);
     }
 
     // TODO: Print number of years
