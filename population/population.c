@@ -5,8 +5,8 @@
 int main(void)
 {
     // TODO: Prompt for start size
-    //int start_size = 0;
-    //int end_size = 0;
+    int start_size = 0;
+    int end_size = 0;
     int curr_size; //current population size
     int year = 0; //number of years to reach the end size
 
@@ -14,7 +14,7 @@ int main(void)
     {
         //printf("Start size: ");
         //scanf("%i", &start_size);
-        int start_size = get_int("Start size : ");
+        start_size = get_int("Start size : ");
     }
 
     // TODO: Prompt for end size
@@ -22,7 +22,7 @@ int main(void)
     {
         //printf("End size : ");
         //scanf("%i", &end_size);
-        int end_size = get_int("End size : ");
+        end_size = get_int("End size : ");
     }
 
     //printf("\nStart size %i", start_size);
@@ -39,5 +39,5 @@ int main(void)
     }
 
     // TODO: Print number of years
-    printf("\nYear : %i\n", year);
+    printf("Year : %i\n", year);
 }
