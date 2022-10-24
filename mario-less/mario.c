@@ -13,17 +13,18 @@ int main(void)
 
     for(i=0; i<height; i++)
     {
-        printf("\n");
+
 
         for(k=height; k>=0; k--)
         {
-            printf(" ");
+            printf("x");
         }
 
-        for(j=0; j<=i; j++)
-        {
-            printf("#");
-        }
+        // for(j=0; j<=i; j++)
+        // {
+        //     printf("#");
+        // }
+          printf("\n");
     }
-    printf("\n");
+
 }
