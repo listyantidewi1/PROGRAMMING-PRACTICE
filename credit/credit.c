@@ -5,6 +5,7 @@
 int main(void)
 {
     long n, n_last, n_last2, underlined, not_underlined, sequence=100, sequence2=10;
+    int temp;
     //prompt input
     long number = get_long ("Number: ");
 
@@ -27,6 +28,7 @@ int main(void)
         while (underlined >= 10)
         {
             underlined = underlined / 10;
+            temp = underlined * 2
         }
         //printf("underlined = %li\n", underlined);
 
