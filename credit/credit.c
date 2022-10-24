@@ -14,21 +14,26 @@ bool checkSum(long int, int);
 int checkLength(long int);
 string checkCardType(long int);
 
-int main(void) {
+int main(void)
+{
     long int creditCard;
 
-    do{
+    do
+    {
         creditCard = get_long("Number: ");
-    }while(creditCard<1);
+    }
+    while(creditCard < 1);
 
     int length = checkLength(creditCard);
-    if (length == 0) {
+    if (length == 0)
+    {
         printf("INVALID\n");
         return 0;
     }
 
     int checkSumValue = checkSum(creditCard, length);
-    if (checkSumValue != 1) {
+    if (checkSumValue != 1)
+    {
         printf("INVALID\n");
         return 0;
     }
