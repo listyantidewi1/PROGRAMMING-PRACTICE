@@ -5,12 +5,13 @@
 int main(void)
 {
     long n, n_last, n_last2, underlined, not_underlined, sequence=100, sequence2=10;
-    int temp;
+
     //prompt input
     long number = get_long ("Number: ");
 
     //count number of digit
     int count = (number == 0) ? 1  : (log10(number) + 1);
+    int arr_underlined[count/2];
     //printf("num digit: %i", count);
 
     //checksum
@@ -28,13 +29,13 @@ int main(void)
         while (underlined >= 10)
         {
             underlined = underlined / 10;
-            temp = underlined * 2
+
         }
         //printf("underlined = %li\n", underlined);
-
-
+        arr_underlined[n] = underlined;
     }
 
+    for(n=0; n<arr_underlined.)
 
 
 }
