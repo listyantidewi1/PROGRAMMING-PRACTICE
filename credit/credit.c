@@ -13,26 +13,29 @@ int main(void)
     long twoLast = number % 100;
 
     //get first digit
-    first = twoLast;
-    while (first >= 10)
-    {
-        first = first / 10;
-    }
+
 
     //get first digit of every other number
-    //sequence: 10, 100, 1000, 10000, ..
-    //sequence * 10
+    //sequence: 10, 1000, ..
+    //sequence * 100
 
     for(n = 0; n < 17; n++)
     {
         twoLast = number % sequence;
-        sequence = sequence * 10;
-        printf("%li\n", twoLast);
+        sequence = sequence * 100;
+        printf("twolast = %li\n", twoLast);
+
+        first = twoLast;
+        while (first >= 10)
+        {
+            first = first / 10;
+        }
+        printf("first = %li\n", first);
     }
 
-    printf("Number: %li\n", number);
-    printf("Twolast: %li\n", twoLast);
-    printf("First: %li\n", first);
+    // printf("Number: %li\n", number);
+    // printf("Twolast: %li\n", twoLast);
+    // printf("First: %li\n", first);
 
 
 }
