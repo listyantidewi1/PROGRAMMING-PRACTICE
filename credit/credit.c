@@ -3,7 +3,7 @@
 
 int main(void)
 {
-    long n, first;
+    long n, first, sequence=10;
     //prompt input
     long number = get_long ("Number: ");
 
@@ -23,7 +23,12 @@ int main(void)
     //sequence: 10, 100, 1000, 10000, ..
     //sequence * 10
 
-    for(n = 0; n <)
+    for(n = 0; n < 17; n++)
+    {
+        twoLast = number % sequence;
+        sequence = sequence * 10;
+        printf("%li\n", twoLast);
+    }
 
     printf("Number: %li\n", number);
     printf("Twolast: %li\n", twoLast);
