@@ -17,7 +17,7 @@ int main(void)
     //get underlined digit / every other number start from the second to last digit
     //sequence: 100, 10000, ..
     //sequence * 100
-    for(n = 0; n < count; n++)
+    for(n = 0; n < count/2; n++)
     {
         n_last = number % sequence;
         sequence = sequence * 100;
