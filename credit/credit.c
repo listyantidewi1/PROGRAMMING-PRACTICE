@@ -3,7 +3,7 @@
 
 int main(void)
 {
-    long n, first, sequence=10;
+    long n, first, sequence=100;
     //prompt input
     long number = get_long ("Number: ");
 
