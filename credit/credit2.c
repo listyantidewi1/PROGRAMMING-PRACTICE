@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <math.h>
 
-int main(void)
+int main(void) 
 {
     long n, n_last, n_last2, underlined, not_underlined, sequence=100, sequence2=10;
 
