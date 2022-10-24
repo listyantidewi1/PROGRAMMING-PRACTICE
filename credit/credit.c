@@ -36,10 +36,10 @@ int main(void)
     }
 
     //print array of underlined numbers
-    // for(n=0; n < (sizeof arr_underlined / sizeof arr_underlined[0]); n++)
-    // {
-    //     printf("%i", arr_underlined[n]);
-    // }
+    for(n=0; n < (sizeof arr_underlined / sizeof arr_underlined[0]); n++)
+    {
+        printf("%i", arr_underlined[n]);
+    }
 
     //multiply each array of underlined number by two, and calculate the sum
     int sum1 = 0;
@@ -50,7 +50,7 @@ int main(void)
     }
 
     //print sum1
-    printf("sum1 = %i", sum1);
+    printf("\nsum1 = %i\n", sum1);
 
 
 }
