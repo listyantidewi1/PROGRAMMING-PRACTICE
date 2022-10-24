@@ -35,7 +35,13 @@ int main(void)
         arr_underlined[n] = underlined;
     }
 
-    for(n=0; n<arr_underlined.)
+    //print array of underlined numbers
+    // for(n=0; n < (sizeof arr_underlined / sizeof arr_underlined[0]); n++)
+    // {
+    //     printf("%i", arr_underlined[n]);
+    // }
+
+    //multiply each array of underlined number by two
 
 
 }
