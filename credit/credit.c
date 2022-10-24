@@ -3,7 +3,7 @@
 
 int main(void)
 {
-    long n, underlined, not_underlined, sequence=100, sequence2=10;
+    long n, n_last, underlined, not_underlined, sequence=100, sequence2=10;
     //prompt input
     long number = get_long ("Number: ");
 
@@ -14,11 +14,11 @@ int main(void)
     //sequence * 100
     for(n = 0; n < 17; n++)
     {
-        twoLast = number % sequence;
+        n_last = number % sequence;
         sequence = sequence * 100;
-        //printf("twolast = %li\n", twoLast);
+        //printf("n_last = %li\n", n_last);
 
-        underlined = twoLast;
+        underlined = n_last;
         while (underlined >= 10)
         {
             underlined = underlined / 10;
