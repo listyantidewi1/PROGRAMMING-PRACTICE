@@ -1,5 +1,6 @@
 #include <cs50.h>
 #include <stdio.h>
+#include <math.h>
 
 int main(void)
 {
@@ -7,9 +8,13 @@ int main(void)
     //prompt input
     long number = get_long ("Number: ");
 
+    //count number of digit
+    int count = (number == 0) ? 1  : (log10(number) + 1);
+    //printf("num digit: %i", count);
+
     //checksum
 
-    //get underlined digit of every other number
+    //get underlined digit / every other number start from the second to last digit
     //sequence: 100, 10000, ..
     //sequence * 100
     for(n = 0; n < 17; n++)
