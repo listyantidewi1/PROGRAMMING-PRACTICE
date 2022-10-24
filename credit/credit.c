@@ -25,16 +25,6 @@ int main(void)
         }
         //printf("underlined = %li\n", underlined);
 
-        n_last2 = number % sequence2;
-        sequence2 = sequence2 * 100;
-        printf("n_last2 = %li\n", n_last2);
-
-        not_underlined = n_last;
-        while (not_underlined >= 10)
-        {
-           not_underlined = not_underlined / 10;
-        }
-        printf("not underlined = %li\n", not_underlined);
 
     }
 
