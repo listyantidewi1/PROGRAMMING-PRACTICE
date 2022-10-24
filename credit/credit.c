@@ -44,7 +44,13 @@ int main(void)
     //multiply each array of underlined number by two, and calculate the sum
     int sum1 = 0;
 
-    for (n=0, n<)
+    for (n=0; n < (sizeof arr_underlined / sizeof arr_underlined[0]); n++)
+    {
+        sum1 = sum1 + (arr_underlined[0]*2);
+    }
+
+    //print sum1
+    printf("sum1 = %i", sum1);
 
 
 }
