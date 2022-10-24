@@ -8,11 +8,15 @@ int main(void)
     int count = (number == 0) ? 1  : (log10(number) + 1);
 
     int i=0;
-
-    while((i%2) != 0){
+    int j=0;
+    while(j<count){
+        if((i%2) != 0){
         int lastDigit = number % 10;
         printf("%i",lastDigit);
-        i++;
+
+        }
+        j++;
     }
+
 
 }
