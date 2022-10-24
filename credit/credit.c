@@ -6,6 +6,5 @@ int main(void)
     //prompt input
 
     long number = get_long ("Number: ");
-    printf("%l",number);
-
+    
 }
