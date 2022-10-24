@@ -17,18 +17,18 @@ int main(void)
     //get underlined digit / every other number start from the second to last digit
     //sequence: 100, 10000, ..
     //sequence * 100
-    for(n = 0; n < 17; n++)
+    for(n = 0; n < count; n++)
     {
         n_last = number % sequence;
         sequence = sequence * 100;
-        //printf("n_last = %li\n", n_last);
+        printf("n_last = %li\n", n_last);
 
         underlined = n_last;
         while (underlined >= 10)
         {
             underlined = underlined / 10;
         }
-        //printf("underlined = %li\n", underlined);
+        printf("underlined = %li\n", underlined);
 
 
     }
