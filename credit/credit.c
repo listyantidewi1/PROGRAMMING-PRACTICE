@@ -13,7 +13,7 @@ int main(void)
     //count number of digit
     int length = (number == 0) ? 1  : (log10(number) + 1);
     if (length < 13 || length > 16) {
-      printf("INVALID");
+      printf("INVALID\n");
     }
     else
     {
