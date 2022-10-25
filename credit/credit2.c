@@ -36,12 +36,14 @@ int main(void)
         n = n /10;
     }
 
-    //printf("Sum: %i\nLeftmost: %li\n", sum, n);
+    printf("Sum: %i\nLeftmost: %li\n", sum, n);
 
     if (sum % 10)
     {
         printf("INVALID\n");
-    }else{
+    }
+    else
+    {
         //printf("Valid\n");
         long int number1 = n_checktype, number2 = n_checktype;
         while (n_checktype)
@@ -55,7 +57,7 @@ int main(void)
             printf("AMEX");
         }
 
-        if (number2 >= 51 && number2 <= 55) {
+        if ((number2 >= 51 && number2 <= 55) || number2 == 22) {
             printf("MASTERCARD");
         }
 
