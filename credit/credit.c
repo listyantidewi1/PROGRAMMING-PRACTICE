@@ -15,41 +15,39 @@ int main(void)
     if (length < 13 || length > 16) {
       printf("INVALID");
     }
-    else{
-        
-    }
-
-    //Luhn Algorithm
-    int sum = 0;
-    sum = number % 10; //add checksum - get last digit
-    number = number / 10; //chop last digit off
-
-    while (number)
+    else
     {
-        int temp = (number % 10) * 2; //get righmost digit and double it
-        if (temp > 9)
+        //Luhn Algorithm
+        int sum = 0;
+        sum = number % 10; //add checksum - get last digit
+        number = number / 10; //chop last digit off
+
+        while (number)
         {
-            temp = temp - 9;
+            int temp = (number % 10) * 2; //get righmost digit and double it
+            if (temp > 9)
+            {
+                temp = temp - 9;
+            }
+            sum = sum + temp; //add digit to sum
+            number = number / 10; //chop rightmost digit off
+            temp = number % 10; //get another rightmost digit
+            sum = sum + temp; //add digit to sum
+            number = number / 10; //chop right digit off
         }
-        sum = sum + temp; //add digit to sum
-        number = number / 10; //chop rightmost digit off
-        temp = number % 10; //get another rightmost digit
-        sum = sum + temp; //add digit to sum
-        number = number / 10; //chop right digit off
-    }
-    while (n > 10) //get leftmost digit
-    {
-        n = n / 10;
-    }
+        while (n > 10) //get leftmost digit
+        {
+            n = n / 10;
+        }
 
     //printf("Sum: %i\nLeftmost: %li\n", sum, n);
 
-    if (sum % 10)
-    {
-        printf("INVALID\n");
-    }
-    else
-    {
+        if (sum % 10)
+        {
+            printf("INVALID\n");
+        }
+        else
+        {
         //printf("Valid\n");
         long int number1 = n_checktype, number2 = n_checktype;
         while (n_checktype)
@@ -64,12 +62,12 @@ int main(void)
             printf("AMEX\n");
         }
 
-        if ((number2 >= 51 && number2 <= 55) || number2 == 22)
+        else if ((number2 >= 51 && number2 <= 55) || number2 == 22)
         {
             printf("MASTERCARD\n");
         }
 
-        if (number2 >= 40 && number2 <= 49)
+        else if (number2 >= 40 && number2 <= 49)
         {
             printf("VISA\n");
         }
@@ -78,5 +76,9 @@ int main(void)
             printf("INVALID\n");
         }
     }
+
+
+    }
+
 
 }
