@@ -15,6 +15,9 @@ int main(void)
     if (length < 13 || length > 16) {
       printf("INVALID");
     }
+    else{
+        
+    }
 
     //Luhn Algorithm
     int sum = 0;
