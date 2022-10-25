@@ -69,7 +69,7 @@ int main(void)
         }
         else
         {
-            //printf("INVALID");
+            printf("INVALID\n");
         }
     }
 
