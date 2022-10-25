@@ -21,8 +21,17 @@ int main(void)
         int temp = (number % 10) * 2; //get righmost digit and double it
         if (temp > 9)
         {
-            
+            temp = temp - 9;
         }
+        sum = sum + temp; //add digit to sum
+        number = number / 10; //chop rightmost digit off
+        temp = number % 10; get another rightmost digit
+        sum = sum + temp; //add digit to sum
+        numer = number / 10; //chop right digit off
+    }
+    while (n > 10) //get leftmost digit
+    {
+        n = n /10;
     }
 
 
