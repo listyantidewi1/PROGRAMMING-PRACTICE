@@ -55,17 +55,17 @@ int main(void)
 
         if (number2 == 34 || number2 == 37)
         {
-            printf("AMEX");
+            printf("AMEX\n");
         }
 
         if ((number2 >= 51 && number2 <= 55) || number2 == 22)
         {
-            printf("MASTERCARD");
+            printf("MASTERCARD\n");
         }
 
         if (number2 >= 40 && number2 <= 49)
         {
-            printf("VISA");
+            printf("VISA\n");
         }
         else
         {
