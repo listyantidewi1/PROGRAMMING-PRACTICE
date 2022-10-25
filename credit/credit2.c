@@ -12,7 +12,18 @@ int main(void)
     int length = (number == 0) ? 1  : (log10(number) + 1);
 
     //Luhn Algorithm
-    
+    int sum = 0;
+    sum = number % 10; //add checksum - get last digit
+    number = number / 10; //chop last digit off
+
+    while (number)
+    {
+        int temp = (number % 10) * 2; //get righmost digit and double it
+        if (temp > 9)
+        {
+            
+        }
+    }
 
 
 }
