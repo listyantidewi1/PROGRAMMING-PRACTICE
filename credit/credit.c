@@ -12,8 +12,9 @@ int main(void)
 
     //count number of digit
     int length = (number == 0) ? 1  : (log10(number) + 1);
-    if (length < 13 || length > 16) {
-      printf("INVALID\n");
+    if (length < 13 || length > 16)
+    {
+        printf("INVALID\n");
     }
     else
     {
@@ -40,7 +41,7 @@ int main(void)
             n = n / 10;
         }
 
-    //printf("Sum: %i\nLeftmost: %li\n", sum, n);
+        //printf("Sum: %i\nLeftmost: %li\n", sum, n);
 
         if (sum % 10)
         {
@@ -48,37 +49,33 @@ int main(void)
         }
         else
         {
-        //printf("Valid\n");
-        long int number1 = n_checktype, number2 = n_checktype;
-        while (n_checktype)
-        {
-            number2 = number1;
-            number1 = n_checktype;
-            n_checktype /= 10;
-        }
+            //printf("Valid\n");
+            long int number1 = n_checktype, number2 = n_checktype;
+            while (n_checktype)
+            {
+                number2 = number1;
+                number1 = n_checktype;
+                n_checktype /= 10;
+            }
 
-        if (number2 == 34 || number2 == 37)
-        {
-            printf("AMEX\n");
-        }
+            if (number2 == 34 || number2 == 37)
+            {
+                printf("AMEX\n");
+            }
 
-        else if ((number2 >= 51 && number2 <= 55) || number2 == 22)
-        {
-            printf("MASTERCARD\n");
-        }
+            else if ((number2 >= 51 && number2 <= 55) || number2 == 22)
+            {
+                printf("MASTERCARD\n");
+            }
 
-        else if (number2 >= 40 && number2 <= 49)
-        {
-            printf("VISA\n");
-        }
-        else
-        {
-            printf("INVALID\n");
+            else if (number2 >= 40 && number2 <= 49)
+            {
+                printf("VISA\n");
+            }
+            else
+            {
+                printf("INVALID\n");
+            }
         }
     }
-
-
-    }
-
-
 }
