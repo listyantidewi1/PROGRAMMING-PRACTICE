@@ -39,9 +39,10 @@ int main(void)
 
     if (sum % 10)
     {
-        printf("Invalid\n");
+        printf("INVALID\n");
     }else{
-        printf("Valid\n");
+        //printf("Valid\n");
+        
     }
 
 
