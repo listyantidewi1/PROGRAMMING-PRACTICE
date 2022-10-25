@@ -63,7 +63,7 @@ int main(void)
             printf("VISA");
         }
         else{
-            printf("INVALID");
+            //printf("INVALID");
         }
     }
 
