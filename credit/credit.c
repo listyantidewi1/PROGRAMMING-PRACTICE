@@ -12,6 +12,9 @@ int main(void)
 
     //count number of digit
     int length = (number == 0) ? 1  : (log10(number) + 1);
+    if (length < 13 || length > 16) {
+      printf("INVALID");
+    }
 
     //Luhn Algorithm
     int sum = 0;
@@ -36,7 +39,7 @@ int main(void)
         n = n / 10;
     }
 
-    printf("Sum: %i\nLeftmost: %li\n", sum, n);
+    //printf("Sum: %i\nLeftmost: %li\n", sum, n);
 
     if (sum % 10)
     {
