@@ -8,6 +8,7 @@ int main(void)
     //prompt input
     long number = get_long ("Number: ");
     long n = number;
+    long n_checktype = number;
 
     //count number of digit
     int length = (number == 0) ? 1  : (log10(number) + 1);
@@ -42,8 +43,28 @@ int main(void)
         printf("INVALID\n");
     }else{
         //printf("Valid\n");
-        
-    }
+        long int number1 = n_checktype, number2 = n_checktype;
+        while (n_checktype)
+        {
+            number2 = number1;
+            number1 = n_checktype;
+            n_checktype /= 10;
+        }
 
+        if (number2 == 34 || number2 ==37) {
+            printf("AMEX");
+        }
+
+        if (number2 >= 51 && number2 <= 55) {
+            printf("MASTERCARD");
+        }
+
+        if (number2 >= 40 && number2 <=49) {
+            printf("VISA");
+        }
+        else{
+            printf("INVALID");
+        }
+    }
 
 }
