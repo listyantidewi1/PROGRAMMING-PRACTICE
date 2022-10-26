@@ -10,7 +10,7 @@ int main(void)
     //prompt user to input data
     while (i < 10)
     {
-        number = get_int("Enter a number: ");
+        number = get_int("Value: ");
         sum = sum + number;
         i++;
     }
