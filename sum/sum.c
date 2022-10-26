@@ -16,5 +16,5 @@ int main(void)
     }
 
     //calculate and print the result
-    printf("The sum of all of the numbers is: %i\n", sum);
+    printf("Sum is: %i\n", sum);
 }
