@@ -22,13 +22,4 @@ int main(void)
         k++;
     }while(k < 10);
 
-    printf("meow");
-    printf("meow");
-    printf("meow");
-    printf("meow");
-    printf("meow");
-    printf("meow");
-    printf("meow");
-    printf("meow");
-    printf("meow");
 }
