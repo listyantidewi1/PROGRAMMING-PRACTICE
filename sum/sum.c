@@ -4,12 +4,17 @@
 int main(void)
 {
     //storage for two integers
-    int a, b;
+    int number, sum;
+    int i = 0;
 
     //prompt user to input data
-    a = get_int("Enter a value: ");
-    b = get_int("Enter another value: ");
+    while (i < 10)
+    {
+        number = get_int("Enter a number: ");
+        sum = sum + number;
+        i++;
+    }
 
     //calculate and print the result
-    printf("The sum of both numbers is: %i\n", a+b);
+    printf("The sum of all of the numbers is: %i\n", sum);
 }
