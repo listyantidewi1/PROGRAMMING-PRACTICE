@@ -3,9 +3,9 @@
 
 int main(void)
 {
-    //storage for two integers
-    int number, sum;
-    int i = 0;
+    //storage for 10 integers
+    int number, sum; //number 
+    int i = 0; //counter
 
     //prompt user to input data
     while (i < 10)
