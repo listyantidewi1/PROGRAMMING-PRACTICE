@@ -4,7 +4,7 @@
 int main(void)
 {
     //storage for 10 integers
-    int number, sum; //number 
+    int number, sum; //number is for storing numbers, sum is for storing sum
     int i = 0; //counter
 
     //prompt user to input data
