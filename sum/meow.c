@@ -21,4 +21,14 @@ int main(void)
         printf("Meow in do-while loop\n");
         k++;
     }while(k < 10);
+
+    printf("meow");
+    printf("meow");
+    printf("meow");
+    printf("meow");
+    printf("meow");
+    printf("meow");
+    printf("meow");
+    printf("meow");
+    printf("meow");
 }
