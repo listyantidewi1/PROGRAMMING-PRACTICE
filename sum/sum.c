@@ -12,7 +12,7 @@ int main(void)
     {
         number = get_int("Value: ");
         sum = sum + number;
-        i++;
+        i++; //increase i by 1
     }
 
     //calculate and print the result
