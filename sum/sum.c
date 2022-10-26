@@ -11,7 +11,7 @@ int main(void)
     while (i < 10)
     {
         number = get_int("Value: ");
-        sum = sum + number;
+        sum = sum + number; //add number to sum, one by one
         i++; //increase i by 1
     }
 
