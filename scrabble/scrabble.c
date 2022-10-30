@@ -35,9 +35,6 @@ int main(void)
 
 int compute_score(string word)
 {
-    // Keep track of score
-    int score = 0;
-
     int i = 0;
     int pts = 0;
     char temp;
@@ -47,25 +44,12 @@ int compute_score(string word)
         temp = toupper(word[i]);
         //printf("temp = %d and temp -A = %d \n",temp, (temp - 65));
         //strcpy(temp[0], word[i]);
-        while(temp >= 65 && temp <= 90){
+        if (temp >= 65 && temp <= 90)
+        {
             pts += POINTS[temp - 65];
         }
-
         i++;
     }
-
-    // // Compute score for each character
-    // for (int j = 0, len = strlen(word); j < len; j++)
-    // {
-    //     if (isupper(word[i]))
-    //     {
-    //         score += POINTS[word[i] - 65];
-    //     }
-    //     else if (islower(word[i]))
-    //     {
-    //         score += POINTS[word[i] - 97];
-    //     }
-    // }
 
     return pts;
 }
