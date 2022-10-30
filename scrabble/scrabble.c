@@ -40,13 +40,13 @@ int compute_score(string word)
 
     int i = 0;
     int pts = 0;
-    string temp = "";
+    char temp;
 
     while (word[i] != '\0')
     {
-        temp[0] = toupper(word[i]);
-        strcpy(temp[0], word[i]);
-        pts += POINTS[temp[0] - 65];
+        temp = toupper(word[i]);
+        //strcpy(temp[0], word[i]);
+        pts += POINTS[temp - 65];
         i++;
     }
 
