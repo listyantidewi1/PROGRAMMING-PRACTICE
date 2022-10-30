@@ -40,27 +40,28 @@ int compute_score(string word)
 
     int i = 0;
     int pts = 0;
-    string temp;
+    string temp = "";
 
     while (word[i] != '\0')
     {
-        temp[0] = toupper(word[i]);
-        pts += POINTS[temp = 65];
+        //temp[0] = toupper(word[i]);
+        strcpy(temp, word[i]);
+        pts += POINTS[temp - 65];
         i++;
     }
 
-    // Compute score for each character
-    for (int i = 0, len = strlen(word); i < len; i++)
-    {
-        if (isupper(word[i]))
-        {
-            score += POINTS[word[i] - 65];
-        }
-        else if (islower(word[i]))
-        {
-            score += POINTS[word[i] - 97];
-        }
-    }
+    // // Compute score for each character
+    // for (int j = 0, len = strlen(word); j < len; j++)
+    // {
+    //     if (isupper(word[i]))
+    //     {
+    //         score += POINTS[word[i] - 65];
+    //     }
+    //     else if (islower(word[i]))
+    //     {
+    //         score += POINTS[word[i] - 97];
+    //     }
+    // }
 
-    return score;
+    return pts;
 }
