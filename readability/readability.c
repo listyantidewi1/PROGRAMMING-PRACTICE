@@ -61,7 +61,7 @@ where L is the average number of letters per 100 words in the text, and S is the
 */
 
 float index = 0.0588 * (num_letters/num_words*100) - 0.0296 * (num_sentences/num_words*100) - 15.8;
-printf("Grade %f\n", index);
+printf("Grade %f\n", round(index));
 
 
 }
