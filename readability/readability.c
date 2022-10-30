@@ -20,7 +20,7 @@ int main(void)
         i++;
     }
 
-    printf("Number of letters: %d\n", num_letters);
+    //printf("Number of letters: %d\n", num_letters);
 
 
     //count the number of words;
@@ -37,7 +37,7 @@ int main(void)
         i++;
     }
 
-    printf("Number of words: %d\n", num_words);
+    //printf("Number of words: %d\n", num_words);
 
 
     //count the number of sentences (whenever hits period (46), exclamation mark (33), or question mark (63))
@@ -53,7 +53,7 @@ int main(void)
         i++;
     }
 
-    printf("Number of sentences: %d\n", num_sentences);
+    //printf("Number of sentences: %d\n", num_sentences);
 
 /*
 index = 0.0588 * L - 0.296 * S - 15.8
@@ -66,10 +66,21 @@ float l = (float) num_letters / (float) num_words * 100;
 float s = (float) num_sentences / (float) num_words * 100;
 float index =  0.0588 * l - 0.296 * s - 15.8;
 
-printf("l: %f\n", l);
-printf("s: %f\n", s);
+// printf("l: %f\n", l);
+// printf("s: %f\n", s);
 
-printf("Grade %0.0f\n", round(index));
+if (index < 1)
+{
+    printf("Before Grade 1");
+}
+else if (index > 16)
+{
+    printf("Grade 16+");
+}
+else
+{
+    printf("Grade %0.0f\n", round(index));
+}
 
 
 }
