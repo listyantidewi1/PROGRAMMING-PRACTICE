@@ -17,8 +17,15 @@ int main(void)
     //copy the valid characters into a new string
     string valid_word1 = "";
     string valid_word2 = "";
+    int i;
+    string temp="";
 
-    while()
+    while(word1[i] != \0){
+
+        if()
+
+        valid_word1[i] = temp;
+    }
 
 
     //make both strings uppercase
