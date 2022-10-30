@@ -39,11 +39,13 @@ int compute_score(string word)
     int score = 0;
 
     int i = 0;
-    pts = 0;
+    int pts = 0;
+    string temp;
 
     while (word[i] != '\0')
     {
-        
+        temp[0] = toupper(word[i]);
+        pts += POINTS[temp = 65];
         i++;
     }
 
