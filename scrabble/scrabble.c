@@ -37,5 +37,14 @@ int compute_score(string word)
 {
     // TODO: Compute and return score for string
     string _word = word;
-    
+    char sub[1000];
+
+    int position, length, c = 0;
+
+    while (c < length)
+    {
+        sub[c] = _word[position + c - 1];
+        c++;
+    }
+
 }
