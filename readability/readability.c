@@ -25,7 +25,7 @@ int main(void)
     //count the number of words;
 
     int num_words = 1;
-    i = 0;
+    i = 0; //reset counter
 
     while (text[i] != '\0')
     {
@@ -37,5 +37,21 @@ int main(void)
     }
 
     printf("Number of words: %d\n", num_words);
+
+
+    //count the number of sentences (whenever hits period (46), exclamation mark (33), or question mark (63))
+    int num_sentences = 0;
+    i = 0; //reset counter
+
+    while (text[i] != '\0')
+    {
+        if((text[i] == 46) || (text[i] == 33) || (text[i] == 63)) //whenever hits period (46), exclamation mark (33), or question mark (63)
+        {
+            num_sentences++;
+        }
+        i++;
+    }
+
+    printf("Number of sentences: %d\n", num_sentences);
 
 }
