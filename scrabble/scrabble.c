@@ -36,15 +36,11 @@ int main(void)
 int compute_score(string word)
 {
     // TODO: Compute and return score for string
+
+    //copy the word to _word
     string _word = word;
-    char sub[1000];
 
-    int position, length, c = 0;
-
-    while (c < length)
-    {
-        sub[c] = _word[position + c - 1];
-        c++;
-    }
+    //find the length of the word and store it
+    int length = strlen(_word);
 
 }
