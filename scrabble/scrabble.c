@@ -14,56 +14,42 @@ int main(void)
     string word1 = get_string("Player 1: ");
     string word2 = get_string("Player 2: ");
 
-    //copy the valid characters into a new string
-    string valid_word1 = "";
-    string valid_word2 = "";
-    int i;
-    string temp="";
-
-    while(word1[i] != '\0'){
-
-        if(((word1[i] >= 65) && (word1[i] <= 90)) ||  ((word1[i] >= 97) && (word1[i] <= 122)))
-        {
-            temp[0] = word1[i];
-            strcat(valid_word1,temp[0]);
-        }
-    }
-
-
-    //make both strings uppercase
-
-
     // Score both words
     int score1 = compute_score(word1);
     int score2 = compute_score(word2);
 
-    // TODO: Print the winner
+    // Print the winner
     if (score1 > score2)
     {
-        printf("Player 1 wins!");
+        printf("Player 1 wins!\n");
     }
-    else if (score2 > score1)
+    else if (score1 < score2)
     {
-        printf("Player 2 wins!");
+        printf("Player 2 wins!\n");
     }
     else
     {
-        printf("Tie!");
+        printf("Tie!\n");
     }
 }
 
 int compute_score(string word)
 {
-    // TODO: Compute and return score for string
+    // Keep track of score
+    int score = 0;
 
-    //copy the word to _word
-    string _word = "";
-    strcpy(_word, word);
+    // Compute score for each character
+    for (int i = 0, len = strlen(word); i < len; i++)
+    {
+        if (isupper(word[i]))
+        {
+            score += POINTS[word[i] - 'A'];
+        }
+        else if (islower(word[i]))
+        {
+            score += POINTS[word[i] - 'a'];
+        }
+    }
 
-    //find the length of the word and store it
-    int length = strlen(_word);
-
-
-
-    return 0;
+    return score;
 }
