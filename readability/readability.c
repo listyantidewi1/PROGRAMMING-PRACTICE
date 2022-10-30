@@ -62,8 +62,8 @@ where L is the average number of letters per 100 words in the text, and S is the
 
 // float index = 0.0588 * (num_letters/num_words*100) - 0.0296 * (num_sentences/num_words*100) - 15.8;
 
-float l = num_letters / num_words * 100;
-float s = num_sentences / num_words * 100;
+float l = (float) num_letters / (float) num_words * 100;
+float s = (float) num_sentences / (float) num_words * 100;
 float index =  0.0588 * l - 0.296 * s - 15.8;
 
 printf("l: %f\n", l);
