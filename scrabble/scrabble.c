@@ -35,21 +35,18 @@ int main(void)
 
 int compute_score(string word)
 {
-    int i = 0;
-    int pts = 0;
-    char temp;
+    int i = 0; //temporary index
+    int pts = 0; //to save points
+    char temp; //to save uppercase of each character in word
 
-    while (word[i] != '\0')
+    while (word[i] != '\0') //while not the end of word
     {
-        temp = toupper(word[i]);
-        //printf("temp = %d and temp -A = %d \n",temp, (temp - 65));
-        //strcpy(temp[0], word[i]);
-        if (temp >= 65 && temp <= 90)
+        temp = toupper(word[i]); //make each character uppercase
+        if (temp >= 65 && temp <= 90) //count point only if its character A-Z
         {
             pts += POINTS[temp - 65];
         }
         i++;
     }
-
     return pts;
 }
