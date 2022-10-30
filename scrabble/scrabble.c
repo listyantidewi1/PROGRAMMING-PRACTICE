@@ -25,7 +25,7 @@ int main(void)
         if(((word1[i] >= 65) && (word1[i] <= 90)) ||  ((word1[i] >= 97) && (word1[i] <= 122)))
         {
             temp[0] = word1[i];
-            valid_word1 += temp;
+            strcat(valid_word1,temp[0]);
         }
     }
 
