@@ -15,8 +15,8 @@ int main(void)
     string word2 = get_string("Player 2: ");
 
     //make both strings uppercas
-    word1 = strupr(word1);
-    word2 = strupr(word2);
+    word1 = toupper(word1);
+    word2 = toupper(word2);
 
     // Score both words
     int score1 = compute_score(word1);
