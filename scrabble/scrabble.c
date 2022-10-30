@@ -38,6 +38,15 @@ int compute_score(string word)
     // Keep track of score
     int score = 0;
 
+    int i = 0;
+    pts = 0;
+
+    while (word[i] != '\0')
+    {
+        
+        i++;
+    }
+
     // Compute score for each character
     for (int i = 0, len = strlen(word); i < len; i++)
     {
