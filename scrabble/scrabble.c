@@ -47,7 +47,7 @@ int compute_score(string word)
         temp = toupper(word[i]);
         printf("temp = %d and temp -A = %d \n",temp, (temp - 65));
         //strcpy(temp[0], word[i]);
-        pts += POINTS[temp - 'A'];
+        pts += POINTS[temp - 65];
         i++;
     }
 
