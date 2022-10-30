@@ -45,9 +45,12 @@ int compute_score(string word)
     while (word[i] != '\0')
     {
         temp = toupper(word[i]);
-        printf("temp = %d and temp -A = %d \n",temp, (temp - 65));
+        //printf("temp = %d and temp -A = %d \n",temp, (temp - 65));
         //strcpy(temp[0], word[i]);
-        pts += POINTS[temp - 65];
+        while(temp >= 65 && temp <= 90){
+            pts += POINTS[temp - 65];
+        }
+
         i++;
     }
 
