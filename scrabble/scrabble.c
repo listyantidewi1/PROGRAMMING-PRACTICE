@@ -20,11 +20,13 @@ int main(void)
     int i;
     string temp="";
 
-    while(word1[i] != \0){
+    while(word1[i] != '\0'){
 
-        if()
-
-        valid_word1[i] = temp;
+        if(((word1[i] >= 65) && (word[i] <= 90)) ||  ((word1[i] >= 97) && (word[i] <= 122)))
+        {
+            temp = word[i];
+            valid_word1 += temp;
+        }
     }
 
 
