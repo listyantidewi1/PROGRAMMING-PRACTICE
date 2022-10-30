@@ -22,9 +22,9 @@ int main(void)
 
     while(word1[i] != '\0'){
 
-        if(((word1[i] >= 65) && (word[i] <= 90)) ||  ((word1[i] >= 97) && (word[i] <= 122)))
+        if(((word1[i] >= 65) && (word1[i] <= 90)) ||  ((word1[i] >= 97) && (word1[i] <= 122)))
         {
-            temp = word[i];
+            temp = word1[i];
             valid_word1 += temp;
         }
     }
