@@ -13,7 +13,7 @@ int main(void)
 
     while (text[i] != '\0')
     {
-        if(((text[i] >= 65) && (text[i] <= 90)) || ((text[i] >= 97) && (text[i] <= 122))) //whenever hits alphabet, increase the word counts
+        if (((text[i] >= 65) && (text[i] <= 90)) || ((text[i] >= 97) && (text[i] <= 122)))
         {
             num_letters++;
         }
