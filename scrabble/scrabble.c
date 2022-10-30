@@ -14,6 +14,10 @@ int main(void)
     string word1 = get_string("Player 1: ");
     string word2 = get_string("Player 2: ");
 
+    //make both strings uppercas
+    word1 = strupr(word1);
+    word2 = strupr(word2);
+
     // Score both words
     int score1 = compute_score(word1);
     int score2 = compute_score(word2);
@@ -44,7 +48,7 @@ int compute_score(string word)
     //find the length of the word and store it
     int length = strlen(_word);
 
-    
+
 
     return 0;
 }
