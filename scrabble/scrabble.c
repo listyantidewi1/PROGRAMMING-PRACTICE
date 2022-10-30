@@ -44,9 +44,9 @@ int compute_score(string word)
 
     while (word[i] != '\0')
     {
-        //temp[0] = toupper(word[i]);
-        strcpy(temp, word[i]);
-        pts += POINTS[temp - 65];
+        temp[0] = toupper(word[i]);
+        strcpy(temp[0], word[i]);
+        pts += POINTS[temp[0] - 65];
         i++;
     }
 
