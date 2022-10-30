@@ -69,7 +69,7 @@ float index =  0.0588 * l - 0.296 * s - 15.8;
 printf("l: %f\n", l);
 printf("s: %f\n", s);
 
-printf("Grade %f\n", round(index));
+printf("Grade %0f\n", round(index));
 
 
 }
