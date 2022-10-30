@@ -59,7 +59,8 @@ index = 0.0588 * L - 0.296 * S - 15.8
 where L is the average number of letters per 100 words in the text, and S is the average number of sentences per 100 words in the text.
 */
 
-float index;
+float index = 0.0588 * (num_letters/num_words*100) - 0.0296 * (num_sentences/num_words*100) - 15.8;
+printf("Index: %f\n", index);
 
 
 }
