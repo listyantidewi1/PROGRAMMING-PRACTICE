@@ -46,7 +46,7 @@ int compute_score(string word)
     {
         temp = toupper(word[i]);
         //strcpy(temp[0], word[i]);
-        pts += POINTS[temp - 65];
+        pts += POINTS[temp - 'A'];
         i++;
     }
 
