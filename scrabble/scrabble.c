@@ -38,7 +38,7 @@ int compute_score(string word)
     // TODO: Compute and return score for string
 
     //copy the word to _word
-    string _word = word;
+    string _word = strcpy(word);
 
     //find the length of the word and store it
     int length = strlen(_word);
