@@ -14,9 +14,15 @@ int main(void)
     string word1 = get_string("Player 1: ");
     string word2 = get_string("Player 2: ");
 
-    //make both strings uppercas
-    word1 = toupper(word1);
-    word2 = toupper(word2);
+    //copy the valid characters into a new string
+    string valid_word1 = "";
+    string valid_word2 = "";
+
+    while()
+
+
+    //make both strings uppercase
+
 
     // Score both words
     int score1 = compute_score(word1);
