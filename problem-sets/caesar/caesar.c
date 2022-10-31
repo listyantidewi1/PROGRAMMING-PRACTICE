@@ -32,12 +32,13 @@ int main(int argc, string argv[])
             }
             else
             {
-                
+                //printf("OK inside for\n"); //debug
+                //implement caesar
             }
         }
 
-        //implement caesar
-        printf("OK\n"); //debug
+
+        //printf("OK outside for\n"); //debug
 
     }
 
