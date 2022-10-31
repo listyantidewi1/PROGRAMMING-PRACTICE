@@ -162,7 +162,7 @@ int check_word(string guess, int wordsize, int status[], string choice)
             score += EXACT;
             //still needs a break to avoid checking this letter again
             status[i] = score;
-            printf("exact found, this one scores: %d\",score);
+            printf("exact found, this one scores: %d\n",score);
         }
         else
         {
@@ -174,13 +174,14 @@ int check_word(string guess, int wordsize, int status[], string choice)
                     {
                         score += CLOSE;
                         status[j] = score;
-                        printf("close found, this one scores: %d",score);
+                        printf("close found, this one scores: %d\n",score);
                     }
                 }
             }
         }
 
     }
+    printf("total score: %d\n",score);
 
     // HINTS
     // iterate over each letter of the guess
