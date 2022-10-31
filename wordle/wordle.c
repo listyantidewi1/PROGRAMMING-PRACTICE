@@ -166,8 +166,9 @@ int check_word(string guess, int wordsize, int status[], string choice)
                 }
             }
         }
-        printf("score: %d\n",score);
+
     }
+    //printf("score: %d\n",score);
 
     // HINTS
     // iterate over each letter of the guess
