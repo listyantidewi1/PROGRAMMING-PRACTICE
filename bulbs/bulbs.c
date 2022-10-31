@@ -17,7 +17,10 @@ int main(void)
     int i = 0;
     while (message[i] != '\0')
     {
-        
+        int div = message[i] / 2;
+        int mod = message[i] % 2;
+        binary[i] = mod;
+
     }
 
 }
