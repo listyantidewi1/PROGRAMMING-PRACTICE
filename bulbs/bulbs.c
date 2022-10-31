@@ -4,6 +4,7 @@
 
 const int BITS_IN_BYTE = 8;
 int binary[8];
+int div, mod;
 
 void print_bulb(int bit);
 
@@ -17,10 +18,20 @@ int main(void)
     int i = 0;
     while (message[i] != '\0')
     {
-        int div = message[i] / 2;
-        int mod = message[i] % 2;
-        binary[i] = mod;
+        do
+        {
+            div = message[i] / 2;
+            mod = message[i] % 2;
+            binary[i] = mod;
+        }
+        while(div >= 1);
+        
+    }
 
+    //print array binary to test
+    for(int j=0; j<8; j++)
+    {
+        printf("%d", binary[j]);
     }
 
 }
