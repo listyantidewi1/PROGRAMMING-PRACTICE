@@ -34,8 +34,15 @@ int main(int argc, string argv[])
             }
             else
             {
+                int k = atoi(cmd);
                 //printf("OK inside for\n"); //debug
                 //implement caesar
+                //formula: c = (p+k)%26
+                //c = chipertext, k = key, p = plaintext
+
+                string plaintext = get_string("plaintext:  ");
+
+
             }
         }
 
