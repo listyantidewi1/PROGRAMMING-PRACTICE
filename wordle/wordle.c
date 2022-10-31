@@ -145,9 +145,13 @@ int check_word(string guess, int wordsize, int status[], string choice)
 
     // compare guess to choice and score points as appropriate, storing points in status
     // TODO #5
+    //EXACT, CLOSE, WRONG
     for(int i = 0; i < wordsize; i++)
     {
-        
+        if(strcmp(guess[i], choice[i]))
+        {
+            
+        }
     }
 
     // HINTS
