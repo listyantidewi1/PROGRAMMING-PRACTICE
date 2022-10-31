@@ -159,10 +159,10 @@ int check_word(string guess, int wordsize, int status[], string choice)
     {
         if(guess[i] == choice[i])
         {
-            score += EXACT;
+            int curr_score = EXACT;
             //still needs a break to avoid checking this letter again
-            status[i] = score;
-            printf("exact found, this one scores: %d\n",score);
+            status[i] = curr_score;
+            printf("exact found, this one scores: %d\n",curr_score);
         }
         else
         {
@@ -172,9 +172,9 @@ int check_word(string guess, int wordsize, int status[], string choice)
                 {
                     if(guess[j] == choice[k])
                     {
-                        score += CLOSE;
-                        status[j] = score;
-                        printf("close found, this one scores: %d\n",score);
+                        int curr_score = CLOSE;
+                        status[j] = curr_score;
+                        printf("close found, this one scores: %d\n",curr_score);
                     }
                 }
             }
