@@ -23,6 +23,7 @@ int main(void)
         div = (int)message[i];
         do
         {
+            printf("b: %d\n", b);
             mod = div % 2;
             div = div / 2;
             binary[b] = mod;
@@ -36,12 +37,15 @@ int main(void)
 
         for (int k=0; k < length; k++)
         {
+            printf("k: %d\n", k);
             for (int r=0; r<8; r++)
             {
+                printf("r: %d\n", r);
                 rev_binary[r] = binary[s];
                 //printf("%d", rev_binary[r]);
                 print_bulb(rev_binary[r]);
                 s--;
+                printf("s: %d\n", s);
             }
             printf("\n");
         }
