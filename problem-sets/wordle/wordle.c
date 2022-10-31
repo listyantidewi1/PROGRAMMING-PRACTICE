@@ -71,8 +71,8 @@ int main(int argc, string argv[])
 
         // pseudorandomly select a word for this game
         srand(time(NULL));
-        string choice = options[rand() % LISTSIZE];
-        //string choice = "abcde";
+        //string choice = options[rand() % LISTSIZE];
+        string choice = "abcde";
 
         // allow one more guess than the length of the word
         int guesses = wordsize + 1;
@@ -170,7 +170,7 @@ int check_word(string guess, int wordsize, int status[], string choice)
             else if (guess[i] == choice[j])
             {
                 int curr_score = CLOSE;
-                status[j] = 0;
+                //status[j] = 0;
                 status[j] = curr_score;
                 score += curr_score;
             }
