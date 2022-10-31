@@ -147,7 +147,10 @@ int check_word(string guess, int wordsize, int status[], string choice)
     // TODO #5
     for(int i = 0; i < wordsize; i++)
     {
-        
+        /*
+            Next, for the fourth TODO, we need to keep track of a user's "score" in the game. We do this both on a per-letter basis—by assigning a score of 2 (which we #defined as EXACT) to a letter in the correct place, 1 (which we #defined as CLOSE) to a letter that's in the word but in the wrong place, or 0 (which we #defined as WRONG)—and a per-word basis, to help us detect when we've potentially triggered the end of the game by winning. We'll use the individual letter scores when we color-code the printing. In order to store those scores, we need an array, which we've called status. At the start of the game, with no guesses having taken place, it should contain all 0s.
+        */
+       
     }
 
     // HINTS
