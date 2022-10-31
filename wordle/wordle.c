@@ -42,7 +42,7 @@ int main(int argc, string argv[])
         //you have to convert it to an integer of the literal string
         //example: 5 string is 53 decimal -> 53 - 48 = 5
 
-        printf("%i", argv[1]);
+        printf("%s", argv[1]);
     }
     else
     {
