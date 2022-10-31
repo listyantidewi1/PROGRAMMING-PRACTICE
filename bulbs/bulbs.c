@@ -4,7 +4,7 @@
 
 const int BITS_IN_BYTE = 8;
 int binary[8];
-int div, mod;
+int div, curr_div, mod, curr_mod;
 
 void print_bulb(int bit);
 
