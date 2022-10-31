@@ -44,8 +44,9 @@ int main(void)
                 rev_binary[r] = binary[s];
                 //printf("%d", rev_binary[r]);
                 print_bulb(rev_binary[r]);
-                s--;
                 printf("s: %d\n", s);
+                s--;
+
             }
             printf("\n");
         }
