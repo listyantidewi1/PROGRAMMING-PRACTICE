@@ -148,9 +148,23 @@ int check_word(string guess, int wordsize, int status[], string choice)
     //EXACT, CLOSE, WRONG
     for(int i = 0; i < wordsize; i++)
     {
-        if(strcmp(guess[i], choice[i]))
+        if(guess[i] == choice[i])
         {
-            
+            score += EXACT;
+            //still needs a break to avoid checking this letter again
+        }
+        else
+        {
+            for(int j=0; j<wordsize; j++)
+            {
+                for(int k=0; k<wordsize; k++)
+                {
+                    if(guess[i] == choice[k])
+                    {
+
+                    }
+                }
+            }
         }
     }
 
