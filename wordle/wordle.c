@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
+#include <ctype.h>
 
 // each of our text files contains 1000 words
 #define LISTSIZE 1000
@@ -42,7 +43,7 @@ int main(int argc, string argv[])
         //you have to convert it to an integer of the literal string
         //example: 5 string is 53 decimal -> 53 - 48 = 5
 
-        printf("%s", argv[1]);
+        printf("%d", (int)argv[1]);
     }
     else
     {
