@@ -17,7 +17,10 @@ int main(int argc, string argv[])
         //check if the arguments are not number
         for (int i = 0, length = strlen(cmd); i < length; i++)
         {
-            if (cmd[i] > )
+            if ((cmd[i] < 48) || (cmd[i] > 57))
+            {
+                printf("Usage: ./caesar key\n");
+            }
         }
     }
 
