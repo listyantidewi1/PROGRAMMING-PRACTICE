@@ -202,7 +202,7 @@ void print_word(string guess, int wordsize, int status[])
             printf(RED"%c", guess[i]);
         }
     }
-
+    printf(RESET);
     printf("\n");
     return;
 }
