@@ -25,10 +25,19 @@ int main(int argc, string argv[])
                 printf("Usage: ./caesar key\n");
                 break;
             }
+            //if it is a number, check if it's negative
+            else if(cmd[i] < 0)
+            {
+                break;
+            }
+            else
+            {
+                
+            }
         }
 
         //implement caesar
-        //printf("OK\n"); //debug
+        printf("OK\n"); //debug
 
     }
 
