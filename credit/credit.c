@@ -71,12 +71,12 @@ If your program behaves incorrectly on some inputs (or doesn’t compile at all)
 int main(void)
 {
 
-    //prompt input
+    //ask user for number / input
     long number = get_long("Number: ");
     long n = number;
     long n_checktype = number;
 
-    //count number of digit
+    //count number of digits
     int length = (number == 0) ? 1  : (log10(number) + 1);
     if (length < 13 || length > 16)
     {
@@ -86,21 +86,21 @@ int main(void)
     {
         //Luhn Algorithm
         int sum = 0;
-        sum = number % 10; //add checksum - get last digit
-        number = number / 10; //chop last digit off
+        sum = number % 10; //getting the last digit
+        number = number / 10; //chopping the last digit away
 
         while (number)
         {
-            int temp = (number % 10) * 2; //get righmost digit and double it
+            int temp = (number % 10) * 2; //get righmost digit and double the value
             if (temp > 9)
             {
                 temp = temp - 9;
             }
-            sum = sum + temp; //add digit to sum
-            number = number / 10; //chop rightmost digit off
+            sum = sum + temp; //add current digit to sum
+            number = number / 10; //throw rightmost digit off
             temp = number % 10; //get another rightmost digit
-            sum = sum + temp; //add digit to sum
-            number = number / 10; //chop right digit off
+            sum = sum + temp; //add current digit to sum
+            number = number / 10; //throw right digit away
         }
         while (n > 10) //get leftmost digit
         {
