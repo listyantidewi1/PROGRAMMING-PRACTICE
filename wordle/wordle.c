@@ -115,7 +115,14 @@ int main(int argc, string argv[])
 
     // Print the game's result
     // TODO #7
-    
+    if (score == (2*wordsize))
+    {
+        printf("You wins!");
+    }
+    else
+    {
+        printf("%s", choice);
+    }
 
     // that's all folks!
     return 0;
