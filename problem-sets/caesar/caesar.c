@@ -10,7 +10,8 @@ int main(int argc, string argv[])
         string _argv = argv[2];
         for (int i = 0; length = strlen(_argv); i++)
         {
-            if (_argv)
+            if (_argv[i] < 48 || _argv[i] > 57)
+            
         }
 
     }
