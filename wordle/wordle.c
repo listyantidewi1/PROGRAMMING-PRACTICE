@@ -116,7 +116,7 @@ int main(int argc, string argv[])
 
     // Print the game's result
     // TODO #7
-    if (score == (2*wordsize))
+    if (won)
     {
         printf("You wins!");
     }
@@ -208,6 +208,7 @@ int check_word(string guess, int wordsize, int status[], string choice)
 
     }
     printf("total score: %d\n",score);
+
 
     // HINTS
     // iterate over each letter of the guess
