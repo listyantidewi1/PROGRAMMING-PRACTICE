@@ -23,13 +23,13 @@ int main(void)
         div = (int)message[i];
         do
         {
-            //printf("b: %d\n", b);
+            printf("b: %d\n", b);
             mod = div % 2;
             div = div / 2;
             binary[b] = mod;
             b++;
         }
-        while(b < 8);
+        while(b < 7);
 
         //reverse and print the array
 
