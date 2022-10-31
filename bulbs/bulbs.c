@@ -18,14 +18,14 @@ int main(void)
     int i = 0;
     while (message[i] != '\0')
     {
-        div = message[i];
+        div = (int)message[i];
         do
         {
             div = div / 2;
             mod = div % 2;
-            binary[i] = mod;
         }
         while(div >= 1);
+
         i++;
     }
 
