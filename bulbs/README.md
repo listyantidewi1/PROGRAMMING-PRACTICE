@@ -4,7 +4,6 @@ url: https://cdn.cs50.net/2022/fall/psets/2/bulbs/README.md
 window: [terminal]
 ---
 
-{% if extension %}
 # Bulbs
 
 ## Not-So-Broken Light Bulbs
@@ -146,5 +145,3 @@ Per Step 4 above, after you submit, be sure to check your autograder results. If
 Correctness in submissions entails everything from reading the specification, writing code that is compliant with it, and submitting files with the correct name. If you see this error, you should resubmit right away, making sure your submission is fully compliant with the specification. The staff will not adjust your filenames for you after the fact!
 
 {% endalert %}
-
-{% endif %}
