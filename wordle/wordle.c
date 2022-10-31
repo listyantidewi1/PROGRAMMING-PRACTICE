@@ -159,18 +159,21 @@ int check_word(string guess, int wordsize, int status[], string choice)
     {
         if(guess[i] == choice[i])
         {
+            printf("i: %d\n", i); //debug
             int curr_score = EXACT;
             //still needs a break to avoid checking this letter again
             status[i] = curr_score;
             score += curr_score;
-            printf("exact found, this one scores: %d\n",curr_score);
+            printf("exact found, this one scores: %d\n",curr_score); //debug
         }
         else
         {
             for(int j=0; j<wordsize; j++)
             {
+                printf("j: %d\n", j); //debug
                 for(int k=0; k<wordsize; k++)
                 {
+                    printf("k: %d\n", k); //debug
                     if(guess[j] == choice[k])
                     {
                         int curr_score = CLOSE;
