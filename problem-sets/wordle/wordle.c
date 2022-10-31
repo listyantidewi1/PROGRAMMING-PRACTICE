@@ -178,8 +178,6 @@ int check_word(string guess, int wordsize, int status[], string choice)
 
     }
 
-
-
     // HINTS
     // iterate over each letter of the guess
     // iterate over each letter of the choice
