@@ -71,7 +71,8 @@ int main(int argc, string argv[])
 
     // pseudorandomly select a word for this game
     srand(time(NULL));
-    string choice = options[rand() % LISTSIZE];
+    //string choice = options[rand() % LISTSIZE];
+    string choice = "abcde";
 
     // allow one more guess than the length of the word
     int guesses = wordsize + 1;
@@ -161,6 +162,7 @@ int check_word(string guess, int wordsize, int status[], string choice)
             score += EXACT;
             //still needs a break to avoid checking this letter again
             status[i] = score;
+            printf("exact found, this one scores: %d\",score);
         }
         else
         {
@@ -172,13 +174,13 @@ int check_word(string guess, int wordsize, int status[], string choice)
                     {
                         score += CLOSE;
                         status[j] = score;
+                        printf("close found, this one scores: %d",score);
                     }
                 }
             }
         }
 
     }
-    //printf("score: %d\n",score);
 
     // HINTS
     // iterate over each letter of the guess
