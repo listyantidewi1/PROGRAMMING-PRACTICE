@@ -131,6 +131,7 @@ int main(int argc, string argv[])
     else
     {
         printf("Usage: ./wordle wordsize\n");
+        return 1;
     }
 }
 
