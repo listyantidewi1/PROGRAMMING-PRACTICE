@@ -23,8 +23,8 @@ int main(void)
         div = (int)message[i];
         do
         {
-            div = div / 2;
             mod = div % 2;
+            div = div / 2;
             binary[b] = mod;
             b++;
         }
