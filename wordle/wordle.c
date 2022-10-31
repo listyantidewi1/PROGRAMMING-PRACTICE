@@ -41,7 +41,9 @@ int main(int argc, string argv[])
     }
     else
     {
-        wordsize = argv[1];
+        //wordsize = argv[1];
+        //argv[1] return a string of number or its ascii decimal
+        //you have to convert it to an integer of the literal string
     }
 
     // open correct file, each file has exactly LISTSIZE words
