@@ -58,12 +58,6 @@ Text: As the average number of letters and words per sentence increases, the Col
 Grade 12
 ```
 
-{% spoiler "Watch a Recording" %}
-
-<script async data-autoplay="1" data-cols="100" data-loop="1" data-rows="12" id="asciicast-2YTPtsNbRP2p4bD4drEjHaoRj" src="https://asciinema.org/a/2YTPtsNbRP2p4bD4drEjHaoRj.js"></script>
-
-{% endspoiler %}
-
 ## Specification
 
 Design and implement a program, `readability`, that computes the Coleman-Liau index of text.
