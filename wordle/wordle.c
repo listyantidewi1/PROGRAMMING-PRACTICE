@@ -159,13 +159,14 @@ int check_word(string guess, int wordsize, int status[], string choice)
             {
                 for(int k=0; k<wordsize; k++)
                 {
-                    if(guess[i] == choice[k])
+                    if(guess[j] == choice[k])
                     {
                         score += CLOSE;
                     }
                 }
             }
         }
+        printf("score: %d\n",score);
     }
 
     // HINTS
