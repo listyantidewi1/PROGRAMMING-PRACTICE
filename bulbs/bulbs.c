@@ -25,11 +25,13 @@ int main(void)
         {
             printf("b: %d\n", b);
             mod = div % 2;
+            println("mod: %d\n", mod);
             div = div / 2;
+            println("div: %d\n", div);
             binary[b] = mod;
             b++;
         }
-        while(b < 7);
+        while(b < 8);
 
         //reverse and print the array
 
@@ -44,7 +46,7 @@ int main(void)
                 //printf("r: %d\n", r);
                 rev_binary[r] = binary[s];
                 //printf("%d", rev_binary[r]);
-                print_bulb(rev_binary[r]);
+                //print_bulb(rev_binary[r]);
                 //printf("s: %d\n", s);
                 s--;
 
