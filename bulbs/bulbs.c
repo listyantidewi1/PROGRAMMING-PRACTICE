@@ -17,11 +17,12 @@ int main(void)
 
     //extract each character and convert to binary
     int i = 0;
-    int b = 0;
+    int b;
     while (message[i] != '\0')
     {
         printf("i: %d\n", i);
         div = (int)message[i];
+        b=0;
         do
         {
             printf("b: %d\n", b);
