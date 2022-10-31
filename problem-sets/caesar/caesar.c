@@ -9,11 +9,11 @@ int main(int argc, string argv[])
     //c = chipertext, k = key, p = plaintext
     while(argc==2)
     {
-        string _argv = argv[2];
+        string _argv = argv[1];
         int length = strlen(_argv);
         for (int i = 0; i < length; i++)
         {
-            if (((atoi(_argv[i])) < 48) || (atoi(_argv[i]) > 57))
+            if ((_argv[i] < 48) || (_argv[i] > 57))
             {
                 break;
             }
