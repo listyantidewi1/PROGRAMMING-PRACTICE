@@ -19,7 +19,8 @@ int main(int argc, string argv[])
         {
             if ((cmd[i] < 48) || (cmd[i] > 57))
             {
-                printf("Usage: ./caesar key\n");
+                //printf("Usage: ./caesar key\n");
+                break;
             }
         }
     }
