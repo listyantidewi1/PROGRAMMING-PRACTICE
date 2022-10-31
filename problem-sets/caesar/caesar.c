@@ -1,5 +1,7 @@
 #include <cs50.h>
 #include <stdio.h>
+#include <string.h>
+#include <ctype.h>
 
 int main(int argc, string argv[])
 {
@@ -8,10 +10,13 @@ int main(int argc, string argv[])
     while(argc==2)
     {
         string _argv = argv[2];
-        for (int i = 0; length = strlen(_argv); i++)
+        int length = strlen(_argv);
+        for (int i = 0; i < length; i++)
         {
-            if (_argv[i] < 48 || _argv[i] > 57)
-            
+            if ((_argv[i] < 48) || (_argv[i] > 57))
+            {
+                break;
+            }
         }
 
     }
