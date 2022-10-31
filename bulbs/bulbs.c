@@ -25,7 +25,8 @@ int main(void)
             binary[i] = mod;
         }
         while(div >= 1);
-        
+
+        i++;
     }
 
     //print array binary to test
