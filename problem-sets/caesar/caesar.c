@@ -24,6 +24,7 @@ int main(int argc, string argv[])
             if ((cmd[i] < 48) || (cmd[i] > 57))
             {
                 printf("Usage: ./caesar key\n");
+                return 1;
                 break;
             }
             //if it is a number, check if it's negative
