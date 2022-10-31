@@ -37,15 +37,17 @@ int main(int argc, string argv[])
     //53, 54, 55, 56
     if((strcmp(argv[1], "5")) || (strcmp(argv[1], "6")) || (strcmp(argv[1], "7")) || (strcmp(argv[1], "8")))
     {
-        printf("Error: wordsize must either 5, 6, 7, or 8\n");
-    }
-    else
-    {
         //wordsize = argv[1];
         //argv[1] return a string of number or its ascii decimal
         //you have to convert it to an integer of the literal string
-        //example: 5 string is 53 decimal
-        
+        //example: 5 string is 53 decimal -> 53 - 48 = 5
+
+        printf("%i", argv[1]);
+    }
+    else
+    {
+
+        printf("Error: wordsize must either 5, 6, 7, or 8\n");
     }
 
     // open correct file, each file has exactly LISTSIZE words
