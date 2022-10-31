@@ -5,7 +5,7 @@ int main(int argc, string argv[])
 {
     //formula: c = (p+k)%26
     //c = chipertext, k = key, p = plaintext
-    while((argc == 2))
+    while((argc == 2) && (argv))
     {
 
     }
