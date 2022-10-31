@@ -31,19 +31,25 @@ int main(void)
         while(b < 8);
 
         //reverse and print the array
+        int s = 7;
+
+        for (int k)
+
         for (int r=0; r<=8; r++)
         {
-            rev_binary[i]
+            rev_binary[r] = binary[s];
+            printf("%d", rev_binary[r]);
+            s--;
         }
 
         i++;
     }
 
     //print array binary to test
-    for(int j=0; j<8; j++)
-    {
-        printf("%d", binary[j]);
-    }
+    // for(int j=0; j<8; j++)
+    // {
+    //     printf("%d", binary[j]);
+    // }
 
 }
 
