@@ -39,7 +39,8 @@ int main(void)
             for (int r=0; r<8; r++)
             {
                 rev_binary[r] = binary[s];
-                printf("%d", rev_binary[r]);
+                //printf("%d", rev_binary[r]);
+                print_bulb(rev_binary[r]);
                 s--;
             }
             printf("\n");
@@ -51,7 +52,7 @@ int main(void)
     //print array binary to test
     // for(int j=0; j<8; j++)
     // {
-    //     printf("%d", binary[j]);
+    //     printf("%d", rev_binary[j]);
     // }
 
 }
