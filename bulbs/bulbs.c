@@ -4,6 +4,7 @@
 
 const int BITS_IN_BYTE = 8;
 int binary[8];
+int rev_binary[8];
 int div, curr_div, mod, curr_mod;
 
 void print_bulb(int bit);
@@ -28,6 +29,12 @@ int main(void)
             b++;
         }
         while(b < 8);
+
+        //reverse and print the array
+        for (int r=0; r<=8; r++)
+        {
+            rev_binary[i]
+        }
 
         i++;
     }
