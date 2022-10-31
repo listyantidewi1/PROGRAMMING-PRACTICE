@@ -56,6 +56,7 @@ int main(void)
         }
 
         i++;
+        printf("\n");
     }
 
     //print array binary to test
