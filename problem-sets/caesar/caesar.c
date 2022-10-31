@@ -13,7 +13,7 @@ int main(int argc, string argv[])
         int length = strlen(_argv);
         for (int i = 0; i < length; i++)
         {
-            if ((_argv[i] < 48) || (_argv[i] > 57))
+            if (((atoi(_argv[i])) < 48) || (atoi(_argv[i]) > 57))
             {
                 break;
             }
