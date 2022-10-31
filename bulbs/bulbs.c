@@ -20,16 +20,16 @@ int main(void)
     int b;
     while (message[i] != '\0')
     {
-        printf("i: %d\n", i);
+        //printf("i: %d\n", i);
         div = (int)message[i];
         b=0;
         do
         {
-            printf("b: %d\n", b);
+            //printf("b: %d\n", b);
             mod = div % 2;
-            printf("mod: %d\n", mod);
+            //printf("mod: %d\n", mod);
             div = div / 2;
-            printf("div: %d\n", div);
+            //printf("div: %d\n", div);
             binary[b] = mod;
             b++;
         }
@@ -48,7 +48,7 @@ int main(void)
                 //printf("r: %d\n", r);
                 rev_binary[r] = binary[s];
                 //printf("%d", rev_binary[r]);
-                //print_bulb(rev_binary[r]);
+                print_bulb(rev_binary[r]);
                 //printf("s: %d\n", s);
                 s--;
 
@@ -57,7 +57,7 @@ int main(void)
         }
 
         i++;
-        printf("\n");
+        //printf("\n");
     }
 
     //print array binary to test
