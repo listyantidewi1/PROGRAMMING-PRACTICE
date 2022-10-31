@@ -23,6 +23,7 @@ int main(void)
         {
             div = div / 2;
             mod = div % 2;
+            
         }
         while(div >= 1);
 
