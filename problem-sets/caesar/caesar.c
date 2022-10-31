@@ -10,17 +10,13 @@ int main(int argc, string argv[])
 
     string cmd = argv[1];
 
+
     if (argc != 2)
     {
         printf("Usage: ./caesar key\n");
     }
-    else if(atoi(cmd) < 0)
-    {
-
-    }
     else
     {
-
         //check if the arguments are not number
         for (int i = 0, length = strlen(cmd); i < length; i++)
         {
