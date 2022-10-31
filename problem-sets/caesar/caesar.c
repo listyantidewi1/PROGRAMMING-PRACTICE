@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdlib.h>
 
 int main(int argc, string argv[])
 {
@@ -41,7 +42,14 @@ int main(int argc, string argv[])
                 //c = chipertext, k = key, p = plaintext
 
                 string plaintext = get_string("plaintext:  ");
+                string chipertext = "";
 
+                for(int j=0, length_p=strlen(plaintext); j<length_p; j++)
+                {
+                    chipertext += (plaintext[j] + k) % 26;
+                }
+
+                printf("chiphertext:  %s\n", chipertext);
 
             }
         }
