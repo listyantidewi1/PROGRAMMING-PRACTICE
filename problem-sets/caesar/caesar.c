@@ -7,6 +7,6 @@ int main(int argc, string argv[])
 {
     //formula: c = (p+k)%26
     //c = chipertext, k = key, p = plaintext
- 
+    
 
 }
