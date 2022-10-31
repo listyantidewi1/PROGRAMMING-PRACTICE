@@ -53,7 +53,7 @@ int main(void)
                 s--;
 
             }
-            printf("\n");
+            //printf("\n");
         }
 
         for (int z=0; z<8; z++){
@@ -62,7 +62,7 @@ int main(void)
 
 
         i++;
-        //printf("\n");
+        printf("\n");
     }
 
     //print array binary to test
