@@ -165,6 +165,7 @@ int check_word(string guess, int wordsize, int status[], string choice)
             status[i] = curr_score;
             score += curr_score;
             printf("exact found, this one scores: %d\n",curr_score); //debug
+            break;
         }
         else
         {
