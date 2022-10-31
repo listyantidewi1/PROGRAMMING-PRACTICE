@@ -13,8 +13,12 @@ int main(int argc, string argv[])
     }
     else
     {
+        string cmd = argv[1];
         //check if the arguments are not number
-        
+        for (int i = 0, length = strlen(cmd); i < length; i++)
+        {
+            if (cmd[i] > )
+        }
     }
 
 }
