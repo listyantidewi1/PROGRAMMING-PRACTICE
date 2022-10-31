@@ -48,13 +48,18 @@ int main(void)
                 //printf("r: %d\n", r);
                 rev_binary[r] = binary[s];
                 //printf("%d", rev_binary[r]);
-                print_bulb(rev_binary[r]);
+
                 //printf("s: %d\n", s);
                 s--;
 
             }
             printf("\n");
         }
+
+        for (int z=0; z<8; z++){
+            print_bulb(rev_binary[z]);
+        }
+
 
         i++;
         //printf("\n");
