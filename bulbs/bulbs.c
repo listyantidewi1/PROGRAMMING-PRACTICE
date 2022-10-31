@@ -32,8 +32,9 @@ int main(void)
 
         //reverse and print the array
         int s = 7;
+        int length = strlen(message); 
 
-        for (int k=0; int length = strlen(message); k < length; k++)
+        for (int k=0; k < length; k++)
         {
             for (int r=0; r<=8; r++)
             {
