@@ -16,6 +16,7 @@ int main(void)
 
     //extract each character and convert to binary
     int i = 0;
+    int b = 0;
     while (message[i] != '\0')
     {
         div = (int)message[i];
@@ -23,9 +24,10 @@ int main(void)
         {
             div = div / 2;
             mod = div % 2;
-            
+            binary[b] = mod;
+            b++;
         }
-        while(div >= 1);
+        while(b < 8);
 
         i++;
     }
