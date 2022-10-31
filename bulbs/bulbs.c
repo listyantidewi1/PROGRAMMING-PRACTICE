@@ -20,14 +20,15 @@ int main(void)
     int b = 0;
     while (message[i] != '\0')
     {
+        printf("i: %d\n", i);
         div = (int)message[i];
         do
         {
             printf("b: %d\n", b);
             mod = div % 2;
-            println("mod: %d\n", mod);
+            printf("mod: %d\n", mod);
             div = div / 2;
-            println("div: %d\n", div);
+            printf("div: %d\n", div);
             binary[b] = mod;
             b++;
         }
