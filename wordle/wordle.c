@@ -35,7 +35,7 @@ int main(int argc, string argv[])
     // ensure argv[1] is either 5, 6, 7, or 8 and store that value in wordsize instead
     // TODO #2
     //53, 54, 55, 56
-    if()
+    if((strcmp(argv[1], "5")) || (strcmp(argv[1], "6")) || (strcmp(argv[1], "7")) || (strcmp(argv[1], "8")))
     {
         printf("Error: wordsize must either 5, 6, 7, or 8\n");
     }
