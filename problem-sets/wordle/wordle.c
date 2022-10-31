@@ -171,7 +171,7 @@ int check_word(string guess, int wordsize, int status[], string choice)
             {
                 int curr_score = CLOSE;
                 //status[j] = 0;
-                status[j] = curr_score;
+                status[i] = curr_score;
                 score += curr_score;
             }
         }
