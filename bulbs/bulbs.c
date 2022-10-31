@@ -22,7 +22,7 @@ int main(void)
     {
         //printf("i: %d\n", i);
         div = (int)message[i];
-        b=0;
+        b = 0;
         do
         {
             //printf("b: %d\n", b);
@@ -33,17 +33,17 @@ int main(void)
             binary[b] = mod;
             b++;
         }
-        while(b < 8);
+        while (b < 8);
 
         //reverse and print the array
 
         int length = strlen(message);
 
-        for (int k=0; k < length; k++)
+        for (int k = 0; k < length; k++)
         {
             int s = 7;
             //printf("k: %d\n", k);
-            for (int r=0; r<8; r++)
+            for (int r = 0; r < 8; r++)
             {
                 //printf("r: %d\n", r);
                 rev_binary[r] = binary[s];
@@ -56,7 +56,8 @@ int main(void)
             //printf("\n");
         }
 
-        for (int z=0; z<8; z++){
+        for (int z = 0; z < 8; z++)
+        {
             print_bulb(rev_binary[z]);
         }
 
