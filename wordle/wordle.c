@@ -44,7 +44,7 @@ int main(int argc, string argv[])
         //example: 5 string is 53 decimal -> 53 - 48 = 5
 
         wordsize = atoi(argv[1]);
-        //printf("wordsize: %i", wordsize);
+
     }
     else
     {
@@ -155,38 +155,8 @@ int check_word(string guess, int wordsize, int status[], string choice)
 
     // compare guess to choice and score points as appropriate, storing points in status
     // TODO #5
-    //EXACT, CLOSE, WRONG
     for(int i = 0; i < wordsize; i++)
     {
-        // if(guess[i] == choice[i])
-        // {
-             //printf("i: %d\n", i); //debug
-        //     int curr_score = EXACT;
-        //     //still needs a break to avoid checking this letter again
-        //     status[i] = curr_score;
-        //     score += curr_score;
-        //     printf("exact found, this one scores: %d\n",curr_score); //debug
-        //     //break;
-        // }
-        // else
-        // {
-        //     for(int j=0; j<wordsize; j++)
-        //     {
-        //         printf("j: %d\n", j); //debug
-        //         for(int k=0; k<wordsize; k++)
-        //         {
-        //             printf("k: %d\n", k); //debug
-        //             if(guess[j] == choice[k])
-        //             {
-        //                 int curr_score = CLOSE;
-        //                 status[j] = curr_score;
-        //                 score += curr_score;
-        //                 printf("close found, this one scores: %d\n",curr_score);
-        //             }
-        //         }
-        //     }
-        // }
-
         for(int j=0; j < wordsize; j++)
         {
             //printf("j: %d\n", j); //debug
@@ -203,12 +173,12 @@ int check_word(string guess, int wordsize, int status[], string choice)
                 int curr_score = CLOSE;
                 status[j] = curr_score;
                 score += curr_score;
-                //printf("close found, this one scores: %d\n",curr_score);
+                //printf("close found, this one scores: %d\n",curr_score); //debug
             }
         }
 
     }
-    //printf("total score: %d\n",score);
+    //printf("total score: %d\n",score); //debug
 
 
     // HINTS
