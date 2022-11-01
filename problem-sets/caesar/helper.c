@@ -6,5 +6,5 @@
 
 int main(void)
 {
-    printf(("a"+7)%26);
+    printf(('a'+7)%26);
 }
