@@ -46,10 +46,14 @@ int main(int argc, string argv[])
 
                 for(int j=0, length_p=strlen(plaintext); j<length_p; j++)
                 {
-                    chipertext += (plaintext[j] + k) % 26;
+                    int curr_chipper = (plaintext[0] + k) % 26;
+                    printf("%d\n", curr_chipper);
+                    printf("%c\n", curr_chipper);
+                    //todo: the ascii decimal result is not always letters.
+                    
                 }
 
-                printf("chiphertext:  %s\n", chipertext);
+                //printf("chiphertext:  %s\n", chipertext);
 
             }
         }
