@@ -4,7 +4,10 @@
 #include <ctype.h>
 #include <stdlib.h>
 
-int main(void)
+int main(int argc, string argv[])
 {
-    printf(('a'+7)%26);
+    string word = argv[1];
+    printf((word[0]+7)%26);
+
+    return 0;
 }
