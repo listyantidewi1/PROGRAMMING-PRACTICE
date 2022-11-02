@@ -6,28 +6,21 @@
 int main(void)
 {
     //check if lowercase's characters of a word is in alphabetical order. If yes print yes, if no, print no
+    string s = get_string("String: ");
 
-    string word = get_string("Enter a word: ");
-    int wordcopy[strlen(word)];
-
-    for(int i = 0, length = strlen(word); i < length+1; i++)
+    for (int i = 0, length = strlen(s); i < length; i++)
     {
-        wordcopy[i] =  toupper(word[i]);
+        s[i] = tolower(s[i]);
     }
 
-
-    for(int i = 0, length = strlen(word); i < length+1; i++)
+    for (int i = 1, length = strlen(s); i < length; i++)
     {
-
-            if(wordcopy[i] > wordcopy[i+1])
-            {
-                printf("No!");
-                return 0;
-            }
-            else
-            {
-                printf("Yes!");
-            }
+        if (s[i] < s[i-1])
+        {
+            printf("No.\n");
+            return 0;
         }
-
     }
+    printf("Yes!\n");
+
+}
