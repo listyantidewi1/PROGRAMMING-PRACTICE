@@ -9,58 +9,5 @@ int main(int argc, string argv[])
     //formula: c = (p+k)%26
     //c = chipertext, k = key, p = plaintext
 
-    string cmd = argv[1];
-
-
-    if (argc != 2)
-    {
-        printf("Usage: ./caesar key\n");
-        return 1;
-    }
-    else
-    {
-        //check if the arguments are not number
-        for (int i = 0, length = strlen(cmd); i < length; i++)
-        {
-            if ((cmd[i] < 48) || (cmd[i] > 57))
-            {
-                printf("Usage: ./caesar key\n");
-                return 1;
-                break;
-            }
-            //if it is a number, check if it's negative
-            else if(cmd[i] < 0)
-            {
-                break;
-            }
-            else
-            {
-                int k = atoi(cmd);
-                //printf("OK inside for\n"); //debug
-                //implement caesar
-                //formula: c = (p+k)%26
-                //c = chipertext, k = key, p = plaintext
-
-                string plaintext = get_string("plaintext:  ");
-                string chipertext = "";
-
-                for(int j=0, length_p=strlen(plaintext); j<length_p; j++)
-                {
-                    int curr_chipper = (plaintext[0] + k) % 26;
-                    printf("%d\n", curr_chipper);
-                    printf("%c\n", curr_chipper);
-                    //todo: the ascii decimal result is not always letters.
-                    
-                }
-
-                //printf("chiphertext:  %s\n", chipertext);
-
-            }
-        }
-
-
-        //printf("OK outside for\n"); //debug
-
-    }
-
+    
 }
