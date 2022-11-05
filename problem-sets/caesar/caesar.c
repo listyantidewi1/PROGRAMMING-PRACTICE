@@ -27,19 +27,30 @@ int main(int argc, string argv[])
             if(islower(plaintext[i]))
             {
                 c = (plaintext[i]+k) % 26; //the result doesn't always fall into alphabet cat
+                printf("c = %d\n", c); //debug
                 if(c < 97)
                 {
 
                 }
                 else if (c > 122)
                 {
-                    
+
                 }
 
             }
+            else
+            {
+                c = (plaintext[i]+k) % 26; //the result doesn't always fall into alphabet cat
+                printf("c = %d\n", c); //debug
+                if(c < 65)
+                {
 
+                }
+                else if (c > 90)
+                {
 
-
+                }
+            }
 
         }
 
