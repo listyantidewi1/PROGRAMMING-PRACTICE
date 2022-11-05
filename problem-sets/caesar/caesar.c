@@ -30,11 +30,13 @@ int main(int argc, string argv[])
                 printf("c = %d\n", c); //debug
                 if(c < 97)
                 {
-
+                    c += 97;
+                    printf("c = %d\n", c); //debug
                 }
                 else if (c > 122)
                 {
-
+                    c -= 122;
+                    printf("c = %d\n", c); //debug
                 }
 
             }
@@ -44,11 +46,13 @@ int main(int argc, string argv[])
                 printf("c = %d\n", c); //debug
                 if(c < 65)
                 {
-
+                    c += 65;
+                    printf("c = %d\n", c); //debug
                 }
                 else if (c > 90)
                 {
-
+                    c -= 90;
+                    printf("c = %d\n", c); //debug
                 }
             }
 
