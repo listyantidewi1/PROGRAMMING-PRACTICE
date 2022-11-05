@@ -11,13 +11,13 @@ int main(int argc, string argv[])
     string _argv = argv[1];
 
 
-    if ((argc != 2) || (_argv[1] < 48) || (_argv[1] > 57))
+    if ((argc != 2) || (isalpha(_argv[1])))
     {
         printf("Usage: ./caesar key\n");
     }
     else
     {
-        printf("OK");
+        printf("OK\n");
     }
 
 
