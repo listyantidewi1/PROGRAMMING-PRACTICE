@@ -23,10 +23,24 @@ int main(int argc, string argv[])
 
         for(int i=0, length = strlen(plaintext); i<length; i++)
         {
-            c = (plaintext[i]+k) % 26; //the result doesn't always fall into alphabet cat
 
-            
-            printf("%c\n",c);
+            if(islower(plaintext[i]))
+            {
+                c = (plaintext[i]+k) % 26; //the result doesn't always fall into alphabet cat
+                if(c < 97)
+                {
+
+                }
+                else if (c > 122)
+                {
+                    
+                }
+
+            }
+
+
+
+
         }
 
     }
