@@ -13,7 +13,7 @@ int main(int argc, string argv[])
     string _argv = argv[1];
 
 
-    if ((argc == 2) || (only_digits(_argv)))
+    if ((argc == 2) && (only_digits(_argv)))
     {
         printf("OK\n");
     }
