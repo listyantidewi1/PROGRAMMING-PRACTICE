@@ -26,16 +26,18 @@ int main(int argc, string argv[])
 
 bool only_digits(string s)
 {
+    bool check;
     for (int i=0, length = strlen(s); i < length; i++)
     {
-        if(isalpha(s[i])){
-            return false;
+        if  (isdigit(s[i]))
+        {
+            check = true;
         }
         else
         {
-            return true;
+            check = false;
         }
 
     }
-    return 0;
+    return check;
 }
