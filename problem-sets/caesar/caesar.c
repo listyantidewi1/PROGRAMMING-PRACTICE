@@ -26,7 +26,9 @@ int main(int argc, string argv[])
 
             if(islower(plaintext[i]))
             {
-                c = (plaintext[i]+k) % 26; //the result doesn't always fall into alphabet cat
+                c = (plaintext[i]+k) % 26; //the result doesn't always fall into alphabet cat, the use of %26 assumes A=0, etc
+
+
                 printf("c = %d\n", c); //debug
                 if(c < 97)
                 {
