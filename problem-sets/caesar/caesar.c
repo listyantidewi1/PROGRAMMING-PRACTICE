@@ -32,7 +32,7 @@ int main(int argc, string argv[])
             {
                 c = (plaintext[i]+k) % 26; //the result doesn't always fall into alphabet cat, the use of %26 assumes A=0, etc
                 printf("c = %d\n", c); //debug
-                printf("%c\n",lower[c]);
+                printf("%c\n",lower[c+plaintext[i]]);
 
 
             }
@@ -40,7 +40,7 @@ int main(int argc, string argv[])
             {
                 c = (plaintext[i]+k) % 26; //the result doesn't always fall into alphabet cat
                 printf("c = %d\n", c); //debug
-                printf("%c\n",upper[c]);
+                printf("%c\n",upper[c+plaintext[i]]);
 
             }
 
