@@ -13,7 +13,10 @@ int main(int argc, string argv[])
     string _argv = argv[1];
     string plaintext, chipertext;
     int c, p, k;
-    char lower[26] = ['a','b','c','d',']
+
+    char lower[26] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+
+    char upper[26] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
 
 
     if ((argc == 2) && (only_digits(_argv)))
@@ -28,35 +31,17 @@ int main(int argc, string argv[])
             if(islower(plaintext[i]))
             {
                 c = (plaintext[i]+k) % 26; //the result doesn't always fall into alphabet cat, the use of %26 assumes A=0, etc
-
-
                 printf("c = %d\n", c); //debug
-                if(c < 97)
-                {
-                    c += 97;
-                    printf("c = %d\n", c); //debug
-                }
-                else if (c > 122)
-                {
-                    c -= 122;
-                    printf("c = %d\n", c); //debug
-                }
+                printf("%c\n",lower[c]);
+
 
             }
             else
             {
                 c = (plaintext[i]+k) % 26; //the result doesn't always fall into alphabet cat
                 printf("c = %d\n", c); //debug
-                if(c < 65)
-                {
-                    c += 65;
-                    printf("c = %d\n", c); //debug
-                }
-                else if (c > 90)
-                {
-                    c -= 90;
-                    printf("c = %d\n", c); //debug
-                }
+                printf("%c\n",upper[c]);
+
             }
 
         }
