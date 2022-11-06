@@ -13,6 +13,7 @@ int main(int argc, string argv[])
     string _argv = argv[1];
     string plaintext, chipertext;
     int c, p, k;
+    char lower[26] = ['a','b','c','d',']
 
 
     if ((argc == 2) && (only_digits(_argv)))
