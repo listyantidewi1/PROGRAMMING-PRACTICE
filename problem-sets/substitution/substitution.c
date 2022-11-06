@@ -8,7 +8,16 @@ int main(int argc, string argv[])
     {
         for (int i, length = strlen(_argv); i < length; i++)
         {
-            if(_argv[i] < 65 || _argv[i] > )
+            if((_argv[i] < 65 || _argv[i] > 90) || (_argv[i] < 97 || _argv[i] > 122))
+            {
+                printf("Error\n");
+                return 1;
+            }
         }
+
+    }
+    else
+    {
+
     }
 }
