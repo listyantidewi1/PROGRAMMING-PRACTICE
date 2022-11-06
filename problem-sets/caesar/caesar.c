@@ -10,46 +10,32 @@ int main(int argc, string argv[])
 {
     //formula: c = (p+k) %26
     //c = chipertext, k = key, p = plaintext
-    string _argv = argv[1];
+    string _argv = argv[1]; //copy argv[1] for further operations
     string plaintext, chipertext;
-    int c, p, k;
+    int c, k;
 
-    //char lower[26] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
-
-    //char upper[26] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
-
-
-    if ((argc == 2) && (only_digits(_argv)))
+    if ((argc == 2) && (only_digits(_argv))) //cipher only if command line args meet requirements
     {
-        //printf("OK\n"); //debug
-        k = atoi(_argv);
+        k = atoi(_argv); //convert literal string into integer
         plaintext = get_string("plaintext:  ");
         printf("ciphertext:  ");
 
-        for(int i=0, length = strlen(plaintext); i<length; i++)
+        for (int i = 0, length = strlen(plaintext); i < length; i++)
         {
-
-            if(islower(plaintext[i]))
+            //if the character is lowercase
+            if (islower(plaintext[i]))
             {
-                c = (plaintext[i]+k - 97) % 26 + 97; //the result doesn't always fall into alphabet cat, the use of %26 assumes A=0, etc
-                //int temp = c + plaintext[i];
-                //printf("c = %d\n", c); //debug
-
-                printf("%c", c); //debug
-                //printf("%c\n",lower[c]);
-
+                c = (plaintext[i] + k - 97) % 26 + 97;
+                printf("%c", c);
 
             }
-            else if(isupper(plaintext[i]))
+            //if the character is uppercase
+            else if (isupper(plaintext[i]))
             {
-                c = (plaintext[i]+k + 65) % 26 + 65; //the result doesn't always fall into alphabet cat
-                //printf("c = %d\n", c); //debug
-                //printf("chipertext:  ");
-                printf("%c", c); //debug
-                //int temp = c + plaintext[i];
-                //printf("%c\n",upper[c]);
-
+                c = (plaintext[i] + k + 65) % 26 + 65;
+                printf("%c", c);
             }
+            //if the character is not alphabets
             else
             {
                 printf("%c", plaintext[i]);
@@ -61,6 +47,7 @@ int main(int argc, string argv[])
     }
     else
     {
+        //handle innapropriate command line args
         printf("Usage: ./caesar key\n");
         return 1;
     }
@@ -70,9 +57,9 @@ int main(int argc, string argv[])
 bool only_digits(string s)
 {
     bool check;
-    for (int i=0, length = strlen(s); i < length; i++)
+    for (int i = 0, length = strlen(s); i < length; i++)
     {
-        if  (isdigit(s[i]))
+        if (isdigit(s[i]))
         {
             check = true;
         }
