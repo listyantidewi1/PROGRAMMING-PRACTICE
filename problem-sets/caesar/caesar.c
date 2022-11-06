@@ -14,9 +14,9 @@ int main(int argc, string argv[])
     string plaintext, chipertext;
     int c, p, k;
 
-    char lower[26] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+    //char lower[26] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
 
-    char upper[26] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+    //char upper[26] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
 
 
     if ((argc == 2) && (only_digits(_argv)))
@@ -24,7 +24,7 @@ int main(int argc, string argv[])
         //printf("OK\n"); //debug
         k = atoi(_argv);
         plaintext = get_string("plaintext:  ");
-        printf("chipertext:  ");
+        printf("ciphertext:  ");
 
         for(int i=0, length = strlen(plaintext); i<length; i++)
         {
