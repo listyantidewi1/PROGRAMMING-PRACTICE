@@ -24,29 +24,35 @@ int main(int argc, string argv[])
         //printf("OK\n"); //debug
         k = atoi(_argv);
         plaintext = get_string("plaintext:  ");
+        printf("chipertext:  ");
 
         for(int i=0, length = strlen(plaintext); i<length; i++)
         {
 
             if(islower(plaintext[i]))
             {
-                c = (plaintext[i]+k) % 26; //the result doesn't always fall into alphabet cat, the use of %26 assumes A=0, etc
+                c = (plaintext[i]+k - 97) % 26 + 97; //the result doesn't always fall into alphabet cat, the use of %26 assumes A=0, etc
                 //int temp = c + plaintext[i];
-                printf("c = %d\n", c); //debug
-                printf("%c\n",lower[c]);
+                //printf("c = %d\n", c); //debug
+
+                printf("%c", c); //debug
+                //printf("%c\n",lower[c]);
 
 
             }
             else
             {
-                c = (plaintext[i]+k) % 26; //the result doesn't always fall into alphabet cat
-                printf("c = %d\n", c); //debug
+                c = (plaintext[i]+k + 65) % 26 + 65; //the result doesn't always fall into alphabet cat
+                //printf("c = %d\n", c); //debug
+                //printf("chipertext:  ");
+                printf("%c", c); //debug
                 //int temp = c + plaintext[i];
-                printf("%c\n",upper[c]);
+                //printf("%c\n",upper[c]);
 
             }
 
         }
+        printf("\n");
 
     }
     else
