@@ -40,7 +40,7 @@ int main(int argc, string argv[])
 
 
             }
-            else
+            else if(isupper(plaintext[i]))
             {
                 c = (plaintext[i]+k + 65) % 26 + 65; //the result doesn't always fall into alphabet cat
                 //printf("c = %d\n", c); //debug
@@ -49,6 +49,10 @@ int main(int argc, string argv[])
                 //int temp = c + plaintext[i];
                 //printf("%c\n",upper[c]);
 
+            }
+            else
+            {
+                printf("%c", plaintext[i]);
             }
 
         }
