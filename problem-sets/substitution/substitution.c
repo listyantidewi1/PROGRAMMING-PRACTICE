@@ -3,7 +3,8 @@
 
 int main(int argc, string argv[])
 {
-    string _argv;
+    string plaintext;
+    string _argv =  argv[1];
     if (argc == 2 && (strlen(_argv) == 26))
     {
         for (int i, length = strlen(_argv); i < length; i++)
@@ -15,9 +16,15 @@ int main(int argc, string argv[])
             }
         }
 
+        plaintext = get_string("plaintext:  ");
+
+    }
+    else if (strlen(_argv) != 26)
+    {
+        printf("Key must contain 26 characters\n");
     }
     else
     {
-
+        printf("Usage: ./substitution key\n");
     }
 }
