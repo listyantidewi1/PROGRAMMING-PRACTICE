@@ -1,11 +1,11 @@
 sort1 uses: TODO
 
-How do you know?: TODO
+How do you know?: 8.610s in randomize array
 
 sort2 uses: TODO
 
-How do you know?: TODO
+How do you know?: TODO 0.700s in randomaize array
 
 sort3 uses: TODO
 
-How do you know?: TODO
+How do you know?: TODO 3.464 in randomize array
