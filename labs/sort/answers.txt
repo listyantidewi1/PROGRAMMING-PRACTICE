@@ -4,8 +4,8 @@ How do you know?: 8.610s in randomize array. 0.793 in sorted array. It's slow in
 
 sort2 uses: merge sort
 
-How do you know?: 0.700s in randomize array. 0.8766 in sorted array
+How do you know?: 0.700s in randomize array. 0.8766 in sorted array. It runs fastest among the three sorts
 
 sort3 uses: selection sort
 
-How do you know?: 3.464 in randomize array. 3.453 in sorted array. It always very slow
+How do you know?: 3.464 in randomize array. 3.453 in sorted array. It always very slow in both random and sorted array
