@@ -1,4 +1,4 @@
-sort1 uses: selection sort
+sort1 uses: bubble sort
 
 How do you know?: 8.610s in randomize array. 0.793 in sorted array
 
@@ -6,6 +6,6 @@ sort2 uses: merge sort
 
 How do you know?: 0.700s in randomize array. 0.8766 in sorted array
 
-sort3 uses: bubble sort
+sort3 uses: selection sort
 
 How do you know?: 3.464 in randomize array. 3.453 in sorted array
