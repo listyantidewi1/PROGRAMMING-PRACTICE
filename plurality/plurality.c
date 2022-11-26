@@ -73,17 +73,23 @@ bool vote(string name)
 
         if(found)
         {
-            candidates[i].
+            candidates[i].votes += 1;
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 
-
-    return false;
 }
 
 // Print the winner (or winners) of the election
 void print_winner(void)
 {
     // TODO
+
+    
+
     return;
 }
