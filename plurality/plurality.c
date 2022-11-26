@@ -89,7 +89,17 @@ void print_winner(void)
 {
     // TODO
 
-    
+    string current_winner = candidates[0].name;
 
-    return;
+    for(int i = 0; i < (candidate_count-1); i++)
+    {
+        if(candidates[i].votes < candidates[i+1].votes)
+        {
+            current_winner = candidates[i+1].name;
+        }
+    }
+
+    return current_winner;
+
+s
 }
