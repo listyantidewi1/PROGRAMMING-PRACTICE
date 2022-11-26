@@ -66,7 +66,13 @@ int main(int argc, string argv[])
 // Update vote totals given a new vote
 bool vote(string name)
 {
-    // TODO
+    // TODO loop trough candidate name, if found, candidate vote +1
+    for(int i; i < candidate_count; i++)
+    {
+        bool found = strcmp(candidates[i].name, name)
+    }
+
+
     return false;
 }
 
