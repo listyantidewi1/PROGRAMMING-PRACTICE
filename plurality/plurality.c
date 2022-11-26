@@ -67,7 +67,7 @@ int main(int argc, string argv[])
 bool vote(string name)
 {
     // TODO loop trough candidate name, if found, candidate vote +1
-    for(int i; i < candidate_count; i++)
+    for(int i = 0; i < candidate_count; i++)
     {
         bool found = strcmp(candidates[i].name, name);
 
@@ -76,11 +76,10 @@ bool vote(string name)
             candidates[i].votes += 1;
             return true;
         }
-        else
-        {
-            return false;
-        }
+
     }
+
+    return false;
 
 }
 
@@ -98,8 +97,6 @@ void print_winner(void)
             current_winner = candidates[i+1].name;
         }
     }
+    printf("%s", current_winner);
 
-    return current_winner;
-
-s
 }
