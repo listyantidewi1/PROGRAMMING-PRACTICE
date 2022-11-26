@@ -69,7 +69,12 @@ bool vote(string name)
     // TODO loop trough candidate name, if found, candidate vote +1
     for(int i; i < candidate_count; i++)
     {
-        bool found = strcmp(candidates[i].name, name)
+        bool found = strcmp(candidates[i].name, name);
+
+        if(found)
+        {
+            candidates[i].
+        }
     }
 
 
