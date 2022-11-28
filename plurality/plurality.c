@@ -67,8 +67,8 @@ int main(int argc, string argv[])
 bool vote(string name)
 {
     // TODO loop trough candidate name, if found, candidate vote +1
-       for (int i = 0; i < candidate_count; i++)
-       {
+    for (int i = 0; i < candidate_count; i++)
+    {
         if(strcmp(candidates[i].name, name) == 0)
         {
             candidates[i].votes += 1;
