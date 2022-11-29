@@ -1,5 +1,6 @@
 #include <cs50.h>
 #include <stdio.h>
+#include <string.h>
 
 // Max number of candidates
 #define MAX 9
@@ -27,6 +28,7 @@ int candidate_count;
 
 // Function prototypes
 bool vote(int rank, string name, int ranks[]);
+bool cycle_pairs(int start, int endCase);
 void record_preferences(int ranks[]);
 void add_pairs(void);
 void sort_pairs(void);
@@ -85,14 +87,15 @@ int main(int argc, string argv[])
         }
 
         record_preferences(ranks);
-
         printf("\n");
     }
+
 
     add_pairs();
     sort_pairs();
     lock_pairs();
     print_winner();
+
     return 0;
 }
 
@@ -100,13 +103,39 @@ int main(int argc, string argv[])
 bool vote(int rank, string name, int ranks[])
 {
     // TODO
+    for (int i = 0; i < candidate_count; i++)
+    {
+
+        if (strcmp(name, candidates[i]) == 0)
+        {
+
+            ranks[rank] = i;
+
+            return true;
+
+        }
+
+    }
+
     return false;
 }
 
 // Update preferences given one voter's ranks
 void record_preferences(int ranks[])
 {
-    // TODO
+
+    for (int i = 0; i < candidate_count; i++)
+    {
+
+        for (int j = i + 1; j < candidate_count; j++)
+        {
+
+            preferences[ranks[i]][ranks[j]]++;
+
+        }
+
+    }
+
     return;
 }
 
@@ -114,26 +143,136 @@ void record_preferences(int ranks[])
 void add_pairs(void)
 {
     // TODO
+    for (int i = 0; i < candidate_count; i++)
+    {
+
+        for (int j = i + 1; j < candidate_count; j++)
+        {
+            if (preferences[i][j] > preferences[j][i])
+            {
+
+                //tambahkan pasangat struct untuk memasangkan array
+                pairs[pair_count].winner = i;
+                pairs[pair_count].loser = j;
+                pair_count++;
+
+            }
+            else if (preferences[i][j] < preferences[j][i])
+            {
+
+                //tambahkan pasangan struct untuk memasangkan array
+                pairs[pair_count].winner = j;
+                pairs[pair_count].loser = i;
+                pair_count++;
+
+            }
+
+        }
+
+    }
     return;
 }
+
 
 // Sort pairs in decreasing order by strength of victory
 void sort_pairs(void)
 {
     // TODO
+    for (int i = 0; i < pair_count - 1;  i++)
+    {
+
+        for (int j = 0; j < pair_count - i - 1; j++)
+        {
+
+            if (preferences[pairs[j].winner][pairs[j].loser] < preferences[pairs[j + 1].winner][pairs[j + 1].loser])
+            {
+
+                pair temp = pairs[j];
+                pairs[j] = pairs[j + 1];
+                pairs[j + 1] = temp;
+
+            }
+
+        }
+
+    }
     return;
+}
+
+bool cycle_pairs(int endCase, int start)
+{
+
+    if (endCase == start)
+    {
+
+        return true;
+
+    }
+
+    for (int i = 0; i < candidate_count; i++)
+    {
+
+        //periksa jika setiap posisi dalam array adalah benar atau salah
+        //jika benar, cek berikutnya
+        if (locked[endCase][i])
+        {
+            //periksa secara rekursif dengan candidat current
+            //ulang hingga salah atau base case ter-trigger, sehingga membentuk cycle dan menghasilkan true
+            if (cycle_pairs(i, start))
+            {
+                return true;
+
+            }
+        }
+
+    }
+    return false;
 }
 
 // Lock pairs into the candidate graph in order, without creating cycles
 void lock_pairs(void)
 {
     // TODO
+    for (int i = 0; i < pair_count; i++)
+    {
+
+        if (!cycle_pairs(pairs[i].loser, pairs[i].winner))
+        {
+
+            locked[pairs[i].winner][pairs[i].loser] = true;
+
+        }
+
+    }
     return;
 }
+
 
 // Print the winner of the election
 void print_winner(void)
 {
     // TODO
+    for (int i = 0; i < candidate_count; i++)
+    {
+
+        int falseCount = 0;
+
+        for (int j = 0; j < candidate_count; j++)
+        {
+
+            if (locked[j][i] == false)
+            {
+                falseCount++;
+            }
+
+        }
+
+        if (falseCount == candidate_count)
+        {
+            printf("%s\n", candidates[i]);
+            return;
+        }
+
+    }
     return;
 }
