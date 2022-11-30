@@ -17,6 +17,7 @@ int main(int argc, char *argv[])
     }
 
     // Open the input file
+    FILE *input = fopen("notes.txt", 'r);
 
     // Open/Create the output file
 
