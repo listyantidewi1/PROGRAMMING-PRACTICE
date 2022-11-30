@@ -26,16 +26,14 @@ int main(int argc, char *argv[])
         // Somehow we will need to check for the end of the file
 
         char c;
-
         while(1==fread(&c, 1, 1, input))
         {
             //printf("%c\n", c);
             fwrite(&c, 1, 1, output);
         }
 
-    // Close the input file
+    // Close the input & output file
     fclose(input);
-    // Close the output file
     fclose(output);
 
 }
