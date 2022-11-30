@@ -1,2 +1,3 @@
 free function is to delete the pointer and let the memory being used by other apps
 malloc is used to reserve a part of memory
+we use the star * to follow the pointers to their values, and also to declare a pointer var
