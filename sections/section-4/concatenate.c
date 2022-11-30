@@ -1,5 +1,3 @@
-concatenate.c
-
 #include<stdio.h>
 #include<stdlib.h> // Malloc() and free()
 #include<string.h>
@@ -29,6 +27,7 @@ int main(void)
 char *concatenate(char *first, char *second)
 {
     // Todo 1: Determine how much space we need
+    
 
     // Todo 2: Malloc() the appropriate amount of space
 
