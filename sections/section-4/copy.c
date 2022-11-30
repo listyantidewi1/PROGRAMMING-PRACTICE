@@ -17,16 +17,16 @@ int main(int argc, char *argv[])
     }
 
     // Open the input file
-    FILE *input = fopen(argv[1], "r");
+    FILE *input = fopen(argv[0], "r");
 
     // Open/Create the output file
-    FILE *output = fopen(argv[2], "w");
+    FILE *output = fopen(argv[1], "w");
 
     // Going character by character, copy the input file to the output file
         // Somehow we will need to check for the end of the file
 
         char c;
-        
+
         while(1==fread(&c, 1, 1, input))
         {
             //printf("%c\n", c);
