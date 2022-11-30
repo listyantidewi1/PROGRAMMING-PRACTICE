@@ -27,19 +27,25 @@ int main(void)
 char *concatenate(char *first, char *second)
 {
     // Todo 1: Determine how much space we need
+    int length = strlen(first) + strlen(second) + 1;
 
     // Todo 2: Malloc() the appropriate amount of space
-    char *string1 = malloc(sizeof(*first));
-    char *string2 = malloc(sizeof(*second));
+    char *new_string;
+    new_string = malloc(length);
 
     // Todo 3: Copy the contents of first
-    *string1 = *first;
+    for (int i = 0; i < strlen(first); i++)
+    {
+        new_string[i] = first[i];
+    }
 
     // Todo 4: Copy the contents of second
-    *string2 = *second;
+    for (int i = 0; i < strlen(second); i++)
+    {
+        new_string[strlen(first) + i] = second[i];
+    }
+
 
     // Todo 5: Return the result
-    char combination = *string1 + *string2;
-
-    return combination;
+    return new_string;
 }
