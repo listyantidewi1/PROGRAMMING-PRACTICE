@@ -17,24 +17,26 @@ int main(int argc, char *argv[])
     }
 
     // Open the input file
-    FILE *input = fopen("notes.txt", "r");
+    FILE *input = fopen(argv[1], "r");
 
     // Open/Create the output file
-    FILE *output = fopen("output_file", "w");
+    FILE *output = fopen(argv[2], "w");
 
     // Going character by character, copy the input file to the output file
         // Somehow we will need to check for the end of the file
 
         char c;
+        
         while(1==fread(&c, 1, 1, input))
         {
-            printf("%c\n", c);
+            //printf("%c\n", c);
             fwrite(&c, 1, 1, output);
         }
 
     // Close the input file
-    
+    fclose(input);
     // Close the output file
+    fclose(output);
 
 }
 
