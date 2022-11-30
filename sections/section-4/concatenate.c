@@ -27,7 +27,7 @@ int main(void)
 char *concatenate(char *first, char *second)
 {
     // Todo 1: Determine how much space we need
-    
+    char *string1 = malloc(sizeof(string));
 
     // Todo 2: Malloc() the appropriate amount of space
 
