@@ -1,0 +1,2 @@
+free function is to delete the pointer and let the memory being used by other apps
+malloc is used to reserve a part of memory
