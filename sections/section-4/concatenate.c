@@ -45,6 +45,9 @@ char *concatenate(char *first, char *second)
         new_string[strlen(first) + i] = second[i];
     }
 
+    //put the null character at the end
+    
+
 
     // Todo 5: Return the result
     return new_string;
