@@ -36,6 +36,10 @@ int main(int argc, char *argv[])
 
     // Read header into an array
     // TODO #3
+    uint8_t headers[HEADER_SIZE];
+    fread(headers, HEADER_SIZE, 1, input);
+    //fwrite(headers, HEADER_SIZE, 1, output);
+
 
     // Use check_format to ensure WAV format
     // TODO #4
