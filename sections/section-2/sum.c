@@ -1,20 +1,23 @@
-#include <stdio.h>
-#include <cs50.h>
+#include<cs50.h>
+#include<stdio.h>
+#include<ctype.h>
+#include<stdlib.h>
+#include<string.h>
 
-int main(void)
+int main (int argc, string argv[])
 {
-    //storage for 10 integers
-    int number, sum=0; //number is for storing numbers we get from the user, sum is for storing sum
-    int i = 0; //counter
+    // Check the number of inputs (How many should there be?)
 
-    //prompt user to input data and calculate the sum
-    while (i < 10)
-    {
-        number = get_int("Value: ");
-        sum = sum + number; //add number to sum, one by one
-        i++; //increase i by 1
-    }
 
-    //calculate and print the result
-    printf("Sum is: %i\n", sum);
+    // Check that the first argument is a valid number
+    //     - Every character in it must be a valid digit
+
+
+    // Check that the second argument is a valid number
+    //     - Every character in it must be a valid digit    for (int i = 0, n = strlen(argv[2]); i< n ; i++)
+
+
+    // Convert the arguments to numbers
+
+    // Print the Sum of the two numbers
 }
