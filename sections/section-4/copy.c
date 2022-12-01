@@ -4,8 +4,7 @@ Program to Copy an input file.
 Usage ./copy infile outfile
 */
 
-
-#include <stdio.h>
+#include <stdio.h>  // For file manipulation
 
 int main(int argc, char *argv[])
 {
@@ -17,24 +16,22 @@ int main(int argc, char *argv[])
     }
 
     // Open the input file
-    FILE *input = fopen(argv[0], "r");
+    FILE *input = fopen(argv[1], "r");
 
     // Open/Create the output file
-    FILE *output = fopen(argv[1], "w");
+    FILE *output = fopen(argv[2], "w");
 
-    // Going character by character, copy the input file to the output file
-        // Somehow we will need to check for the end of the file
+    char c;
 
-        char c;
-        while(1==fread(&c, 1, 1, input))
-        {
-            //printf("%c\n", c);
-            fwrite(&c, 1, 1, output);
-        }
+    while (1==fread(&c, 1, 1, input))
+    {
+        fwrite(&c, 1, 1, output);
+    }
 
-    // Close the input & output file
+    // Close the input file
     fclose(input);
-    fclose(output);
 
+    // Close the output file
+    fclose(output);
 }
 
