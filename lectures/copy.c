@@ -11,6 +11,7 @@ int main(void)
     string s = get_string("s: ");
 
     //copy string's address
+    //because string variables store the address of the actual string, so we copy address instead of copying values
     string t = s;
 
     //capitalize first letter in string
