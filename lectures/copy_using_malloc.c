@@ -4,13 +4,17 @@
 #include <stdlib.h>
 #include <string.h>
 
-int main(void)
+int main()
 {
     //get a string
     char *s = get_string("s: ");
 
     //allocate memory for another string
     char *t = malloc(strlen(s) + 1); //one extra memory for \0
+    if (t == NULL)
+    {
+        return 1; //return 1 if anything goes wrong
+    }
 
     //copy string into memory, including '\0'
     for (int i = 0, n = strlen(s); i <= n; i++)
@@ -25,4 +29,7 @@ int main(void)
     //print strings
     printf("s: %s\n", s);
     printf("t: %s\n", t);
+
+    free(t);
+    return 0;
 }
