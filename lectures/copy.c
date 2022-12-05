@@ -16,5 +16,7 @@ int main(void)
     //capitalize first letter in string
     t[0] = toupper(t[0]);
 
-    
+    //print string twice
+    printf("s: %s\n", s);
+    printf("t: %s\n", t);
 }
