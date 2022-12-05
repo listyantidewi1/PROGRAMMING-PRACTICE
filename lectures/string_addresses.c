@@ -16,4 +16,5 @@ int main(void)
     printf("%c\n", *(s + 1)); //print value at the address of s + 1
     printf("%c\n", *(s + 2));
     printf("%c\n", *(s + 50)); //??
+    
 }
