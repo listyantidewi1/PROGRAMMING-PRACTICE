@@ -11,4 +11,9 @@ int main(void)
     printf("%p\n", &s[1]);
     printf("%p\n", &s[2]);
     printf("%p\n", &s[3]);
+
+    printf("%c\n", *s);
+    printf("%c\n", *(s + 1)); //print value at the address of s + 1
+    printf("%c\n", *(s + 2));
+    printf("%c\n", *(s + 50)); //??
 }
