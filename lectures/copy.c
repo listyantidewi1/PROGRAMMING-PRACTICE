@@ -1,0 +1,20 @@
+//copying string by reference
+
+#include <cs50.h>
+#include <ctype.h>
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+    //get a string
+    string s = get_string("s: ");
+
+    //copy string's address
+    string t = s;
+
+    //capitalize first letter in string
+    t[0] = toupper(t[0]);
+
+    
+}
