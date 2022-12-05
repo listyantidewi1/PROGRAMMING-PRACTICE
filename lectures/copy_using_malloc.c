@@ -13,10 +13,11 @@ int main(void)
     char *t = malloc(strlen(s) + 1); //one extra memory for \0
 
     //copy string into memory, including '\0'
-    for (int i = 0; i <= strlen(s); i++)
+    for (int i = 0, n = strlen(s); i <= n; i++)
     {
         t[i] = s[i];
     }
+    //or just copy using strcpy(t,s)
 
     //capitalize copy
     t[0] = toupper(t[0]);
