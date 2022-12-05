@@ -12,10 +12,14 @@ int main(void)
 
     //copy string's address
     //because string variables store the address of the actual string, so we copy address instead of copying values
+    //it actually make s and t point to the same address which store the first character of string
     string t = s;
 
     //capitalize first letter in string
-    t[0] = toupper(t[0]);
+    if (strlen(t) > 0) //use strlen to make sure string exists to avoid segmentation fault
+    {
+        t[0] = toupper(t[0]);
+    }
 
     //print string twice
     printf("s: %s\n", s);
