@@ -36,14 +36,20 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     {
         for(int j = 0; j < width; j++)
         {
-            RGBTRIPLE *a = &image[i][j];
-            RGBTRIPLE *b = &image[i][width - j -1];
-            RGBTRIPLE tmp;
-            //swap here
-            tmp = *a;
-            *a = *b;
-            *b = tmp;
-            //printf("%p\n", a);
+            // RGBTRIPLE *a = &image[i][j];
+            // RGBTRIPLE *b = &image[i][width - j -1];
+            // RGBTRIPLE tmp;
+            // //swap here
+            // tmp = *a;
+            // *a = *b;
+            // *b = tmp;
+
+            RGBTRIPLE tmp[width][height];
+
+            tmp[i][j] = image[i][j];
+            image[i][j] = image[i][(width-1)-j]; //this cause segmentation error
+            image[i][j-width-1] = tmp[i][j];
+
         }
     }
     return;
