@@ -37,28 +37,26 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
 // Reflect image horizontally
 void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
+    //leftmost pixel should become the rightmost pixel
+    //use swap
     for (int i = 0; i < height; i++)
     {
-        if (width % 2 == 0)
+        for(int j = 0; j < width / 2; j++)
         {
-            for (int j = 0; j < width / 2; j++)
-            {
-                RGBTRIPLE temp[height][width];
-                temp[i][j] = image[i][j];
-                image[i][j] = image[i][width - (j + 1)];
-                image[i][width - (j + 1)] = temp[i][j];
-            }
-        }
+            // RGBTRIPLE *a = &image[i][j];
+            // RGBTRIPLE *b = &image[i][width - j -1];
+            // RGBTRIPLE tmp;
+            // //swap here
+            // tmp = *a;
+            // *a = *b;
+            // *b = tmp;
 
-        else if (width % 2 != 0)
-        {
-            for (int j = 0; j < (width - 1) / 2; j++)
-            {
-                RGBTRIPLE temp[height][width];
-                temp[i][j] = image[i][j];
-                image[i][j] = image[i][width - (j + 1)];
-                image[i][width - (j + 1)] = temp[i][j];
-            }
+            RGBTRIPLE tmp[width][height];
+
+            tmp[i][j] = image[i][j];
+            image[i][j] = image[i][width-(j+1)]; //this cause segmentation error
+            image[i][width-(j+1)] = tmp[i][j];
+
         }
     }
     return;
