@@ -43,6 +43,10 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
             tmp = *a;
             *a = *b;
             *b = tmp;
+
+
+            //printf("%p\n", a);
+
         }
     }
     return;
