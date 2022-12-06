@@ -2,8 +2,8 @@
 
   int main(void)
   {
-      int x = 1;
-      int y = 2;
+      int x = 1; //index kiri atas
+      int y = 2; //index kanan atas
 
       int tmp = x;
       x = y;
