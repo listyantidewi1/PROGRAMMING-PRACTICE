@@ -1,0 +1,3 @@
+Fungsi operasi pada data:
+1. aritmatika (+, -, *, /, %, ++, --)
+2. logika (&&, ||, !, <, >, <=, >=, ==, !=)
