@@ -1,3 +1,4 @@
+//header = pustaka = library
 #include<string.h>
 #include<cs50.h>
 #include<stdio.h>
