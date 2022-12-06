@@ -16,7 +16,8 @@ int main(void)
     }
 
 
-
+    /*while dan do--while digunakan ketika kita tidak tahu (tidak peduli) berapa kali akan berulang
+    tapi, kita tau (peduli) kapan dia berhenti berulang*/
     int j = 0;
     while(j < 10)
     {
