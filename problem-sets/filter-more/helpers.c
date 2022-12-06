@@ -21,7 +21,6 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
             image[i][j].rgbtGreen = avg_rgb_old;
         }
     }
-
     return;
 }
 
