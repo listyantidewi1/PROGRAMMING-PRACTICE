@@ -28,6 +28,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
 void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
     //leftmost pixel should become the rightmost pixel
+    //use swap
 
     return;
 }
@@ -46,3 +47,10 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 {
     return;
 }
+
+  void swap(int *a, int *b)
+  {
+      int tmp = *a;
+      *a = *b;
+      *b = tmp;
+  }
