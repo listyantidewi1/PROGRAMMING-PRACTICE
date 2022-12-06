@@ -3,10 +3,16 @@
 
 int main(void)
 {
+    //for loop
+    /*
+        ketika kita sudah tahu persis perulangan akan berulang berapa kali
+    */
     for (int i=0; i<10; i++)
     {
         printf("Meow in for loop\n");
     }
+
+
 
     int j = 0;
     while(j < 10)
@@ -14,6 +20,7 @@ int main(void)
         printf("Meow in while loop\n");
         j++;
     }
+
 
     int k=0;
     do
