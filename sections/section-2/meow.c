@@ -6,6 +6,9 @@ int main(void)
     //for loop
     /*
         ketika kita sudah tahu persis perulangan akan berulang berapa kali
+
+        string n = {"red", "green", "blue"};
+        sizeof(array) atau strlen(string)
     */
     for (int i=0; i<10; i++)
     {
