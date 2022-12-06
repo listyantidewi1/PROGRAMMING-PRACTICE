@@ -1,4 +1,4 @@
-//header = pustaka = library
+//header = pustaka = library = kamus
 #include<string.h>
 #include<cs50.h>
 #include<stdio.h>
