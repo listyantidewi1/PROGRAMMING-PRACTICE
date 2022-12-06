@@ -28,7 +28,9 @@ int main(void)
     while(j < 10)
     {
         printf("Meow in while loop\n");
-        
+        //harus ada operasi aritmatika yg mengubah nilai j hingga suatu saat nilai j itu menjadi >= 10
+        //operasinya akan tergantung dari problem, dan berapa kali kita harapkan dia akan berulang
+        j++
     }
 
     /*pasti dilakukan dulu 1x, baru cek kondisi*/
