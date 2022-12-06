@@ -17,16 +17,23 @@ int main(void)
 
 
     /*while dan do--while digunakan ketika kita tidak tahu (tidak peduli) berapa kali akan berulang
-    tapi, kita tau (peduli) kapan dia berhenti berulang*/
-    int j = 0;
+    tapi, kita tau (peduli) kapan dia berhenti berulang
+
+    contoh implementasi:
+    - retry pada game (scrabble), program akan terus meminta argumen (jumlah huruf) yang cocok (5 -8) sampai user memberi argumen yang benar. Tidak bisa dipastikan berapa kali user akan retry memberi argumen sampai benar
+    */
+
+   /*bisa saja tidak pernah dieksekusi jika kondisi tidak dipenuhi*/
+    int j = 20;
     while(j < 10)
     {
         printf("Meow in while loop\n");
         j++;
     }
 
+    /*pasti dilakukan dulu 1x, baru cek kondisi*/
 
-    int k=0;
+    int k=100;
     do
     {
         printf("Meow in do-while loop\n");
