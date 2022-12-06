@@ -7,7 +7,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
 {
     //the average RGB values should stay the same for the old and new image
     //to make greyscale image, RGB values should be equal
-    float avg_rgb_old;
+    int avg_rgb_old;
     long temp = 0;
 
     for(int i = 0; i < height; i++)
