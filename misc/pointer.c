@@ -6,7 +6,7 @@ void square(int x);
 int main(void)
 {
     int x = 5; //deklarasi variabel x = 5
-    square(x); //kirim nilai x ke n pada fungsi square
+    square(x); //kirim nilai x ke n pada fungsi square (pass by value)
     printf("%i\n", *pn); //25
 }
 
