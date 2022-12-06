@@ -10,9 +10,9 @@ int main(void)
         string n = {"red", "green", "blue"};
         sizeof(array) atau strlen(string)
     */
-    for (int i=0; i<10; i++)
+    for (int i=10; i>0; i--)
     {
-        printf("Meow in for loop\n");
+        prineow in for loop\ntf("M");
     }
 
 
