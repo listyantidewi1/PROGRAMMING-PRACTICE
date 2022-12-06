@@ -32,7 +32,6 @@ int main(void)
     }
 
     /*pasti dilakukan dulu 1x, baru cek kondisi*/
-
     int k=100;
     do
     {
