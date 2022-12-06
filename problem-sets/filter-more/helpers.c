@@ -1,6 +1,7 @@
 #include "helpers.h"
 #include "math.h"
 #include "stdio.h"
+#include "string.h"
 
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
@@ -29,7 +30,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
     //leftmost pixel should become the rightmost pixel
     //use swap
-
+    printf("%f\n",sizeof(image));
     return;
 }
 
