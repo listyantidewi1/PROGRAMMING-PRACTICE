@@ -38,11 +38,13 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     {
         for(int j = 0; j < width; j++)
         {
-            
+            RGBTRIPLE *a = &image[i][j];
+            RGBTRIPLE *b = &image[width-i][j];
+            RGBTRIPLE tmp;
             //swap here
-            // tmp = *a;
-            // *a = *b;
-            // *b = tmp;
+            tmp = *a;
+            *a = *b;
+            *b = tmp;
         }
     }
 
