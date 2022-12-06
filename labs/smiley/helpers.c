@@ -10,7 +10,7 @@ void colorize(int height, int width, RGBTRIPLE image[height][width])
             //make black pixels turn red
             if (image[i][j].rgbtRed == 0x00 && image[i][j].rgbtGreen == 0x00 && image[i][j].rgbtBlue == 0x00)
             {
-                image[i][j].rgbtRed = oxff;
+                image[i][j].rgbtRed = 0xff;
             }
         }
     }
