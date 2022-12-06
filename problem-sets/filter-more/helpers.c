@@ -34,7 +34,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     //use swap
     for (int i = 0; i < height; i++)
     {
-        for(int j = 0; j < width; j++)
+        for(int j = 0; j < width/2; j++)
         {
             // RGBTRIPLE *a = &image[i][j];
             // RGBTRIPLE *b = &image[i][width - j -1];
@@ -47,8 +47,8 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
             RGBTRIPLE tmp[width][height];
 
             tmp[i][j] = image[i][j];
-            image[i][j] = image[i][(width-1)-j]; //this cause segmentation error
-            image[i][j-width-1] = tmp[i][j];
+            image[i][j] = image[i][width-(j+1)]; //this cause segmentation error
+            image[i][width-(j+1)] = tmp[i][j];
 
         }
     }
