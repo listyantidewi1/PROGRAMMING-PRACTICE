@@ -12,7 +12,7 @@ int main(void)
     */
     for (int i=10; i>0; i--)
     {
-        prineow in for loop\ntf("M");
+        printf("Meow in for loop\n");
     }
 
 
@@ -24,11 +24,11 @@ int main(void)
     */
 
    /*bisa saja tidak pernah dieksekusi jika kondisi tidak dipenuhi*/
-    int j = 20;
+    int j = 0;
     while(j < 10)
     {
         printf("Meow in while loop\n");
-        j++;
+        
     }
 
     /*pasti dilakukan dulu 1x, baru cek kondisi*/
