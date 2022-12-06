@@ -30,7 +30,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
     //leftmost pixel should become the rightmost pixel
     //use swap
-    printf("%f\n",sizeof(image));
+    printf("%lu\n",sizeof(image));
     return;
 }
 
