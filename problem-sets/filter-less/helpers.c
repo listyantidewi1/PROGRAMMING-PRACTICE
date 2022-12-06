@@ -90,38 +90,39 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 {
     RGBTRIPLE tmp[height][width];
 
-    for (int i = 0; i < height; i++)
+    for (int i = 0; i < height; i++) //loop for each row
     {
-        for (int j = 0; j < width; j++)
+        for (int j = 0; j < width; j++) //loop for each column
         {
+            //store the sum of each color to calculate average
             float totalBlue = 0;
             float totalGreen = 0;
             float totalRed = 0;
             float count = 0;
 
-            for (int r = -1; r < 2; r++)
+            for (int r = -1; r < 2; r++) //loop for box around pixel - row
             {
-                for (int c = -1; c < 2; c++)
+                for (int c = -1; c < 2; c++) //loop for box around pixel - column
                 {
-                    if (i + r < 0 || i + r > height - 1)
+                    if (i + r < 0 || i + r > height - 1) //if target box-pixel is out of image index - row
                     {
                         continue;
                     }
 
-                    if (j + c < 0 || j + c > width - 1)
+                    if (j + c < 0 || j + c > width - 1) //if target box-pixel is out of image index - column
                     {
                         continue;
                     }
 
-                    totalBlue += image[i + r][j + c].rgbtBlue;
+                    totalBlue += image[i + r][j + c].rgbtBlue; //add the sum of box-colors
                     totalGreen += image[i + r][j + c].rgbtGreen;
                     totalRed += image[i + r][j + c].rgbtRed;
                     count++;
                 }
             }
 
-            tmp[i][j].rgbtBlue = round(totalBlue / count);
-            image[i][j].rgbtBlue = tmp[i][j].rgbtBlue;
+            tmp[i][j].rgbtBlue = round(totalBlue / count); //calculate average
+            image[i][j].rgbtBlue = tmp[i][j].rgbtBlue; //assign new value 
 
             tmp[i][j].rgbtGreen = round(totalGreen / count);
             image[i][j].rgbtGreen = tmp[i][j].rgbtGreen;
