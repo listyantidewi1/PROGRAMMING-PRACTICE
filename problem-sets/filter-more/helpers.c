@@ -42,6 +42,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 }
 
 // Detect edges
+//maybe use transpose matrix
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
     return;
