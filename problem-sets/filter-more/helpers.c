@@ -32,7 +32,8 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     //use swap
     //printf("%lu\n",sizeof(image));
 
-    for(int i = 0; i < height; i++){
+    for (int i = 0; i < height; i++)
+    {
         for(int j=0; j<)
     }
 
