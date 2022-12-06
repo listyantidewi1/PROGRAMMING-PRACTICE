@@ -3,6 +3,9 @@
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
 {
+    //the average RGB values should stay the same for the old and new image
+    //to make greyscale image, RGB values should be equal
+    
     return;
 }
 
