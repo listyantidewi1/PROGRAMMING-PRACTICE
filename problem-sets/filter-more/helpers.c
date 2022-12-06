@@ -32,7 +32,6 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
     //leftmost pixel should become the rightmost pixel
     //use swap
-    //printf("%lu\n",sizeof(image));
 
     for (int i = 0; i < height; i++)
     {
@@ -42,12 +41,11 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
             RGBTRIPLE *b = &image[width-i-1][j];
             RGBTRIPLE tmp;
             //swap here
-            tmp = *a;
-            *a = *b;
-            *b = tmp;
+            // tmp = *a;
+            // *a = *b;
+            // *b = tmp;
         }
     }
-
 
     return;
 }
