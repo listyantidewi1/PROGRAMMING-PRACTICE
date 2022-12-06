@@ -5,7 +5,7 @@ int main(void)
 {
     //for loop
     /*
-        ketika kita sudah tahu persis perulangan akan berulang berapa kali
+        ketika kita sudah tahu perulangan akan berulang berapa kali
 
         string n = {"red", "green", "blue"};
         sizeof(array) atau strlen(string)
