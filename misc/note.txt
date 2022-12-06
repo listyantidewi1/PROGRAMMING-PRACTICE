@@ -1,6 +1,6 @@
 Fungsi operasi pada data:
 1. aritmatika (+, -, *, /, %, ++, --)
-2. logika (&&, ||, !, <, >, <=, >=, ==, !=)
+2. logika (&& (and), ||, !, <, >, <=, >=, ==, !=)
 
 contoh:
 int a=10, b=5;
@@ -8,3 +8,12 @@ int c = a + b; //c = 15
 
 string a="10", b="5"
 string c = a + b; //c = 105
+
+contoh logika:
+if(a<5 && b>10){
+    printf("oke");
+}
+
+if(a<5 || b>10){
+    printf("oke");
+}
