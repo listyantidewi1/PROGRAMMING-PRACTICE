@@ -56,9 +56,20 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 //maybe use transpose matrix
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
+    //tranpose
+    //swap:
+    //0,1 with 1,0
+    //0,2 with 2,0
+    //2,1 with 1,2
+    //keep
+    //0,0
+    //1,0
+    //2,2
     return;
 }
 
+
+//create swap function
 void swap(int *a, int *b)
 {
     int tmp = *a;
