@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
                 fclose(output_pointer);
             }
 
-            sprintf(namafile, "%i.jpg", hitung_blok);
+            sprintf(namafile, "%03i.jpg", hitung_blok);
             output_pointer = fopen(namafile, "w");
             hitung_blok++;
         }
