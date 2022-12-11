@@ -102,5 +102,6 @@ int check_format(uint8_t header[])
 int get_block_size(uint8_t header[])
 {
     // TODO #7
+    int block_size = header[23] * 256 + header[22];
     return 0;
 }
