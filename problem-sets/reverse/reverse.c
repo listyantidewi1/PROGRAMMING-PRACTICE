@@ -62,17 +62,23 @@ int main(int argc, char *argv[])
 
     // Use get_block_size to calculate size of block
     // TODO #7
-    get_block_size(headers);
+    int block_size = get_block_size(headers);
 
     // Write reversed audio to file
     // TODO #8
-    int16_t samples_copy;
+    int16_t samples_copy[block_size];
     while (fread(&samples, sizeof(int16_t), 1, input))
     {
         //samples *= factor;
         //fwrite(&samples,  1, sizeof(int16_t), output);
-        
+        for (int i = 0, size = sizeof[samples_copy]; i < size; i++)
+        {
+            samples_copy[size - i] = samples;
+            fwrite(&samples_copy[size-i], sizeof(int16_t), 1, ouput);
+        }
+
     }
+
 
     // Close files
     fclose(input);
@@ -117,5 +123,5 @@ int get_block_size(uint8_t header[])
     int byte_per_sample = header[35] / 8;
     int block_size = number_of_channels * byte_per_sample;
 
-    return 0;
+    return block_size;
 }
