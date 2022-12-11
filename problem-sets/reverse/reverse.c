@@ -72,7 +72,11 @@ int main(int argc, char *argv[])
         fwrite(&samples,  1, sizeof(int16_t), output);
     }
 
+    // Close files
+    fclose(input);
+    fclose(output);
 
+    return 0;
 }
 
 int check_format(uint8_t header[])
