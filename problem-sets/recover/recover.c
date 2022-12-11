@@ -13,39 +13,39 @@ int main(int argc, char *argv[])
     }
 
     char *input = argv[1];
-    FILE *inptr = fopen(input, "r");
-    if (inptr == NULL)
+    FILE *input_pointer = fopen(input, "r");
+    if (input_pointer == NULL)
     {
         printf("Unable to open file\n");
         return 1;
     }
 
-    int block_counter = 0;
-    FILE *outptr = NULL;
-    char filename[8];
+    int hitung_blok = 0;
+    FILE *output_pointer = NULL;
+    char namafile[8];
     uint8_t buffer[512];
 
-    while (fread(buffer, 512, 1, inptr))
+    while (fread(buffer, 512, 1, input_pointer))
     {
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
         {
-            if (outptr != 0)
+            if (output_pointer != 0)
             {
-                fclose(outptr);
+                fclose(output_pointer);
             }
 
-            sprintf(filename, "%03i.jpg", block_counter);
-            outptr = fopen(filename, "w");
-            block_counter++;
+            sprintf(namafile, "%03i.jpg", hitung_blok);
+            output_pointer = fopen(namafile, "w");
+            hitung_blok++;
         }
-        if (outptr != 0)
+        if (output_pointer != 0)
         {
             //if already found, continue writing
-            fwrite(buffer, 512, 1, outptr);
+            fwrite(buffer, 512, 1, output_pointer);
         }
     }
 
-    fclose(inptr);
-    fclose(outptr);
+    fclose(input_pointer);
+    fclose(output_pointer);
     return 0;
 }
