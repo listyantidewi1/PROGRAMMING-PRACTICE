@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 
     // Use check_format to ensure WAV format
     // TODO #4
-    if(check_format(headers) == false)
+    if (check_format(headers) == false)
     {
         return 1;
     }
@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
         for (int i = 0, size = sizeof(samples_copy); i < size; i++)
         {
             samples_copy[size - i] = samples;
-            fwrite(&samples_copy[size-i], sizeof(int16_t), 1, output);
+            fwrite(&samples_copy[size - i], sizeof(int16_t), 1, output);
         }
 
     }
@@ -91,8 +91,8 @@ int main(int argc, char *argv[])
 int check_format(uint8_t header[])
 {
     // TODO #4
-    uint8_t riff[4] = {82,73,70,70};
-    uint8_t wave[4] = {87,65,86,69};
+    uint8_t riff[4] = {82, 73, 70, 70};
+    uint8_t wave[4] = {87, 65, 86, 69};
 
     for (int i = 0; i < 4; i++)
     {
