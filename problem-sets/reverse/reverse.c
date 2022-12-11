@@ -68,8 +68,8 @@ int main(int argc, char *argv[])
     // TODO #8
     while (fread(&samples, sizeof(int16_t), 1, input))
     {
-        samples *= factor;
-        fwrite(&samples, sizeof(int16_t), 1, output);
+        //samples *= factor;
+        fwrite(&samples,  1, sizeof(int16_t), output);
     }
 
 
