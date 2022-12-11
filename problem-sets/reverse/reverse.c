@@ -66,10 +66,12 @@ int main(int argc, char *argv[])
 
     // Write reversed audio to file
     // TODO #8
+    int16_t samples_copy;
     while (fread(&samples, sizeof(int16_t), 1, input))
     {
         //samples *= factor;
-        fwrite(&samples,  1, sizeof(int16_t), output);
+        //fwrite(&samples,  1, sizeof(int16_t), output);
+        
     }
 
     // Close files
