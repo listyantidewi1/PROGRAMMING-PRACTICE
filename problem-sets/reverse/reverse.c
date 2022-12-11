@@ -7,6 +7,7 @@
 // Number of bytes in .wav header
 const int HEADER_SIZE = 44;
 uint8_t headers[HEADER_SIZE];
+int16_t samples;
 
 int check_format(uint8_t header[]);
 int get_block_size(uint8_t header[]);
@@ -65,7 +66,13 @@ int main(int argc, char *argv[])
 
     // Write reversed audio to file
     // TODO #8
-    
+    while (fread(&samples, sizeof(int16_t), 1, input))
+    {
+        samples *= factor;
+        fwrite(&samples, sizeof(int16_t), 1, output);
+    }
+
+
 }
 
 int check_format(uint8_t header[])
