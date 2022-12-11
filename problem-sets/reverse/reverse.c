@@ -41,11 +41,7 @@ int main(int argc, char *argv[])
 
     // Use check_format to ensure WAV format
     // TODO #4
-    if(check_format(headers))
-    {
-        continue;
-    }
-    else
+    if(check_format(headers) == false)
     {
         return 1;
     }
@@ -102,6 +98,7 @@ int check_format(uint8_t header[])
 int get_block_size(uint8_t header[])
 {
     // TODO #7
-    int block_size = header[23] * 256 + header[22];
+    int number_of_channels = header[23] * 256 + header[22];
+    int byte_per_sample = 
     return 0;
 }
