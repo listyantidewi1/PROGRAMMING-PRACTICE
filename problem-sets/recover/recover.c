@@ -6,6 +6,7 @@ typedef uint8_t BYTE;
 
 int main(int argc, char *argv[])
 {
+    //jika argumen tidak sama dengan dua (argumen tidak pas)
     if (argc != 2)
     {
         printf("Usage: ./recover image\n");
@@ -13,14 +14,14 @@ int main(int argc, char *argv[])
     }
 
     char *input = argv[1];
-    FILE *input_pointer = fopen(input, "r");
+    FILE *input_pointer = fopen(input, "r"); //cek apakah file bisa dibuka
     if (input_pointer == NULL)
     {
         printf("Unable to open file\n");
         return 1;
     }
 
-    int hitung_blok = 0;
+    int hitung_blok = 0; //untuk menghitung jumlah blok
     FILE *output_pointer = NULL;
     char namafile[8];
     uint8_t buffer[512];
@@ -34,13 +35,13 @@ int main(int argc, char *argv[])
                 fclose(output_pointer);
             }
 
-            sprintf(namafile, "%03i.jpg", hitung_blok);
+            sprintf(namafile, "%i.jpg", hitung_blok);
             output_pointer = fopen(namafile, "w");
             hitung_blok++;
         }
         if (output_pointer != 0)
         {
-            //if already found, continue writing
+
             fwrite(buffer, 512, 1, output_pointer);
         }
     }
