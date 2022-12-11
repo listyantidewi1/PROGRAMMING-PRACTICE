@@ -61,9 +61,11 @@ int main(int argc, char *argv[])
 
     // Use get_block_size to calculate size of block
     // TODO #7
+    get_block_size(headers);
 
     // Write reversed audio to file
     // TODO #8
+    
 }
 
 int check_format(uint8_t header[])
@@ -99,6 +101,8 @@ int get_block_size(uint8_t header[])
 {
     // TODO #7
     int number_of_channels = header[23] * 256 + header[22];
-    int byte_per_sample = 
+    int byte_per_sample = header[35] / 8;
+    int block_size = number_of_channels * byte_per_sample;
+
     return 0;
 }
