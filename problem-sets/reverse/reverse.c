@@ -67,14 +67,15 @@ int main(int argc, char *argv[])
     // Write reversed audio to file
     // TODO #8
     int16_t samples_copy[block_size];
+
     while (fread(&samples, sizeof(int16_t), 1, input))
     {
         //samples *= factor;
         //fwrite(&samples,  1, sizeof(int16_t), output);
-        for (int i = 0, size = sizeof[samples_copy]; i < size; i++)
+        for (int i = 0, size = sizeof(samples_copy); i < size; i++)
         {
             samples_copy[size - i] = samples;
-            fwrite(&samples_copy[size-i], sizeof(int16_t), 1, ouput);
+            fwrite(&samples_copy[size-i], sizeof(int16_t), 1, output);
         }
 
     }
