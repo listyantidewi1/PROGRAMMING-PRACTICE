@@ -88,47 +88,51 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
-    RGBTRIPLE tmp[height][width];
+     RGBTRIPLE temp[height][width];
 
-    for (int i = 0; i < height; i++) //loop for each row
+    for (int i = 0; i < height; i++)
     {
-        for (int j = 0; j < width; j++) //loop for each column
+        for (int j = 0; j < width; j++)
         {
-            //store the sum of each color to calculate average
-            float totalBlue = 0;
-            float totalGreen = 0;
-            float totalRed = 0;
-            float count = 0;
+            float sumBlue = 0;
+            float sumGreen = 0;
+            float sumRed = 0;
+            float counter = 0;
 
-            for (int r = -1; r < 2; r++) //loop for box around pixel - row
+            for (int r = -1; r < 2; r++)
             {
-                for (int c = -1; c < 2; c++) //loop for box around pixel - column
+                for (int c = -1; c < 2; c++)
                 {
-                    if (i + r < 0 || i + r > height - 1) //if target box-pixel is out of image index - row
+                    if (i + r < 0 || i + r > height - 1)
                     {
                         continue;
                     }
 
-                    if (j + c < 0 || j + c > width - 1) //if target box-pixel is out of image index - column
+                    if (j + c < 0 || j + c > width - 1)
                     {
                         continue;
                     }
 
-                    totalBlue += image[i + r][j + c].rgbtBlue; //add the sum of box-colors
-                    totalGreen += image[i + r][j + c].rgbtGreen;
-                    totalRed += image[i + r][j + c].rgbtRed;
-                    count++;
+                    sumBlue += image[i + r][j + c].rgbtBlue;
+                    sumGreen += image[i + r][j + c].rgbtGreen;
+                    sumRed += image[i + r][j + c].rgbtRed;
+                    counter++;
                 }
             }
 
-            tmp[i][j].rgbtBlue = round(totalBlue / count); //calculate average
-            image[i][j].rgbtBlue = tmp[i][j].rgbtBlue; //assign new value 
+            temp[i][j].rgbtBlue = round(sumBlue / counter);
+            temp[i][j].rgbtGreen = round(sumGreen / counter);
+            temp[i][j].rgbtRed = round(sumRed / counter);
+        }
+    }
 
-            tmp[i][j].rgbtGreen = round(totalGreen / count);
-            image[i][j].rgbtGreen = tmp[i][j].rgbtGreen;
-
-            tmp[i][j].rgbtRed = round(totalRed / count);
-            image[i][j].rgbtRed = tmp[i][j].rgbtRed;
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            image[i][j].rgbtBlue = temp[i][j].rgbtBlue;
+            image[i][j].rgbtGreen = temp[i][j].rgbtGreen;
+            image[i][j].rgbtRed = temp[i][j].rgbtRed;
         }
     }
 
