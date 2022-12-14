@@ -20,12 +20,21 @@ int main(void)
 {
     node *list = NULL;
 
+
+
     // Add items to list
     for (int i = 0; i < LIST_SIZE; i++)
     {
         string phrase = get_string("Enter a new phrase: ");
-
+        node *n = malloc(sizeof(node));
         // TODO: add phrase to new node in list
+        if (n == NULL)
+        {
+            return 1;
+        }
+
+        n->phrase = phrase;
+        n->next = NULL;
 
         // Visualize list after adding a node.
         visualizer(list);
