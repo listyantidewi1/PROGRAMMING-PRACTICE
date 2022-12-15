@@ -1,24 +1,23 @@
 // Simulate genetic inheritance of blood type
 
-#include <stdlib.h>
-#include <time.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
-
-// Each person has two ortu and two alleles
+// Each person has two parents and two alleles
 typedef struct person
 {
-    struct person *ortu[2];
+    struct person *parents[2];
     char alleles[2];
 }
 person;
 
-const int generasi = 3;
+const int GENERATIONS = 3;
 const int INDENT_LENGTH = 4;
 
-person *create_family(int generasi);
-void print_family(person *p, int generasi);
+person *create_family(int generations);
+void print_family(person *p, int generation);
 void free_family(person *p);
 char random_allele();
 
@@ -27,8 +26,8 @@ int main(void)
     // Seed random number generator
     srand(time(0));
 
-    // Create a new family with three generasi
-    person *p = create_family(generasi);
+    // Create a new family with three generations
+    person *p = create_family(GENERATIONS);
 
     // Print family tree of blood types
     print_family(p, 0);
@@ -37,8 +36,8 @@ int main(void)
     free_family(p);
 }
 
-// Create a new individual with `generasi`
-person *create_family(int generasi)
+// Create a new individual with `generations`
+person *create_family(int generations)
 {
     // Allocate memory for new person
     person *new_person = malloc(sizeof(person));
@@ -49,28 +48,28 @@ person *create_family(int generasi)
         return NULL;
     }
 
-    // If there are still generasi left to create
-    if (generasi > 1)
+    // If there are still generations left to create
+    if (generations > 1)
     {
-        // Create two new ortu for current person by recursively calling create_family
-        person *parent0 = create_family(generasi - 1);
-        person *parent1 = create_family(generasi - 1);
+        // Create two new parents for current person by recursively calling create_family
+        person *parent0 = create_family(generations - 1);
+        person *parent1 = create_family(generations - 1);
 
         // Set parent pointers for current person
-        new_person->ortu[0] = parent0;
-        new_person->ortu[1] = parent1;
+        new_person->parents[0] = parent0;
+        new_person->parents[1] = parent1;
 
-        // Randomly assign current person's alleles based on the alleles of their ortu
+        // Randomly assign current person's alleles based on the alleles of their parents
         new_person->alleles[0] = parent0->alleles[rand() % 2];
         new_person->alleles[1] = parent1->alleles[rand() % 2];
     }
 
-    // If there are no generasi left to create
+    // If there are no generations left to create
     else
     {
         // Set parent pointers to NULL
-        new_person->ortu[0] = NULL;
-        new_person->ortu[1] = NULL;
+        new_person->parents[0] = NULL;
+        new_person->parents[1] = NULL;
 
         // Randomly assign alleles
         new_person->alleles[0] = random_allele();
@@ -90,16 +89,16 @@ void free_family(person *p)
         return;
     }
 
-    // Free ortu recursively
-    free_family(p->ortu[0]);
-    free_family(p->ortu[1]);
+    // Free parents recursively
+    free_family(p->parents[0]);
+    free_family(p->parents[1]);
 
     // Free child
     free(p);
 }
 
 // Print each family member and their alleles.
-void print_family(person *p, int generasi)
+void print_family(person *p, int generation)
 {
     // Handle base case
     if (p == NULL)
@@ -108,32 +107,32 @@ void print_family(person *p, int generasi)
     }
 
     // Print indentation
-    for (int i = 0; i < generasi * INDENT_LENGTH; i++)
+    for (int i = 0; i < generation * INDENT_LENGTH; i++)
     {
         printf(" ");
     }
 
     // Print person
-    if (generasi == 0)
+    if (generation == 0)
     {
-        printf("Child (generasi %i): blood type %c%c\n", generasi, p->alleles[0], p->alleles[1]);
+        printf("Child (Generation %i): blood type %c%c\n", generation, p->alleles[0], p->alleles[1]);
     }
-    else if (generasi == 1)
+    else if (generation == 1)
     {
-        printf("Parent (generasi %i): blood type %c%c\n", generasi, p->alleles[0], p->alleles[1]);
+        printf("Parent (Generation %i): blood type %c%c\n", generation, p->alleles[0], p->alleles[1]);
     }
     else
     {
-        for (int i = 0; i < generasi - 2; i++)
+        for (int i = 0; i < generation - 2; i++)
         {
             printf("Great-");
         }
-        printf("Grandparent (generasi %i): blood type %c%c\n", generasi, p->alleles[0], p->alleles[1]);
+        printf("Grandparent (Generation %i): blood type %c%c\n", generation, p->alleles[0], p->alleles[1]);
     }
 
-    // Print ortu of current generasi
-    print_family(p->ortu[0], generasi + 1);
-    print_family(p->ortu[1], generasi + 1);
+    // Print parents of current generation
+    print_family(p->parents[0], generation + 1);
+    print_family(p->parents[1], generation + 1);
 }
 
 // Randomly chooses a blood type allele.
