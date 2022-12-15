@@ -14,10 +14,10 @@ typedef struct person
 }
 person;
 
-const int generasiS = 3;
+const int generasi = 3;
 const int INDENT_LENGTH = 4;
 
-person *create_family(int generasis);
+person *create_family(int generasi);
 void print_family(person *p, int generasi);
 void free_family(person *p);
 char random_allele();
@@ -27,8 +27,8 @@ int main(void)
     // Seed random number generator
     srand(time(0));
 
-    // Create a new family with three generasis
-    person *p = create_family(generasiS);
+    // Create a new family with three generasi
+    person *p = create_family(generasi);
 
     // Print family tree of blood types
     print_family(p, 0);
@@ -37,8 +37,8 @@ int main(void)
     free_family(p);
 }
 
-// Create a new individual with `generasis`
-person *create_family(int generasis)
+// Create a new individual with `generasi`
+person *create_family(int generasi)
 {
     // Allocate memory for new person
     person *new_person = malloc(sizeof(person));
@@ -49,12 +49,12 @@ person *create_family(int generasis)
         return NULL;
     }
 
-    // If there are still generasis left to create
-    if (generasis > 1)
+    // If there are still generasi left to create
+    if (generasi > 1)
     {
         // Create two new ortu for current person by recursively calling create_family
-        person *parent0 = create_family(generasis - 1);
-        person *parent1 = create_family(generasis - 1);
+        person *parent0 = create_family(generasi - 1);
+        person *parent1 = create_family(generasi - 1);
 
         // Set parent pointers for current person
         new_person->ortu[0] = parent0;
@@ -65,7 +65,7 @@ person *create_family(int generasis)
         new_person->alleles[1] = parent1->alleles[rand() % 2];
     }
 
-    // If there are no generasis left to create
+    // If there are no generasi left to create
     else
     {
         // Set parent pointers to NULL
