@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define HASH_TABLE_SIZE 10000
 
 #include "dictionary.h"
 
@@ -16,6 +17,8 @@ typedef struct node
     struct node *next;
 }
 node;
+
+node *hashtable[HASH_TABLE_SIZE];
 
 // TODO: Choose number of buckets in hash table
 const unsigned int N = 26;
