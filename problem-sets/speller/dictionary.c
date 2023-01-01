@@ -52,12 +52,17 @@ int word_count = 0;
 bool load(const char *dictionary)
 {
     // TODO
-    // open i
+    // open file dictionary
     FILE *file = fopen(dictionary, "r");
     if (file == NULL)
     {
         return false
     }
+
+    // scan dictionary per kata
+
+    char word[LENGTH + 1];
+    
 
 
     return false;
