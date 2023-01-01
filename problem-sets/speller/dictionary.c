@@ -37,14 +37,23 @@ bool check(const char *word)
 unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
-    
-    return toupper(word[0]) - 'A';
+    unsigned int _hash = 0;
+    for (int i = 0, n = strlen(word); i < n; i++)
+    {
+        _hash = (_hash << 2) ^ word[i];
+    }
+    //return toupper(word[0]) - 'A';
+    return hash % HASH_TABLE_SIZE;
 }
+
+int word_count = 0;
 
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
     // TODO
+    FILE *file = fopen(dictionary, "r");
+    
     return false;
 }
 
