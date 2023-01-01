@@ -52,8 +52,14 @@ int word_count = 0;
 bool load(const char *dictionary)
 {
     // TODO
+    // open i
     FILE *file = fopen(dictionary, "r");
-    
+    if (file == NULL)
+    {
+        return false
+    }
+
+
     return false;
 }
 
