@@ -23,9 +23,13 @@ def main():
 
     # Slicing!
     # TODO: Print the first 10 items in the list:
-    
+    i = 0
+    while i < 10:
+        print(random_nums[i])
+        i += 1
 
     # TODO: Print the last 10 items in the list
+    
 
     # TODO: Print every third item in the list:
 
