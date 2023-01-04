@@ -29,14 +29,23 @@ def main():
         i += 1
 
     # TODO: Print the last 10 items in the list
-    
+    i = 39
+    while i < 50:
+        print(random_nums[i])
+        i += i
+
 
     # TODO: Print every third item in the list:
+    i = 2
+    while i < 50:
+        print(random_nums[i])
+        i += 3
 
 
     # Exercise:
 
     # TODO 1: Print the values in Reverse-order
+    
 
 
     # TODO 2: Print the even values of the list
