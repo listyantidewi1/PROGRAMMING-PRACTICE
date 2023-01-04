@@ -9,16 +9,21 @@ def main():
     random_nums = [randint(0,MAX_VALUE) for x in range(LIST_LENGTH)]
 
     # Print the list
+    print(random_nums)
 
     # TODO: Count occurences of '0' in the list
+    print(random_nums.count(0))
 
     # TODO: Print the 15th element of the list
+    print(random_nums[14])
 
     # TODO: Print the length of the list
+    print(len(random_nums))
 
 
     # Slicing!
     # TODO: Print the first 10 items in the list:
+    
 
     # TODO: Print the last 10 items in the list
 
