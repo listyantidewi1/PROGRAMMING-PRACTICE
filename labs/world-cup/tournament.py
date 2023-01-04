@@ -20,8 +20,8 @@ def main():
     with open(filename) as f:
         reader = csv.DictReader(f)
         for team in reader:
-            team["rating"] = int(team["rating"])
-            teams.append(team)
+            team["rating"] = int(team["rating"]) #cast string into integer
+            teams.append(team) #add team to teams set
 
     # Keep track of number of wins for each team
     counts = {}
