@@ -48,6 +48,9 @@ def main():
     random_nums.reverse()
     print(random_nums)
 
+    print(random_nums[len(random_nums):0:-1])
+    print(random_nums[::-1])
+
 
     # TODO 2: Print the even values of the list
     i = 0
