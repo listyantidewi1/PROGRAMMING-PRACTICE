@@ -45,13 +45,25 @@ def main():
     # Exercise:
 
     # TODO 1: Print the values in Reverse-order
-    
+    random_nums.reverse()
+    print(random_nums)
 
 
     # TODO 2: Print the even values of the list
+    i = 0
+    while i < 50:
+        if i % 2 == 0:
+            print(random_nums[i])
+        i += 1
+
 
 
     # TODO 3: Print the odd-indexed values of the list
+    i = 0
+    while i < 50:
+        if i % 2 == 1:
+            print(random_nums[i])
+        i += 1
 
 
 
