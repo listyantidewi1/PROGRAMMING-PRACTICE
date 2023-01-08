@@ -38,8 +38,8 @@ def main():
 
     matches = []
 
-    for str in str_sequence:
-        matches.append(longest_match(dna_seq, str))
+    for STR in str_sequence:
+        matches.append(longest_match(dna_seq, STR))
 
     matches = str(matches)
 
