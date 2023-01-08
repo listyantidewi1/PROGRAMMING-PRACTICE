@@ -50,7 +50,8 @@ else:
         print("INVALID")
     else:
         print("Valid")
-        number1 = number2 = n_checktype
+        number1 = n_checktype
+        number2 = n_checktype
         while(n_checktype):
             number2 = number1
             number1 = n_checktype
