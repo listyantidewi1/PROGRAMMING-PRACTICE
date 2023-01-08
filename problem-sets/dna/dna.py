@@ -41,7 +41,9 @@ def main():
     for STR in str_sequence:
         matches.append(longest_match(dna_seq, STR))
 
-    str_matches = map(str, matches)
+    str_matches = []
+
+    str_matches.append()
 
     print(str_matches)
     print(dna_database)
