@@ -41,6 +41,8 @@ def main():
     for str in str_sequence:
         matches.append(longest_match(dna_seq, str))
 
+    matches = str(matches)
+
     print(matches)
     print(dna_database)
 
@@ -48,7 +50,7 @@ def main():
 
     # TODO: Check database for matching profiles
 
-    
+
 
     print("No match")
     return
