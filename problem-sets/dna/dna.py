@@ -10,6 +10,7 @@ def main():
         print("Usage: python dna.py data.csv sequence.txt")
 
     # TODO: Read database file into a variable
+    
 
     # TODO: Read DNA sequence file into a variable
 
