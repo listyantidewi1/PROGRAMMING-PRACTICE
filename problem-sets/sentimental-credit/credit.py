@@ -12,3 +12,9 @@ for i in range(0, len(number)):
         length += 1
 
 # print(length)
+
+if length < 13 or length > 16:
+    print("INVALID")
+else:
+    sum = 0
+    sum = int(number % 10)
