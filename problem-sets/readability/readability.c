@@ -66,8 +66,9 @@ int main(void)
     float s = (float) num_sentences / (float) num_words * 100;
     float index =  0.0588 * l - 0.296 * s - 15.8;
 
-// printf("l: %f\n", l);
-// printf("s: %f\n", s);
+ printf("l: %f\n", l);
+ printf("s: %f\n", s);
+ printf("index: %0.0f\n", round(index));
 
     if (index < 1)
     {
