@@ -43,16 +43,19 @@ def main():
 
     str_matches = []
 
-    str_matches.append()
+    for x in matches:
+        str_matches.append(str(x))
 
-    print(str_matches)
-    print(dna_database)
+    # print(str_matches)
+    # print(dna_database)
 
     # print(count_AGATC)
 
     # TODO: Check database for matching profiles
-
-
+    for name, val in dna_database.items():
+        if set(val) == set(str_matches):
+            print(name)
+            return
 
     print("No match")
     return
