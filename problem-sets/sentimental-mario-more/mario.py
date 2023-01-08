@@ -7,11 +7,11 @@ height = 0
 # ask for height as input
 height = input("Height: ")
 
-if height.isdigit() == False:
-    height = input("Height: ")
+# if height.isnumeric() == False:
+#    height = input("Height: ")
 
 # keep asking for height if its out of required values
-if (int(height) < 1 or int(height) > 8) and height.isdigit():
+if (int(height) < 1 or int(height) > 8) and height.isnumeric():
     height = input("Height: ")
 
 
