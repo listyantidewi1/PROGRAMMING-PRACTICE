@@ -36,10 +36,10 @@ def main():
     # count_GAAA= longest_match(dna_seq, "GAAA")
     # count_TCTG= longest_match(dna_seq, "TCTG")
 
-    matches[]
+    matches = []
 
     for str in str_sequence:
-        matches.append(longest_match(str, dna_seq))
+        matches.append(longest_match(dna_seq, str))
 
     # print(count_AGATC)
 
