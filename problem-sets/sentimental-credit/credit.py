@@ -17,4 +17,6 @@ if length < 13 or length > 16:
     print("INVALID")
 else:
     sum = 0
-    sum = int(number % 10)
+    sum = int(number) % 10 # getting the last digit
+    number = int(number) / 10 # chopping the last digit away
+    print(number)
