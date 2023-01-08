@@ -39,7 +39,9 @@ def main():
     matches = []
 
     for str in str_sequence:
-        matches.append(longest_match(str, dna_seq))
+        matches.append(longest_match(dna_seq, str))
+
+    print(matches)
 
     # print(count_AGATC)
 
