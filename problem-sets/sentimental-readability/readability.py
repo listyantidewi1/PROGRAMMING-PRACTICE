@@ -21,8 +21,11 @@ num_sentences = text.count('.')
 # compute L
 
 l = num_letters / num_words * 100
+print(l)
 s = num_sentences / num_words * 100
+print(s)
 index = 0.0588 * l - 0.296 * s - 15.8
+print(index)
 
 if index < 1:
     print("Before Grade 1")
