@@ -11,7 +11,7 @@ text = get_string("Text: ")
 
 num_letters = 0
 
-for i in text:
+for i in len(text):
     if text[i].isalpha() == True:
         num_letters += 1
 
