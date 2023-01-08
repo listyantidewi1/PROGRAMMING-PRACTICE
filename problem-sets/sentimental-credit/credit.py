@@ -44,7 +44,7 @@ else:
 
     math.trunc(n)
 
-    print("sum: " + sum + " leftmost: " + n)
+    print("sum: ", sum," leftmost: ",n)
 
     if sum % 10:
         print("INVALID")
