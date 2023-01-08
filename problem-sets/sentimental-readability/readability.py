@@ -11,3 +11,9 @@ num_letters = len(text)
 # print(num_letters)
 
 # count the number of words
+num_words = len(text.split())
+# print(num_words)
+
+# count the number of sentences
+num_sentences = len(text.split('.'))
+print(num_sentences)
