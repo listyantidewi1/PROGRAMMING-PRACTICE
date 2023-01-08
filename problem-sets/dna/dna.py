@@ -14,6 +14,11 @@ def main():
     with open(argv[1], newline='') as dna_db_file:
         reader = csv.reader(dna_db_file)
 
+        # get the STR sequence from CSV file
+        str = next(reader, None)[1:]
+        for baris in reader:
+            dna_database[baris[0]] = baris[1:]
+
     # TODO: Read DNA sequence file into a variable
 
     # TODO: Find longest match of each STR in DNA sequence
