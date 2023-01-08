@@ -42,7 +42,7 @@ else:
     while(n > 10):
         n = n / 10
 
-    math.trunc(n)
+    n = math.trunc(n)
 
     print("sum: ", sum," leftmost: ",n)
 
