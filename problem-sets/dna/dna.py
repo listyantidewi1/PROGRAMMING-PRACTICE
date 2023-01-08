@@ -25,16 +25,18 @@ def main():
 
 
     # TODO: Find longest match of each STR in DNA sequence
-    for 
 
-    count_AGATC = longest_match(dna_seq, "AGATC")
-    count_ATTTTTTCT= longest_match(dna_seq, "TTTTTTCT")
-    count_AATG= longest_match(dna_seq, "AATG")
-    count_TCTAG= longest_match(dna_seq, "TCTAG")
-    count_GATA= longest_match(dna_seq, "GATA")
-    count_TATC= longest_match(dna_seq, "TATC")
-    count_GAAA= longest_match(dna_seq, "GAAA")
-    count_TCTG= longest_match(dna_seq, "TCTG")
+
+    # count_AGATC = longest_match(dna_seq, "AGATC")
+    # count_ATTTTTTCT= longest_match(dna_seq, "TTTTTTCT")
+    # count_AATG= longest_match(dna_seq, "AATG")
+    # count_TCTAG= longest_match(dna_seq, "TCTAG")
+    # count_GATA= longest_match(dna_seq, "GATA")
+    # count_TATC= longest_match(dna_seq, "TATC")
+    # count_GAAA= longest_match(dna_seq, "GAAA")
+    # count_TCTG= longest_match(dna_seq, "TCTG")
+
+    
 
     # print(count_AGATC)
 
