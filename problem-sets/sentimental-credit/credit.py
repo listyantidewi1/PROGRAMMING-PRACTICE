@@ -44,9 +44,12 @@ else:
 
     math.trunc(n)
 
+    print("sum: " + sum + " leftmost: " + n)
+
     if sum % 10:
         print("INVALID")
     else:
+        print("Valid")
         number1 = number2 = n_checktype
         while(n_checktype):
             number2 = number1
