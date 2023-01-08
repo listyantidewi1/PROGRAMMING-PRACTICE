@@ -8,7 +8,7 @@ number = input("Number: ")
 length = 0
 
 for i in range(0, len(number)):
-    if number[i].isdigit() = True:
+    if number[i].isdigit() == True:
         length += 1
 
-print(length)
+# print(length)
