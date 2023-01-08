@@ -26,3 +26,12 @@ else:
     number = math.trunc(number)
     # print(number)
 
+    while(number):
+        temp = (number % 10) * 2 # get rightmost digit and double the val
+        if temp > 9:
+            temp = temp - 9
+        sum = sum + temp # add current digit to sum
+        number = math.trunc(number / 10) # throw rightmost digit away
+        temp = number % 10 # get another rightmost figit
+        sum = sum + temp # add current digit to sum
+        number = math.trunc(number / 10) # throw right digit away
