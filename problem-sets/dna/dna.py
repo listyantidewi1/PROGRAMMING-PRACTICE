@@ -23,9 +23,7 @@ def main():
     with open(argv[2], "r") as dna_seq_file:
         dna_seq = dna_seq_file.read().rstrip('\n')
 
-
     # TODO: Find longest match of each STR in DNA sequence
-
 
     # count_AGATC = longest_match(dna_seq, "AGATC")
     # count_ATTTTTTCT= longest_match(dna_seq, "TTTTTTCT")
