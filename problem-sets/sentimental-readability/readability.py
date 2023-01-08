@@ -29,4 +29,4 @@ if index < 1:
 elif index > 16:
     print("Grade 16+")
 else:
-    print("Grade ", round(index, 0))
+    print("Grade ", int(round(index, 0)))
