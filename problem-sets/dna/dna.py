@@ -42,6 +42,7 @@ def main():
         matches.append(longest_match(dna_seq, str))
 
     print(matches)
+    print(dna_database)
 
     # print(count_AGATC)
 
