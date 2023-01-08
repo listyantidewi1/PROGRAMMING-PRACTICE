@@ -123,6 +123,7 @@ int main(void)
                 number1 = n_checktype;
                 n_checktype /= 10;
             }
+            printf("number2 %li", number2);
 
             if (number2 == 34 || number2 == 37)
             {
