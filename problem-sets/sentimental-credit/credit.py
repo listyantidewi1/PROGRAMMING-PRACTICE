@@ -6,6 +6,7 @@ import math
 
 number = input("Number: ")
 
+
 # count number of digits
 length = 0
 
@@ -20,6 +21,8 @@ for i in range(0, len(number)):
 if length < 13 or length > 16:
     print("INVALID")
 else:
+    n = int(number)
+    n_checktype = int(number)
     sum = 0
     sum = int(number) % 10 # getting the last digit
     number = int(number) / 10 # chopping the last digit away
@@ -35,3 +38,26 @@ else:
         temp = number % 10 # get another rightmost figit
         sum = sum + temp # add current digit to sum
         number = math.trunc(number / 10) # throw right digit away
+
+    while(n > 10):
+        n = n / 10
+
+    math.trunc(n)
+
+    if sum % 10:
+        print("INVALID")
+    else:
+        number1 = number2 = n_checktype
+        while(n_checktype):
+            number2 = number1
+            number1 = n_checktype
+            n_checktype /= 10
+
+        if number2 == 34 or number2 == 37:
+            print("AMEX")
+        elif (number2 >= 51 and number2 <=55) or number2 == 22:
+            print("MASTERCARD")
+        elif number2 >= 40 and number2 <= 49:
+            print("VISA")
+        else:
+            print("INVALID")
