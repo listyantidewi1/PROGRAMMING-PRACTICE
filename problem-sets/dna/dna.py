@@ -36,6 +36,8 @@ def main():
     # count_GAAA= longest_match(dna_seq, "GAAA")
     # count_TCTG= longest_match(dna_seq, "TCTG")
 
+    matches[]
+
     
 
     # print(count_AGATC)
