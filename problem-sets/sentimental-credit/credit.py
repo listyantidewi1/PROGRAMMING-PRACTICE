@@ -55,7 +55,7 @@ else:
             number2 = number1
             number1 = n_checktype
             n_checktype /= 10
-
+        print("number2", number2)
         if number2 == 34 or number2 == 37:
             print("AMEX")
         elif (number2 >= 51 and number2 <=55) or number2 == 22:
