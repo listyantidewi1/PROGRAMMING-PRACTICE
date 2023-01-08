@@ -48,10 +48,7 @@ def main():
 
     # TODO: Check database for matching profiles
 
-    for name, strVal in dna_database.items():
-        if set(strVal) == set(matches):
-            print(name)
-            return
+    
 
     print("No match")
     return
