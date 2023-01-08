@@ -8,7 +8,7 @@ height = 0
 height = input("Height: ")
 
 # keep asking for height if its out of required values
-if int(height) < 1 or int(height) > 8:
+if (int(height) < 1 or int(height) > 8) and height.isdigit():
     height = input("Height: ")
 
 # loop for the rows
