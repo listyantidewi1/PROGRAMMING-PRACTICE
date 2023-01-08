@@ -11,7 +11,7 @@ text = get_string("Text: ")
 
 num_letters = 0
 
-for i in len(text):
+for i in range(0, len(text) - 1):
     if text[i].isalpha() == True:
         num_letters += 1
 
@@ -28,11 +28,11 @@ num_sentences = text.count('.')
 # compute L
 
 l = num_letters / num_words * 100
-print(l)
+# print(l)
 s = num_sentences / num_words * 100
-print(s)
+# print(s)
 index = 0.0588 * l - 0.296 * s - 15.8
-print(index)
+# print(index)
 
 if index < 1:
     print("Before Grade 1")
