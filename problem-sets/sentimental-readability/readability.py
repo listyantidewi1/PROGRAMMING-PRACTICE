@@ -8,7 +8,7 @@ text = get_string("Text: ")
 
 # count the number of letters
 num_letters = len(text)
-# print(num_letters)
+print(num_letters)
 
 # count the number of words
 num_words = len(text.split())
