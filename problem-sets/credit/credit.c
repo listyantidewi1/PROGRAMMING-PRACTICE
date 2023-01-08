@@ -107,7 +107,7 @@ int main(void)
             n = n / 10;
         }
 
-        //printf("Sum: %i\nLeftmost: %li\n", sum, n);
+        printf("Sum: %i\nLeftmost: %li\n", sum, n);
 
         if (sum % 10)
         {
