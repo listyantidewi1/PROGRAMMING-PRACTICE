@@ -7,6 +7,7 @@ from cs50 import get_string
 text = get_string("Text: ")
 
 # count the number of letters
-num_letters = text.count()
-print(num_letters)
+num_letters = len(text)
+# print(num_letters)
 
+# count the number of words
