@@ -20,6 +20,7 @@ def main():
             dna_database[baris[0]] = baris[1:]
 
     # TODO: Read DNA sequence file into a variable
+    
 
     # TODO: Find longest match of each STR in DNA sequence
 
