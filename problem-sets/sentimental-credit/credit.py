@@ -43,7 +43,7 @@ else:
 
     n = math.trunc(n)
 
-    print("sum: ", sum," leftmost: ",n)
+    # print("sum: ", sum," leftmost: ",n)
 
     if sum % 10:
         print("INVALID")
@@ -55,7 +55,10 @@ else:
             number2 = number1
             number1 = n_checktype
             n_checktype /= 10
+            n_checktype = math.trunc(n_checktype)
+
         print("number2", number2)
+
         if number2 == 34 or number2 == 37:
             print("AMEX")
         elif (number2 >= 51 and number2 <=55) or number2 == 22:
