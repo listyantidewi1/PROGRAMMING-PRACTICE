@@ -38,7 +38,8 @@ def main():
 
     # TODO: Check database for matching profiles
 
-    if count_AGATC in dna_databases
+    if count_AGATC in dna_databases[baris[1]]:
+        print("Found")
 
     return
 
