@@ -22,7 +22,10 @@ num_words = len(text.split())
 # print(num_words)
 
 # count the number of sentences
-num_sentences = text.count('.')
+num_periods = text.count('.')
+num_questions = text.count('?')
+num_exclamations = text.count('!')
+num_sentences = num_periods + num_questions + num_exclamations
 # print(num_sentences)
 
 # compute L
