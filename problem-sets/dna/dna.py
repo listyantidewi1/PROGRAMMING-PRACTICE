@@ -41,9 +41,9 @@ def main():
     for STR in str_sequence:
         matches.append(longest_match(dna_seq, STR))
 
-    matches = str(matches)
+    str_matches = map(str, matches)
 
-    print(matches)
+    print(str_matches)
     print(dna_database)
 
     # print(count_AGATC)
