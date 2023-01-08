@@ -12,6 +12,8 @@ length = 0
 for i in range(0, len(number)):
     if number[i].isdigit() == True:
         length += 1
+    else:
+        number = input("Number: ")
 
 # print(length)
 
@@ -24,4 +26,3 @@ else:
     number = math.trunc(number)
     # print(number)
 
-    
