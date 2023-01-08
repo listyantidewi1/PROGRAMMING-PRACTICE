@@ -5,7 +5,8 @@ import math
 # ask for credit card number
 
 number = input("Number: ")
-
+n = int(number)
+n_checktype = int(number)
 
 # count number of digits
 length = 0
@@ -21,8 +22,6 @@ for i in range(0, len(number)):
 if length < 13 or length > 16:
     print("INVALID")
 else:
-    n = int(number)
-    n_checktype = int(number)
     sum = 0
     sum = int(number) % 10 # getting the last digit
     number = int(number) / 10 # chopping the last digit away
