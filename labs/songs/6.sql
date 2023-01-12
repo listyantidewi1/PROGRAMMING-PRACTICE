@@ -1,1 +1,1 @@
-select * from songs inner join artists on songs.artist_id = artists.id where artists.name = 'Post Malone';
+select name from songs inner join artists on songs.artist_id = artists.id where artists.name = 'Post Malone';
