@@ -3,4 +3,4 @@
 --You may assume that there is only one person in the database with the name Johnny Depp.
 --You may assume that there is only one person in the database with the name Helena Bonham Carter.
 
-select title from movies inner join stars on movies.id = stars.movie_id inner join people on stars.person_id = people.id where name = 'Johnny Depp' or name = 'Helena Bonham Carter' GROUP BY title
+select title from movies inner join stars on movies.id = stars.movie_id inner join people on stars.person_id = people.id where name = 'Johnny Depp' or name = 'Helena Bonham Carter' 
