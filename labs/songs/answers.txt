@@ -1,8 +1,2 @@
-select name from songs;
-select name from songs order by tempo asc;
-select name from songs order by duration_ms desc limit 5;
-select name from songs where danceability > 0.75 and energy > 0.75 and valence > 0.75;
-select avg(energy) from songs;
-select name from songs inner join artists on songs.artist_id = artists.id where artists.name = 'Post Malone';
-select avg(energy) from songs inner join artists on songs.artist_id = artists.id where artists.name = 'Drake';
-select name from songs where name LIKE '%feat%';
+If songs.db contains the top 100 songs of one listener from 2018, how would you characterize their audio aura?
+Hypothesize about why the way you’ve calculated this aura might not be very representative of the listener. What better ways of calculating this aura would you propose?
