@@ -114,7 +114,7 @@ sqlite> select * from flights where origin_airport_id = 8 and day = 29 and month
 | 18 | 8                 | 6                      | 2021 | 7     | 29  | 16   | 0      |
 +----+-------------------+------------------------+------+-------+-----+------+--------+*/
 
---these are the people who made phone calls that day, whose also had atm transaction and matched license plate 
+--these are the people who made phone calls that day, whose also had atm transaction and matched license plate .
 sqlite> select people.name, people.phone_number, people.passport_number
    ...> from people inner join bank_accounts
    ...> on people.id = bank_accounts.person_id
