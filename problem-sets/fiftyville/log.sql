@@ -208,7 +208,8 @@ and phone_number in
 
 --who did they call on 28 jul?
 
-select * from phone_calls where caller IN
+select * from people where phone_number IN(
+select receiver from phone_calls where caller IN
 (
  select people.phone_number from people where people.passport_number IN
 (select passengers.passport_number from passengers where flight_id = 36 and passport_number IN
@@ -223,4 +224,26 @@ where year = 2021 and day = 28 and month = 7 and name in
 where year = 2021 and month = 7 and day = 28 and hour = 10))
 and phone_number in
 (select caller from phone_calls where year = 2021 and month = 7 and day = 28)))
-) and day = 28 and month = 7;
+) and day = 28 and month = 7);
+
++-----+----------------+----------------+------+-------+-----+----------+
+| id  |     caller     |    receiver    | year | month | day | duration |
++-----+----------------+----------------+------+-------+-----+----------+
+| 233 | (367) 555-5533 | (375) 555-8161 | 2021 | 7     | 28  | 45       |
+| 236 | (367) 555-5533 | (344) 555-9601 | 2021 | 7     | 28  | 120      |
+| 245 | (367) 555-5533 | (022) 555-4052 | 2021 | 7     | 28  | 241      |
+| 254 | (286) 555-6063 | (676) 555-6554 | 2021 | 7     | 28  | 43       |
+| 284 | (286) 555-6063 | (310) 555-8568 | 2021 | 7     | 28  | 235      |
+| 285 | (367) 555-5533 | (704) 555-5790 | 2021 | 7     | 28  | 75       |
++-----+----------------+----------------+------+-------+-----+----------+
+
++--------+---------+----------------+-----------------+---------------+
+|   id   |  name   |  phone_number  | passport_number | license_plate |
++--------+---------+----------------+-----------------+---------------+
+| 250277 | James   | (676) 555-6554 | 2438825627      | Q13SVG6       |
+| 315221 | Gregory | (022) 555-4052 | 3355598951      | V4C670D       |
+| 652398 | Carl    | (704) 555-5790 | 7771405611      | 81MZ921       |
+| 864400 | Robin   | (375) 555-8161 |                 | 4V16VO0       |
+| 985497 | Deborah | (344) 555-9601 | 8714200946      | 10I5658       |
+| 994229 | Angela  | (310) 555-8568 | 9920757687      | SS458D7       |
++--------+---------+----------------+-----------------+---------------+
