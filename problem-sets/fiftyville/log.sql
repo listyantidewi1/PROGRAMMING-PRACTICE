@@ -275,11 +275,11 @@ and phone_number in
 
 --the thief is bruce!! he's driving away within ten minutes
 
-sqlite> select * from people where license_plate ="94KL13X";
-+--------+-------+----------------+-----------------+---------------+
+select * from people where license_plate ="94KL13X";
+/*+--------+-------+----------------+-----------------+---------------+
 |   id   | name  |  phone_number  | passport_number | license_plate |
 +--------+-------+----------------+-----------------+---------------+
 | 686048 | Bruce | (367) 555-5533 | 5773159633      | 94KL13X       |
-+--------+-------+----------------+-----------------+---------------+
++--------+-------+----------------+-----------------+---------------+*/
 
 --who did bruce call? = robin, deborah, gregory, carl
