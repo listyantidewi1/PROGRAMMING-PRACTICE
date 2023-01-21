@@ -58,3 +58,25 @@ select * from people where license_plate in
 | 748674 | Jeremy  | (194) 555-5027 | 1207566299      | V47T75I       |
 +--------+---------+----------------+-----------------+---------------+*/
 --which of above persons had an atm transaction on july 28, 2021
+
+sqlite> select people.name, people.phone_number, people.passport_number   ...> from people inner join bank_accounts
+   ...> on people.id = bank_accounts.person_id
+   ...> inner join atm_transactions
+   ...> on bank_accounts.account_number = atm_transactions.account_number
+   ...> where year = 2021 and day = 28 and month = 7 and name in
+   ...> (select name from people where license_plate in
+   ...> (select license_plate from bakery_security_logs
+   ...> where year = 2021 and month = 7 and day = 28 and hour = 10));
+/*+---------+----------------+-----------------+
+|  name   |  phone_number  | passport_number |
++---------+----------------+-----------------+
+| Bruce   | (367) 555-5533 | 5773159633      |
+| Diana   | (770) 555-1861 | 3592750733      |
+| Denise  | (994) 555-3373 | 4001449165      |
+| Iman    | (829) 555-5269 | 7049073643      |
+| Luca    | (389) 555-5198 | 8496433585      |
+| Taylor  | (286) 555-6063 | 1988161715      |
+| Brandon | (771) 555-6667 | 7874488539      |
+| Jeremy  | (194) 555-5027 | 1207566299      |
+| Barry   | (301) 555-4174 | 7526138472      |
++---------+----------------+-----------------+*/
