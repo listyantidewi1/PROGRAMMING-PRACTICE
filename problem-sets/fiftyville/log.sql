@@ -249,7 +249,7 @@ and phone_number in
 +--------+---------+----------------+-----------------+---------------+
 
 
---which of the two suspects drive away from the bakery
+--which of the two suspects drive away from the bakery = both
 
 select * from bakery_security_logs where bakery_security_logs.license_plate IN
 (select people.license_plate from people where people.passport_number IN
@@ -265,3 +265,10 @@ where year = 2021 and day = 28 and month = 7 and name in
 where year = 2021 and month = 7 and day = 28 and hour = 10))
 and phone_number in
 (select caller from phone_calls where year = 2021 and month = 7 and day = 28)))) and activity = "exit";
+
++-----+------+-------+-----+------+--------+----------+---------------+
+| id  | year | month | day | hour | minute | activity | license_plate |
++-----+------+-------+-----+------+--------+----------+---------------+
+| 261 | 2021 | 7     | 28  | 10   | 18     | exit     | 94KL13X       |
+| 268 | 2021 | 7     | 28  | 10   | 35     | exit     | 1106N58       |
++-----+------+-------+-----+------+--------+----------+---------------+
