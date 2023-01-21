@@ -13,6 +13,7 @@ select * from crime_scene_reports where day = 28 and month = 7 and year = 2021 a
 
 --Humphrey Street | Theft of the CS50 duck took place at 10:15am at the Humphrey Street bakery. Interviews were conducted today with three witnesses who were present at the time – each of their interview transcripts mentions the bakery. |
 
+-- get the transcript to know more about the interview
 select * from interviews where transcript like '%bakery%';
 
 --| id  |  name   | year | month | day |   transcript       |
@@ -21,6 +22,7 @@ select * from interviews where transcript like '%bakery%';
 --| 162 | Eugene  | 2021 | 7     | 28  | I don't know the thief's name, but it was someone I recognized. Earlier this morning, before I arrived at Emma's bakery, I was walking by the ATM on Leggett Street and saw the thief there withdrawing some money.                                                                                                 |
 --| 163 | Raymond | 2021 | 7     | 28  | As the thief was leaving the bakery, they called someone who talked to them for less than a minute. In the call, I heard the thief say that they were planning to take the earliest flight out of Fiftyville tomorrow. The thief then asked the person on the other end of the phone to purchase the flight ticket. |
 
+--get some license plate
 select * from bakery_security_logs where year = 2021 and month = 7 and day = 28 and hour = 10;
 
 /*+-----+------+-------+-----+------+--------+----------+---------------+
@@ -37,6 +39,7 @@ select * from bakery_security_logs where year = 2021 and month = 7 and day = 28 
 | 266 | 2021 | 7     | 28  | 10   | 23     | exit     | 322W7JE       |
 | 267 | 2021 | 7     | 28  | 10   | 23     | exit     | 0NTHK55       |*/
 
+--whose plate are these?
 select * from people where license_plate in
 (select license_plate from bakery_security_logs where year = 2021 and month = 7 and day = 28 and hour = 10);
 /*+--------+---------+----------------+-----------------+---------------+
@@ -57,8 +60,8 @@ select * from people where license_plate in
 | 745650 | Sophia  | (027) 555-1068 | 3642612721      | 13FNH73       |
 | 748674 | Jeremy  | (194) 555-5027 | 1207566299      | V47T75I       |
 +--------+---------+----------------+-----------------+---------------+*/
---which of above persons had an atm transaction on july 28, 2021
 
+--which of above persons had an atm transaction on july 28, 2021
 sqlite> select people.name, people.phone_number, people.passport_number   ...> from people inner join bank_accounts
    ...> on people.id = bank_accounts.person_id
    ...> inner join atm_transactions
@@ -98,3 +101,15 @@ sqlite> select * from airports;
 | 11 | SFO          | San Francisco International Airport     | San Francisco |
 | 12 | DEL          | Indira Gandhi International Airport     | Delhi         |
 +----+--------------+-----------------------------------------+---------------+*/
+
+--what's the earliest flight out of fiftyville tomorrow morning
+sqlite> select * from flights where origin_airport_id = 8 and day = 29 and month = 7 and year = 2021 order by hour asc;
+/*+----+-------------------+------------------------+------+-------+-----+------+--------+
+| id | origin_airport_id | destination_airport_id | year | month | day | hour | minute |
++----+-------------------+------------------------+------+-------+-----+------+--------+
+| 36 | 8                 | 4                      | 2021 | 7     | 29  | 8    | 20     |
+| 43 | 8                 | 1                      | 2021 | 7     | 29  | 9    | 30     |
+| 23 | 8                 | 11                     | 2021 | 7     | 29  | 12   | 15     |
+| 53 | 8                 | 9                      | 2021 | 7     | 29  | 15   | 20     |
+| 18 | 8                 | 6                      | 2021 | 7     | 29  | 16   | 0      |
++----+-------------------+------------------------+------+-------+-----+------+--------+*/
