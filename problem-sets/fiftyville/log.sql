@@ -155,3 +155,5 @@ and phone_number in
 | 36        | 5773159633      | 4A   |
 | 36        | 1988161715      | 6D   |
 +-----------+-----------------+------+*/
+
+--who did bruce and tayler called?
