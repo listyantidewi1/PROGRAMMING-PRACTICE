@@ -251,9 +251,8 @@ and phone_number in
 
 --which of the two suspects drive away from the bakery
 
-select * from bakery_security
-
-select * from people where people.passport_number IN
+select * from bakery_security_logs where bakery_security_logs.license_plate IN
+(select people.license_plate from people where people.passport_number IN
 (select passengers.passport_number from passengers where flight_id = 36 and passport_number IN
 (select people.passport_number
 from people inner join bank_accounts
@@ -265,4 +264,4 @@ where year = 2021 and day = 28 and month = 7 and name in
 (select license_plate from bakery_security_logs
 where year = 2021 and month = 7 and day = 28 and hour = 10))
 and phone_number in
-(select caller from phone_calls where year = 2021 and month = 7 and day = 28)));
+(select caller from phone_calls where year = 2021 and month = 7 and day = 28)))) and activity = "exit";
