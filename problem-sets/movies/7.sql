@@ -2,4 +2,4 @@
 --Your query should output a table with two columns, one for the title of each movie and one for the rating of each movie.
 --Movies that do not have ratings should not be included in the result.
 
-select title, rating from movies inner join ratings on movies.id = ratings.movie_id where year = 2010 order by rating desc and order by title asc;
+select title, rating from (select title, rating from movies inner join ratings on movies.id = ratings.movie_id where year = 2010 order by rating desc) order by title asc;
