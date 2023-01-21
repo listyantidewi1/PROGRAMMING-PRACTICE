@@ -115,19 +115,17 @@ sqlite> select * from flights where origin_airport_id = 8 and day = 29 and month
 +----+-------------------+------------------------+------+-------+-----+------+--------+*/
 
 --these are the people who made phone calls that day, whose also had atm transaction and matched license plate .
-sqlite> select people.name, people.phone_number, people.passport_number
-   ...> from people inner join bank_accounts
-   ...> on people.id = bank_accounts.person_id
-   ...> inner join atm_transactions
-   ...> on bank_accounts.account_number = atm_transactions.account_number
-   ...> where year = 2021 and day = 28 and month = 7 and name in
-   ...> (select name from people where license_plate in
-   ...> (select license_plate from bakery_security_logs
-   ...> where year = 2021 and month = 7 and day = 28 and hour = 10))
-   ...> and phone_number in
-   ...> (select caller from phone_calls where year = 2021
-   ...> and month = 7
-   ...> and day = 28);
+select people.name, people.phone_number, people.passport_number
+from people inner join bank_accounts
+on people.id = bank_accounts.person_id
+inner join atm_transactions
+on bank_accounts.account_number = atm_transactions.account_number
+where year = 2021 and day = 28 and month = 7 and name in
+(select name from people where license_plate in
+(select license_plate from bakery_security_logs
+where year = 2021 and month = 7 and day = 28 and hour = 10))
+and phone_number in
+(select caller from phone_calls where year = 2021 and month = 7 and day = 28);
 /*+--------+----------------+-----------------+
 |  name  |  phone_number  | passport_number |
 +--------+----------------+-----------------+
@@ -136,3 +134,16 @@ sqlite> select people.name, people.phone_number, people.passport_number
 | Taylor | (286) 555-6063 | 1988161715      |
 | Barry  | (301) 555-4174 | 7526138472      |
 +--------+----------------+-----------------+*/
+
+select * from passengers where flight_id = 36 and passport_number IN
+(select people.name, people.phone_number, people.passport_number
+from people inner join bank_accounts
+on people.id = bank_accounts.person_id
+inner join atm_transactions
+on bank_accounts.account_number = atm_transactions.account_number
+where year = 2021 and day = 28 and month = 7 and name in
+(select name from people where license_plate in
+(select license_plate from bakery_security_logs
+where year = 2021 and month = 7 and day = 28 and hour = 10))
+and phone_number in
+(select caller from phone_calls where year = 2021 and month = 7 and day = 28));
