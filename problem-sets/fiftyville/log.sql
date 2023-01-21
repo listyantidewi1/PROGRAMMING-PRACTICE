@@ -157,3 +157,15 @@ and phone_number in
 +-----------+-----------------+------+*/
 
 --who did bruce and tayler called?
+select * from phone_calls where caller in
+(select people.phone_number
+from people inner join bank_accounts
+on people.id = bank_accounts.person_id
+inner join atm_transactions
+on bank_accounts.account_number = atm_transactions.account_number
+where year = 2021 and day = 28 and month = 7 and name in
+(select name from people where license_plate in
+(select license_plate from bakery_security_logs
+where year = 2021 and month = 7 and day = 28 and hour = 10))
+and phone_number in
+(select caller from phone_calls where year = 2021 and month = 7 and day = 28))
