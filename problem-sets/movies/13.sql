@@ -7,8 +7,9 @@ on people.id = stars.person_id
 inner join movies
 on stars.movie_id = movies.id
 where stars.movie_id =
-(select movies.id from movies inner join stars
-on movies.id = stars.movie_id
-inner join people
-on stars.person_id = people.id
-where name = "Kevin Bacon" and birth = 1958) and name != "Kevin Bacon";
+    (select movies.id from movies inner join stars
+    on movies.id = stars.movie_id
+    inner join people
+    on stars.person_id = people.id
+    where name = "Kevin Bacon" and birth = 1958)
+and name != "Kevin Bacon";
