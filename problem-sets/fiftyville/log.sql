@@ -57,3 +57,4 @@ select * from people where license_plate in
 | 745650 | Sophia  | (027) 555-1068 | 3642612721      | 13FNH73       |
 | 748674 | Jeremy  | (194) 555-5027 | 1207566299      | V47T75I       |
 +--------+---------+----------------+-----------------+---------------+*/
+--which of above persons had an atm transaction on july 28, 2021
