@@ -80,3 +80,21 @@ sqlite> select people.name, people.phone_number, people.passport_number   ...> f
 | Jeremy  | (194) 555-5027 | 1207566299      |
 | Barry   | (301) 555-4174 | 7526138472      |
 +---------+----------------+-----------------+*/
+
+sqlite> select * from airports;
+/*+----+--------------+-----------------------------------------+---------------+
+| id | abbreviation |                full_name                |     city      |
++----+--------------+-----------------------------------------+---------------+
+| 1  | ORD          | O'Hare International Airport            | Chicago       |
+| 2  | PEK          | Beijing Capital International Airport   | Beijing       |
+| 3  | LAX          | Los Angeles International Airport       | Los Angeles   |
+| 4  | LGA          | LaGuardia Airport                       | New York City |
+| 5  | DFS          | Dallas/Fort Worth International Airport | Dallas        |
+| 6  | BOS          | Logan International Airport             | Boston        |
+| 7  | DXB          | Dubai International Airport             | Dubai         |
+| 8  | CSF          | Fiftyville Regional Airport             | Fiftyville    |
+| 9  | HND          | Tokyo International Airport             | Tokyo         |
+| 10 | CDG          | Charles de Gaulle Airport               | Paris         |
+| 11 | SFO          | San Francisco International Airport     | San Francisco |
+| 12 | DEL          | Indira Gandhi International Airport     | Delhi         |
++----+--------------+-----------------------------------------+---------------+*/
