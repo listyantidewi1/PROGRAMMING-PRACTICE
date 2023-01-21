@@ -6,7 +6,7 @@ select name from people inner join stars
 on people.id = stars.person_id
 inner join movies
 on stars.movie_id = movies.id
-where movies.id =
+where movies.id IN
     (select movies.id from movies inner join stars
     on movies.id = stars.movie_id
     inner join people
