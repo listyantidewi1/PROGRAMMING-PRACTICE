@@ -136,7 +136,7 @@ and phone_number in
 +--------+----------------+-----------------+*/
 
 select * from passengers where flight_id = 36 and passport_number IN
-(select people.name, people.phone_number, people.passport_number
+(select people.passport_number
 from people inner join bank_accounts
 on people.id = bank_accounts.person_id
 inner join atm_transactions
@@ -147,3 +147,10 @@ where year = 2021 and day = 28 and month = 7 and name in
 where year = 2021 and month = 7 and day = 28 and hour = 10))
 and phone_number in
 (select caller from phone_calls where year = 2021 and month = 7 and day = 28));
+
+/*+-----------+-----------------+------+
+| flight_id | passport_number | seat |
++-----------+-----------------+------+
+| 36        | 5773159633      | 4A   |
+| 36        | 1988161715      | 6D   |
++-----------+-----------------+------+*/
