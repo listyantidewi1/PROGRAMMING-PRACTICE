@@ -247,3 +247,22 @@ and phone_number in
 | 985497 | Deborah | (344) 555-9601 | 8714200946      | 10I5658       |
 | 994229 | Angela  | (310) 555-8568 | 9920757687      | SS458D7       |
 +--------+---------+----------------+-----------------+---------------+
+
+
+--which of the two suspects drive away from the bakery
+
+select * from bakery_security
+
+select * from people where people.passport_number IN
+(select passengers.passport_number from passengers where flight_id = 36 and passport_number IN
+(select people.passport_number
+from people inner join bank_accounts
+on people.id = bank_accounts.person_id
+inner join atm_transactions
+on bank_accounts.account_number = atm_transactions.account_number
+where year = 2021 and day = 28 and month = 7 and name in
+(select name from people where license_plate in
+(select license_plate from bakery_security_logs
+where year = 2021 and month = 7 and day = 28 and hour = 10))
+and phone_number in
+(select caller from phone_calls where year = 2021 and month = 7 and day = 28)));
