@@ -135,6 +135,7 @@ and phone_number in
 | Barry  | (301) 555-4174 | 7526138472      |
 +--------+----------------+-----------------+*/
 
+--who are among those 4 are aboard flight 36?
 select * from passengers where flight_id = 36 and passport_number IN
 (select people.passport_number
 from people inner join bank_accounts
