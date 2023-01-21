@@ -282,4 +282,4 @@ sqlite> select * from people where license_plate ="94KL13X";
 | 686048 | Bruce | (367) 555-5533 | 5773159633      | 94KL13X       |
 +--------+-------+----------------+-----------------+---------------+
 
-
+--who did bruce call? = robin, deborah, gregory, carl
