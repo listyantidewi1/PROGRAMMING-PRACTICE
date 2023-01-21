@@ -168,4 +168,4 @@ where year = 2021 and day = 28 and month = 7 and name in
 (select license_plate from bakery_security_logs
 where year = 2021 and month = 7 and day = 28 and hour = 10))
 and phone_number in
-(select caller from phone_calls where year = 2021 and month = 7 and day = 28)) where day = 28 and month = 7 and year = 2021;
+(select caller from phone_calls where year = 2021 and month = 7 and day = 28)) and day = 28;
