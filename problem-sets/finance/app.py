@@ -120,14 +120,23 @@ def register():
             return apology("must provide username", 403)
         elif not request.form.get("password"):
             return apology("must provide password", 403)
-        elif (request.form.get("password") != request.form.get("password-repeat")):
-            return apology("password does not match", 403)
+        # elif (request.form.get("password") != request.form.get("password-repeat")):
+        #     return apology("password does not match", 403)
         else:
             #return apology("Something is wrong", 403)
             username = request.form.get("username")
-            password = generate_password_hash(request.form.get("password"))
-            db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, password)
-    return render_template("register.html")
+            password = request.form.get("password")
+            password_repeat = request.form.get("repeat-password")
+            hash = generate_password_hash(password)
+            # password = generate_password_hash(request.form.get("password"))
+            print(password)
+            print(hash)
+            print(password_repeat)
+            if password == password_repeat:
+                db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, password)
+                return render_template("login.html")
+            else:
+                return apology("must provide matching password", 403)
 
 
 @app.route("/sell", methods=["GET", "POST"])
