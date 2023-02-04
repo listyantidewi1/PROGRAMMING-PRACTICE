@@ -159,33 +159,25 @@ def register():
             return apology("must provide username", 400)
         elif not request.form.get("password"):
             return apology("must provide password", 400)
-        # elif (request.form.get("password") != request.form.get("password-repeat")):
-        #     return apology("password does not match", 403)
+
+        rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
+        print(rows)
+        username = request.form.get("username")
+        password = request.form.get("password")
+        password_repeat = request.form.get("confirmation")
+        hash = generate_password_hash(password)
+        if len(rows)==1:
+            return apology("username already taken", 400)
+        print(password)
+        print(hash)
+        print(password_repeat)
+        if password == password_repeat:
+            db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
         else:
-            #return apology("Something is wrong", 403)
-            # Query database for username
-            rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
-
-            print(rows)
-
-            username = request.form.get("username")
-            password = request.form.get("password")
-            password_repeat = request.form.get("confirmation")
-            hash = generate_password_hash(password)
-            # password = generate_password_hash(request.form.get("password"))
-            if len(rows)==1:
-                return apology("username already taken", 400)
-            print(password)
-            print(hash)
-            print(password_repeat)
-            if password == password_repeat:
-                db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
-                #session["user_id"] = rows["id"][0]
-
-            else:
-                return apology("must provide matching password", 400)
-            return redirect("/")
-    return render_template("register.html")
+            return apology("must provide matching password", 400)
+        return redirect("/")
+    else:
+        return render_template("register.html")
 
 
 @app.route("/sell", methods=["GET", "POST"])
