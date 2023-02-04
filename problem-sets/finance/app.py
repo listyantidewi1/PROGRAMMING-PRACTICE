@@ -122,7 +122,7 @@ def register():
 
     if(password == password_repeat):
         # hash pwd
-        hash = generate_password_hash(password, 'pbkdf2:sha1', 8)
+        hash = generate_password_hash(password)
         # execute query
         db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
         return render_template("home.html")
