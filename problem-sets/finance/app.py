@@ -59,7 +59,7 @@ def buy():
 
         current_symbol = lookup(request.form.get("symbol"))
         shares = request.form.get("shares")
-        balance = db.execute("SELECT cash FROM users WHERE id = ?", id)
+        balance = db.execute("SELECT cash FROM users WHERE id = ?", id)[0]
         print(balance)
         cash = float(balance["cash"])
         current_price = current_symbol["price"]
@@ -67,7 +67,7 @@ def buy():
 
         if bill < float(cash):
             new_cash = cash - bill
-            db.execute("UPDATE cash from users Where id = ? set cash = ?", id, new_cash)
+            db.execute("UPDATE users set cash = ? WHERE id = ?", new_cash, id)
             return render_template("index.html", symbols = current_symbol, shares = shares, bill = bill, new_cash = new_cash)
         else:
             return apology("not enough cash", 403)

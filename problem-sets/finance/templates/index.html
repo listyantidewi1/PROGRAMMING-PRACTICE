@@ -5,12 +5,34 @@
 {% endblock %}
 
 {% block main %}
-<div>
+
     <!-- <p class="text-center">A share of {{ symbols["name"] }} ({{ symbols["symbol"] }}) costs {{ symbols["price"] | usd }} </p>
     {{ symbols }} -->
-    {{ symbols }}
+    <!-- {{ symbols }}
     {{ shares }}
     {{ bill }}
-    {{ new_cash }}
-</div>
+    {{ new_cash }} -->
+
+    <div class="container">
+        <table class="table-striped">
+            <thead>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Share Bought</th>
+                <th>Total Price</th>
+            </thead>
+            <tbody>
+                <td>{{ symbols["symbol"] }}</td>
+                <td>{{ symbols["name"] }}</td>
+                <td>{{ symbols["price"] | usd }}</td>
+                <td>{{ shares }}</td>
+                <td>{{ bill }}</td>
+            </tbody>
+        </table>
+    </div>
+    <div class="container-fluid bg-primary text-center text-white p-5">
+        <h3>Cash left: {{ new_cash }}</h3>
+    </div>
+
 {% endblock %}
