@@ -9,11 +9,15 @@
     <div class="mb-3">
         <!-- <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="symbol" name="symbol" placeholder="symbol" type="text"> -->
 
-        <select name="symbol">
+        <!-- <select name="symbol">
             {% for symbol in symbols %}
-                <option value="{{ symbol.symbol }}">{{ symbol.symbol }}</option>
+                <option value="{{ symbol}}">{{ symbol }}</option>
             {% endfor %}
-        </select>
+        </select> -->
+        <!-- {% for symbol in symbols %}
+            <p>{{ symbol["symbol"] }}</p>
+        {% endfor %} -->
+        <p>{{ symbol }}</p>
     </div>
     <div class="mb-3">
         <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="shares" name="shares" placeholder="shares" type="number" min="1">
