@@ -151,6 +151,7 @@ def quote():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    session.clear()
     """Register user"""
     # access form data
     if request.method == "POST":
@@ -177,7 +178,8 @@ def register():
             print(password_repeat)
             if password == password_repeat:
                 db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
-                return render_template("login.html")
+                session["user_id"] = rows[0][id]
+                return render_template("index.html")
             else:
                 return apology("must provide matching password", 400)
     return render_template("register.html")
