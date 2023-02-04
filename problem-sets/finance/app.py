@@ -133,10 +133,11 @@ def register():
             print(hash)
             print(password_repeat)
             if password == password_repeat:
-                db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, password)
+                db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
                 return render_template("login.html")
             else:
                 return apology("must provide matching password", 403)
+    return render_template("register.html")
 
 
 @app.route("/sell", methods=["GET", "POST"])
