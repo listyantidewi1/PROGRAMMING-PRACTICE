@@ -61,7 +61,7 @@ def buy():
         shares = request.form.get("shares")
         balance = db.execute("SELECT cash FROM users WHERE id = ?", id)
         print(balance)
-        cash = float(slice(balance))
+        cash = float(balance["cash"])
         current_price = current_symbol["price"]
         bill = current_price * int(shares)
 
