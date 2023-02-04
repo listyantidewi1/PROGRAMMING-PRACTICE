@@ -143,11 +143,16 @@ def register():
         #     return apology("password does not match", 403)
         else:
             #return apology("Something is wrong", 403)
+            # Query database for username
+            rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
+
             username = request.form.get("username")
             password = request.form.get("password")
             password_repeat = request.form.get("confirmation")
             hash = generate_password_hash(password)
             # password = generate_password_hash(request.form.get("password"))
+            if username == rows:
+                return apology("username already taken", 403)
             print(password)
             print(hash)
             print(password_repeat)
