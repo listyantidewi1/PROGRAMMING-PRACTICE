@@ -6,28 +6,6 @@
 
 {% block main %}
 <div>
-    <table class="table-striped">
-        <thead>
-            <th>
-                name
-            </th>
-            <th>
-                price
-            </th>
-            <th>
-                symbol
-            </th>
-        </thead>
-        <tbody>
-    {% for symbol in symbols %}
-         <tr>
-            <td>{{ symbol["name"] }}</td>
-            <td>{{ symbol["price"] }}</td>
-            <td>{{ symbol["symbol"] }}</td>
-        </tr>
-    {% endfor %}
-
-</tbody>
-</table>
+    {{ symbols }}
 </div>
 {% endblock %}
