@@ -115,7 +115,8 @@ def quote():
 def register():
     """Register user"""
     # access form data
-    # hash = ""
+    hash = ""
+    error = None
     username = request.form.get("username")
     password = request.form.get("password")
     password_repeat = request.form.get("password-repeat")
@@ -127,9 +128,10 @@ def register():
         db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
         return render_template("home.html")
     else:
+        error = "Password does not match"
+        flash(error)
         return render_template("register.html")
-        
-    return apology("Password doesnt match", 403)
+    return apology("TODO")
 
 
 
