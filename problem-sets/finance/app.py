@@ -174,7 +174,7 @@ def register():
             hash = generate_password_hash(password)
             # password = generate_password_hash(request.form.get("password"))
             if len(rows)==1:
-                return apology("username already taken", 403)
+                return apology("username already taken", 400)
             print(password)
             print(hash)
             print(password_repeat)
