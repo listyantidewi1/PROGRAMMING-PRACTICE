@@ -120,7 +120,7 @@ def register():
             return apology("must provide username", 403)
         elif not request.form.get("password"):
             return apology("must provide password", 403)
-        elif not (request.form.get("password") == request.form.get("password-repeat")):
+        elif request.form.get("password") != request.form.get("password-repeat"):
             return apology("password does not match", 403)
         else:
             #return apology("Something is wrong", 403)
@@ -128,7 +128,6 @@ def register():
             password = generate_password_hash(request.form.get("password"))
             db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, password)
     return render_template("register.html")
-
 
 
 @app.route("/sell", methods=["GET", "POST"])
