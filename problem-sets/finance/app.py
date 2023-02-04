@@ -115,10 +115,15 @@ def quote():
 def register():
     """Register user"""
     # access form data
+    hash = ""
     username = request.form.get("username")
     password = request.form.get("password")
     password_repeat = request.form.get("password-repeat")
-    
+
+    if(password == password_repeat){
+        hash = generate_password_hash(password)
+    }
+
     return apology("TODO")
 
 
