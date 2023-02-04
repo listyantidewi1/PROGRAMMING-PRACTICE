@@ -187,7 +187,7 @@ def sell():
     id = session["user_id"]
 
     if request.method == "GET":
-        symbols = db.execute("Select symbol from trx where)
+        symbols = db.execute("Select symbol from trx where user_id = ?", id)
 
     if request.method == "POST":
         if not request.form.get("symbol"):
