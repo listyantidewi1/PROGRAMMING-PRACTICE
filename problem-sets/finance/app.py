@@ -55,6 +55,9 @@ def buy():
             return apology("Invalid symbol", 403)
         elif not request.form.get("shares"):
             return apology("must provide number of shares", 403)
+
+
+        
     return render_template("buy.html")
 
     #return apology("TODO")
