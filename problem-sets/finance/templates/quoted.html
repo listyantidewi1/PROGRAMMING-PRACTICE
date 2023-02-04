@@ -19,15 +19,15 @@
             </th>
         </thead>
         <tbody>
-    {% for symbol in symbols %}
+    {% for key in symbols %}
         <!-- {{ symbol.name }}
         {{ symbol.price }} -->
         <!-- {{ symbol.symbol }} -->
         <!-- {{ symbol }} -->
         <tr>
-            <td>{{ symbol }}</td>
-            <td>{{ symbol }}</td>
-            <td>{{ symbol }}</td>
+            <td>{{ symbols[key].name }}</td>
+            <td>{{ symbols[key].price }}</td>
+            <td>{{ symbols[key].symbol }}</td>
         </tr>
     {% endfor %}
 
