@@ -184,5 +184,20 @@ def register():
 @login_required
 def sell():
     """Sell shares of stock"""
-    
+    id = session["user_id"]
+
+    if request.method == "GET":
+        symbols = db.execute("Select symbol from trx where)
+
+    if request.method == "POST":
+        if not request.form.get("symbol"):
+            return apology("must provide symbol", 403)
+        elif lookup(request.form.get("symbol")) == None:
+            return apology("Invalid symbol", 403)
+        elif not request.form.get("shares"):
+            return apology("must provide number of shares", 403)
+
+        symbol = request.form.get("symbol")
+        shares = request.form.get("shares")
+
     return apology("TODO")
