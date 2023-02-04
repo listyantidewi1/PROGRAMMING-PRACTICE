@@ -47,7 +47,7 @@ def index():
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
 def buy():
-    id = session["user_id"][0]
+    id = session["user_id"]
     """Buy shares of stock"""
     if request.method == "POST":
         if not request.form.get("symbol"):
@@ -59,15 +59,16 @@ def buy():
 
         current_symbol = lookup(request.form.get("symbol"))
         shares = request.form.get("shares")
-        cash = db.execute("SELECT cash FROM users WHERE id = ?", id)
-        cash = float(cash)
+        balance = db.execute("SELECT cash FROM users WHERE id = ?", id)
+        print(balance)
+        cash = float(balance["cash"])
         current_price = current_symbol["price"]
         bill = current_price * int(shares)
 
         if bill < float(cash):
             new_cash = cash - bill
             db.execute("UPDATE cash from users Where id = ? set cash = ?", id, new_cash)
-            return render_template("index.html", symbols = current_symbol, shares = shares, bill = bill, new_cash = new_cash, cash = cash)
+            return render_template("index.html", symbols = current_symbol, shares = shares, bill = bill, new_cash = new_cash)
         else:
             return apology("not enough cash", 403)
 
