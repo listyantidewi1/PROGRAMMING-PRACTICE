@@ -208,6 +208,7 @@ def sell():
         cashback = price_per_symbol * int(shares) + float(balance["cash"])
         print(cashback)
         db.execute("update users set cash = ? where id = ?", cashback, id)
+        shares = -abs(int(shares))
         db.execute("insert into trx (user_id, symbol, shares, price) values(?, ?, ?, ?)", id, symbol_to_sell["symbol"], shares, price_per_symbol * int(shares))
     return redirect("/")
 
