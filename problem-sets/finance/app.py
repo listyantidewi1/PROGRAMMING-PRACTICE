@@ -120,15 +120,17 @@ def register():
     password = request.form.get("password")
     password_repeat = request.form.get("password-repeat")
 
-    if(password == password_repeat){
+    if(password == password_repeat):
         # hash pwd
         hash = generate_password_hash(password)
         # execute query
         db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
+        return render_template("home.html")
+    else:
+        return apology("Password doesnt match", 403)
+        # return render_template("register.html")
 
-    }
 
-    return apology("TODO")
 
 
 @app.route("/sell", methods=["GET", "POST"])
