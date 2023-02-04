@@ -8,10 +8,10 @@
 <form action="/sell" method="post">
     <div class="mb-3">
         <!-- <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="symbol" name="symbol" placeholder="symbol" type="text"> -->
-        {{ symbols }}
+
         <select name="symbol">
             {% for symbol in symbols %}
-                <option value="{{ symbols }}">{{ symbols }}</option>
+                <option value="{{ symbols['symbol'] }}">{{ symbols["symbol"] }}</option>
             {% endfor %}
         </select>
     </div>
@@ -19,6 +19,6 @@
         <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="shares" name="shares" placeholder="shares" type="number" min="1">
     </div>
 
-    <button class="btn btn-primary" type="submit">Sel</button>
+    <button class="btn btn-primary" type="submit">Sell</button>
 </form>
 {% endblock %}
