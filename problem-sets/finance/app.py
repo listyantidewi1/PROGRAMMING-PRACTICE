@@ -117,7 +117,7 @@ def quote():
             symbol_lookup_result = lookup(symbol)
             print(symbol_lookup_result)
             return render_template("quoted.html", symbols = symbol_lookup_result)
-            print(symbols)
+            # print(symbols)
     return render_template("quote.html")
 
 
