@@ -166,6 +166,8 @@ def register():
             # Query database for username
             rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
 
+            print(rows)
+
             username = request.form.get("username")
             password = request.form.get("password")
             password_repeat = request.form.get("confirmation")
