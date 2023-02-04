@@ -72,6 +72,8 @@ def buy():
         else:
             return apology("not enough cash", 403)
 
+        db.execute("insert into trx (symbol, price) values (?, ?)", current_symbol, bill)
+
     return render_template("buy.html")
 
     #return apology("TODO")
