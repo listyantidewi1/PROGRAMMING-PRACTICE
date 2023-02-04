@@ -67,8 +67,9 @@ def buy():
 
         if bill < float(cash):
             new_cash = cash - bill
+            bill = float(bill)
             db.execute("UPDATE users set cash = ? WHERE id = ?", new_cash, id)
-            db.execute("insert into trx (symbol, shares, price) values (?, ?)", current_symbol, shares, bill)
+            db.execute("insert into trx (symbol, shares, price) values (?, ?, ?)", current_symbol, shares, bill)
             return render_template("index.html", symbols = current_symbol, shares = shares, bill = bill, new_cash = new_cash)
         else:
             return apology("not enough cash", 403)
