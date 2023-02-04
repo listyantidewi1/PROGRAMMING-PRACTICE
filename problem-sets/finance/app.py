@@ -131,7 +131,7 @@ def register():
         error = "Password does not match"
         flash(error)
         return render_template("register.html")
-    return apology("TODO")
+    #return apology("Registration failed, try again", 403)
 
 
 
