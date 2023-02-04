@@ -180,10 +180,11 @@ def register():
             print(password_repeat)
             if password == password_repeat:
                 db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
-                session["user_id"] = rows[0]["id"]
-                return redirect("/")
+                #session["user_id"] = rows["id"][0]
+
             else:
                 return apology("must provide matching password", 400)
+            return redirect("/")
     return render_template("register.html")
 
 
