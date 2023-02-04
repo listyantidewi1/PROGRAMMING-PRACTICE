@@ -116,6 +116,9 @@ def register():
     """Register user"""
     # access form data
     username = request.form.get("username")
+    password = request.form.get("password")
+    password_repeat = request.form.get("password-repeat")
+    
     return apology("TODO")
 
 
