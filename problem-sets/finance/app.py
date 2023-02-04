@@ -161,16 +161,15 @@ def register():
             return apology("must provide password", 400)
 
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
-        print(rows)
+
         username = request.form.get("username")
         password = request.form.get("password")
         password_repeat = request.form.get("confirmation")
+        
         hash = generate_password_hash(password)
         if len(rows)==1:
             return apology("username already taken", 400)
-        print(password)
-        print(hash)
-        print(password_repeat)
+
         if password == password_repeat:
             db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
         else:
