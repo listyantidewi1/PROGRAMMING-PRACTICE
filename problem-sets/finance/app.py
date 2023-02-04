@@ -56,8 +56,8 @@ def buy():
         elif not request.form.get("shares"):
             return apology("must provide number of shares", 403)
 
+        cash = db.execute("SELECT cash FROM users WHERE username = )
 
-        
     return render_template("buy.html")
 
     #return apology("TODO")
