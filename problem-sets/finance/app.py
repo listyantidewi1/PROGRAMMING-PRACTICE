@@ -146,7 +146,7 @@ def register():
                 db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
                 return render_template("login.html")
             else:
-                return apology("must provide matching password", 403)
+                return apology("must provide matching password", 400)
     return render_template("register.html")
 
 
