@@ -188,6 +188,7 @@ def sell():
 
     if request.method == "GET":
         symbols = db.execute("Select symbol from trx where user_id = ?", id)
+        print(symbols)
         return render_template("sell.html", symbol = symbols)
 
     if request.method == "POST":
