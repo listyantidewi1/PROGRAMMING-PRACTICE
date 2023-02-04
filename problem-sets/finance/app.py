@@ -115,23 +115,20 @@ def quote():
 def register():
     """Register user"""
     # access form data
-    hash = ""
-    error = None
-    username = request.form.get("username")
-    password = request.form.get("password")
-    password_repeat = request.form.get("password-repeat")
+    if request.method == "POST":
+        if not request.form.get("username"):
+            return apology("must provide username", 403)
+        elif not request.form.get("password"):
+            return apology("must provide password", 403)
+        elif not (request.form.get("password") == request.form.get("password-repeat")):
+            return apology("password does not match", 403)
+        else:
+            return apology("Something is wrong", 403)
 
-    if(password == password_repeat):
-        # hash pwd
-        hash = generate_password_hash(password)
-        # execute query
-        db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
-        return render_template("home.html")
-    else:
-        error = "Password does not match"
-        flash(error)
-        return render_template("register.html")
-    #return apology("Registration failed, try again", 403)
+    username = request.form.get("username")
+    password = generate_password_hash(request.form.get("password"))
+
+    db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, password)
 
 
 
