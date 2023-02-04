@@ -56,7 +56,18 @@ def buy():
         elif not request.form.get("shares"):
             return apology("must provide number of shares", 403)
 
-        cash = db.execute("SELECT cash FROM users WHERE username = )
+        current_symbol = lookup(request.form.get("symbol"))
+        shares = request.form.get("shares")
+        cash = db.execute("SELECT cash FROM users WHERE id == :id", id=session["user_id"])[0]
+        cash = float(cash)
+        current_price = current_symbol["price"]
+        bill = current_price * int(shares)
+
+        if bill < float(cash):
+            new_cash = cash - bill
+            db.execute("UPDATE cash from users Where id == :id set cash = ?", id=session["user_id"], new_cash)
+        else:
+            return apology("not enough cash", 403)
 
     return render_template("buy.html")
 
