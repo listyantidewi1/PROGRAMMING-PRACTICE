@@ -7,15 +7,16 @@
 {% block main %}
 <form action="/sell" method="post" class="form-group">
     <div class="mb-3">
-        <select name="symbol">
+        <label for="symbol">Symbol</label>
+        <select name="symbol" class="form-control">
             {% for symbol in symbols %}
-                <option class="form-control" value="{{ symbol.symbol }}">{{ symbol.symbol }}</option>
+                <option value="{{ symbol.symbol }}">{{ symbol.symbol }}</option>
             {% endfor %}
         </select>
-
     </div>
     <div class="mb-3">
-        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="shares" name="shares" placeholder="shares" type="number" min="1">
+        <label for="shares">Shares to sell:</label>
+        <input autocomplete="off" autofocus class="form-control" id="shares" name="shares" placeholder="shares" type="number" min="1">
     </div>
 
     <button class="btn btn-primary" type="submit">Sell</button>

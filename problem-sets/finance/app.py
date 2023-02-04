@@ -201,5 +201,9 @@ def sell():
 
         symbol = request.form.get("symbol")
         shares = request.form.get("shares")
+        balance = db.execute("SELECT cash FROM users WHERE id = ?", id)[0]
+        stock_price = symbol["]
+        cashback = float(balance["cash"])
+        sell_price =
 
     return apology("TODO")
