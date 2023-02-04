@@ -115,6 +115,7 @@ def quote():
         else:
             symbol = request.form.get("symbol")
             symbol_lookup_result = lookup(symbol)
+            print(symbol_lookup_result)
             return render_template("quoted.html", symbols = symbol_lookup_result)
     return render_template("quote.html")
 
