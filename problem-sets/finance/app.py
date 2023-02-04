@@ -121,7 +121,11 @@ def register():
     password_repeat = request.form.get("password-repeat")
 
     if(password == password_repeat){
+        # hash pwd
         hash = generate_password_hash(password)
+        # execute query
+        
+
     }
 
     return apology("TODO")
