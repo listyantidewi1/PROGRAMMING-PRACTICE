@@ -127,9 +127,9 @@ def register():
     # access form data
     if request.method == "POST":
         if not request.form.get("username"):
-            return apology("must provide username", 403)
+            return apology("must provide username", 400)
         elif not request.form.get("password"):
-            return apology("must provide password", 403)
+            return apology("must provide password", 400)
         # elif (request.form.get("password") != request.form.get("password-repeat")):
         #     return apology("password does not match", 403)
         else:
