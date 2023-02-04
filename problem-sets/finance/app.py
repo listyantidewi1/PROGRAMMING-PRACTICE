@@ -127,9 +127,9 @@ def register():
         db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
         return render_template("home.html")
     else:
-        return apology("Password doesnt match", 403)
-        # return render_template("register.html")
-
+        return render_template("register.html")
+        
+    return apology("Password doesnt match", 403)
 
 
 
