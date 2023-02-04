@@ -40,7 +40,7 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    
+
     return apology("TODO")
 
 
@@ -109,6 +109,9 @@ def logout():
 @login_required
 def quote():
     """Get stock quote."""
+    if request.method == "POST":
+        symbol = request.form.get("symbol")
+        lookup(symbol)
     return apology("TODO")
 
 
