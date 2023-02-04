@@ -6,7 +6,7 @@
 
 {% block main %}
 <div>
-    <p class="text-center">A share of {{ symbols["name"] }} ({{ symbols["symbol"] }}) costs {{ symbols["price"] }} </p>
+    <p class="text-center">A share of {{ symbols["name"] }} ({{ symbols["symbol"] }}) costs {{ symbols["price"] | usd }} </p>
     <!-- {{ symbols }} -->
 </div>
 {% endblock %}
