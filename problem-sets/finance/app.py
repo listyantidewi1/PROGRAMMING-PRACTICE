@@ -52,7 +52,7 @@ def buy():
         if not request.form.get("symbol"):
             return apology("must provide symbol", 403)
         elif lookup(request.form.get("symbol")) == None:
-            return apology("Symbol not found", 403)
+            return apology("Invalid symbol", 403)
         elif not request.form.get("shares"):
             return apology("must provide number of shares", 403)
     return render_template("buy.html")
@@ -124,6 +124,8 @@ def quote():
         else:
             symbol = request.form.get("symbol")
             symbol_lookup_result = lookup(symbol)
+            if symbol_lookup_result == None:
+                return apology("Invalid symbol", 403)
             print(symbol_lookup_result)
             return render_template("quoted.html", symbols = symbol_lookup_result)
             # print(symbols)
