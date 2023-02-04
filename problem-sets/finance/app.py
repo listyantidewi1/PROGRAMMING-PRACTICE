@@ -124,7 +124,7 @@ def register():
         # hash pwd
         hash = generate_password_hash(password)
         # execute query
-        
+        db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
 
     }
 
