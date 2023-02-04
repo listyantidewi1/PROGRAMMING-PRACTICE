@@ -62,10 +62,10 @@ def buy():
         cash = float(cash)
         current_price = current_symbol["price"]
         bill = current_price * int(shares)
-
+        id = session["user_id"]
         if bill < float(cash):
             new_cash = cash - bill
-            db.execute("UPDATE cash from users Where id == :id set cash = ?", id=session["user_id"], new_cash)
+            db.execute("UPDATE cash from users Where id = ? set cash = ?", id, new_cash)
         else:
             return apology("not enough cash", 403)
 
