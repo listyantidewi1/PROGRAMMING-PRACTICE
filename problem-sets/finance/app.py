@@ -216,7 +216,7 @@ def sell():
     if request.method == "GET":
         symbols = db.execute("Select symbol from purchased_stock where user_id = ?", id)
         if len(symbols) == 0:
-            return apology("You have nothing to sell", 400)
+            return apology("nothing to sell", 400)
         else:
             return render_template("sell.html", symbols = symbols)
 
@@ -256,11 +256,11 @@ def sell():
                 return apology("not enough shares", 400)
             elif new_shares == 0:
                 db.execute("delete from purchased_stock where user_id = ? and symbol = ?", id, symbol_to_sell["symbol"])
+                flash("Sucessfully sold")
+                return redirect("/")
             else:
                 db.execute("update purchased_stock set shares = ? where user_id = ? and symbol = ?", new_shares, id, symbol_to_sell["symbol"])
+                flash("Sucessfully sold")
+                return redirect("/")
         elif len(current_stock) == 0:
             return apology("nothing to sell", 400)
-        flash("Sucessfully sold")
-    return redirect("/")
-
-    #return apology("TODO")
