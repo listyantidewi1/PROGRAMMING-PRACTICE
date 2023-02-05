@@ -179,7 +179,7 @@ def register():
 
             registered_user = db.execute("select * from users where username = ?", username)
             session["user_id"] = registered_user[0]["id"]
-
+            flash('You were successfully registered')
             return redirect("/")
         else:
             return apology("must provide matching password", 403)

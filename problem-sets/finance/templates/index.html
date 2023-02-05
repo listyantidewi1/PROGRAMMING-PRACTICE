@@ -6,6 +6,16 @@
 
 {% block main %}
 
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
     <!-- <p class="text-center">A share of {{ symbols["name"] }} ({{ symbols["symbol"] }}) costs {{ symbols["price"] | usd }} </p>
     {{ symbols }} -->
     <!-- {{ symbols }}
