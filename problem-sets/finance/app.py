@@ -250,7 +250,7 @@ def sell():
 
         # update history
         sold_shares = -abs(int(shares))
-        db.execute("insert into trx (user_id, symbol, name, shares, price) values(?, ?, ?, ?, ?)", id, symbol_to_sell["symbol"], symbol_to_sell["name"], sold_shares, price_per_share * int(sold_shares))
+        db.execute("insert into trx (user_id, symbol, name, shares, price) values(?, ?, ?, ?, ?)", id, symbol_to_sell["symbol"], symbol_to_sell["name"], sold_shares, price_per_share * abs(int(sold_shares)))
 
         # update stock shares
         current_stock = db.execute("select * from purchased_stock where user_id = ? and symbol = ?", id, symbol_to_sell["symbol"])
