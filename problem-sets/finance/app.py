@@ -82,7 +82,7 @@ def buy():
             # check and update purchased stocks in necessary
             existing = db.execute("select * from purchased_stock where user_id = ? and symbol = ?", id, current_symbol["symbol"])
             if len(existing) > 0:
-                db.execute()
+                db.execute("update purchased_stock set shares = ? where user_id = ? and symbol = ?", )
 
             db.execute("insert into purchased_stock (user_id, symbol, name, shares, price) values (?, ?, ?, ?, ?)", id, current_symbol["symbol"], current_symbol["name"], shares, bill)
             flash('stock was sucessfully bought')
