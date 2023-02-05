@@ -41,7 +41,7 @@ def after_request(response):
 def index():
     id = session["user_id"]
     """Show portfolio of stocks"""
-    portofolio = db.execute("select * from purchased_stock where user_id = ?", id)
+    portofolio = db.execute("select symbol, name, price, sum(shares) as shares from purchased_stock where user_id = ? group by symbol", id)
     saldo = db.execute("select * from users where id = ?", id)[0]
     print(saldo)
     return render_template("index.html", portofolio = portofolio, balance=saldo)
