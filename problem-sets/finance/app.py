@@ -254,7 +254,7 @@ def sell():
 
         # update stock shares
         current_stock = db.execute("select * from purchased_stock where user_id = ? and symbol = ?", id, symbol_to_sell["symbol"])
-        print("current stock:", current_stock)
+       
         if len(current_stock) > 0:
             old_shares = db.execute("select shares from purchased_stock where user_id = ? and symbol = ?", id, symbol_to_sell["symbol"])[0]
             new_shares = old_shares["shares"] - int(shares)
