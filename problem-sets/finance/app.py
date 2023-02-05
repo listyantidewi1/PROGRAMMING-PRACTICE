@@ -54,6 +54,7 @@ def buy():
     """Buy shares of stock"""
     if request.method == "GET":
         return render_template("buy.html")
+
     if request.method == "POST":
         if not request.form.get("symbol"):
             return apology("must provide symbol", 400)
@@ -225,7 +226,7 @@ def sell():
         elif lookup(request.form.get("symbol")) == None:
             return apology("Invalid symbol", 403)
         elif not request.form.get("shares"):
-            return apology("must provide number of shares", 403)
+            return apology("must provide number of shares", 400)
 
         symbol = request.form.get("symbol")
         shares = request.form.get("shares")
