@@ -87,8 +87,8 @@ def history():
     id = session["user_id"]
 
     history = db.execute("SELECT * FROM trx where user_id = ?", id)
-    name = lookup(history[0]["symbol"])
-    return render_template("history.html", history = history, name = name)
+    # name = lookup(history[0]["symbol"])
+    return render_template("history.html", history = history)
 
 
 @app.route("/login", methods=["GET", "POST"])
