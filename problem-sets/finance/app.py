@@ -49,6 +49,8 @@ def index():
 def buy():
     id = session["user_id"]
     """Buy shares of stock"""
+    if request.method == "GET":
+        return render_template("buy.html")
     if request.method == "POST":
         if not request.form.get("symbol"):
             return apology("must provide symbol", 403)
@@ -70,10 +72,10 @@ def buy():
             #bill = float(bill)
             db.execute("UPDATE users set cash = ? WHERE id = ?", new_cash, id)
             db.execute("insert into trx (user_id, symbol, shares, price) values (?, ?, ?, ?)", id, current_symbol["symbol"], shares, bill)
+            flash('Shares was sucessfully bought')
             return render_template("index.html", symbols = current_symbol, shares = shares, bill = bill, new_cash = new_cash)
         else:
             return apology("not enough cash", 403)
-    return render_template("buy.html")
 
     #return apology("TODO")
 
