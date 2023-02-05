@@ -246,7 +246,7 @@ def sell():
         print("current stock:", current_stock)
         if len(current_stock) > 0:
             old_shares = db.execute("select shares from purchased_stock where user_id = ? and symbol = ?", id, symbol_to_sell["symbol"])[0]
-            new_shares = old_shares["shares"] - int(shares)
+            new_shares = old_shares["shares"] + int(shares)
             print("new shares", new_shares)
             if new_shares < 0:
                 return apology("not enough shares", 400)
