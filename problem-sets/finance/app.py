@@ -245,10 +245,11 @@ def sell():
         current_stock = db.execute("select * from purchased_stock where user_id = ? and symbol = ?", id, symbol_to_sell["symbol"])
         print("current stock:", current_stock)
         if len(current_stock) > 0:
-            old_shares = db.execute("select shares from purchased_stock where user_id = ? and symbol = ?)
-
-
-
+            old_shares = db.execute("select shares from purchased_stock where user_id = ? and symbol = ?", id, symbol_to_sell["symbol"])[0]
+            new_shares = old_shares["shares"] - int(shares)
+            db.execute("update purchased_stock set shares = ? where user_id = ? and symbol = ?", new_shares, id, symbol_to_sell["symbol"])
+        elif len(current_stock) == 0:
+            return apology("nothing to sell", 403)
         flash("Sucessfully sold")
     return redirect("/")
 
