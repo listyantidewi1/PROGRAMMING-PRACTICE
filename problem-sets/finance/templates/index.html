@@ -39,4 +39,25 @@
         <h3>Cash left: {{ new_cash }}</h3>
     </div>
 
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Price</th>
+
+            </thead>
+            <tbody>
+                <tr>
+                    {% for po%}
+                <td>{{ symbols["symbol"] }}</td>
+                <td>{{ symbols["name"] }}</td>
+                <td>{{ symbols["price"] | usd }}</td>
+                <td>{{ shares }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
 {% endblock %}
