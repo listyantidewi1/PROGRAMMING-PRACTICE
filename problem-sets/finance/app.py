@@ -64,7 +64,7 @@ def buy():
 
         current_symbol = lookup(request.form.get("symbol"))
         shares = request.form.get("shares")
-        if (int(shares) < 0) or (shares.isalpha() == True) or ((float(shares)) > (int(shares))):
+        if (int(shares) < 0) or (shares.isalpha() == True) or ("." in shares):
             return apology("must provide whole number of shares", 400)
 
         balance = db.execute("SELECT cash FROM users WHERE id = ?", id)[0]
