@@ -71,8 +71,8 @@ def buy():
             new_cash = cash - bill
             #bill = float(bill)
             db.execute("UPDATE users set cash = ? WHERE id = ?", new_cash, id)
-            db.execute("insert into trx (user_id, symbol, shares, price) values (?, ?, ?, ?)", id, current_symbol["symbol"], shares, bill)
-            db.execute("insert into purchased_stocks (user_id, symbol, name, shares, price) values (?, ?, ?, ?, ?)", id, current_symbol["symbol"], current_symbol["name"], shares, bill)
+            db.execute("insert into trx (user_id, symbol, name, shares, price) values (?, ?, ?, ?, ?)", id, current_symbol["symbol"], current_symbol["name"], shares, bill)
+            db.execute("insert into purchased_stock (user_id, symbol, name, shares, price) values (?, ?, ?, ?, ?)", id, current_symbol["symbol"], current_symbol["name"], shares, bill)
             flash('Following stock was sucessfully bought')
             return render_template("index.html", symbols = current_symbol, shares = shares, bill = bill, new_cash = new_cash)
         else:
