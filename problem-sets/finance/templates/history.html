@@ -20,6 +20,7 @@
         <table class="table table-striped">
             <thead>
                 <th>Symbol</th>
+                <th>Name</th>
                 <th>Price</th>
                 <th>Shares</th>
                 <th>Transaction Time</th>
@@ -29,6 +30,7 @@
                 {% for hist in history %}
                 <tr>
                     <td>{{ hist["symbol"] }}</td>
+                    <td>{{ hist["name"] }}</td>
                     <td>{{ hist["price"] | usd }}</td>
                     <td>{{ hist["shares"] }}</td>
                     <td>{{ hist["trx_time"] }}</td>
