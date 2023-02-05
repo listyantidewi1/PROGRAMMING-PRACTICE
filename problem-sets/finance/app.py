@@ -180,6 +180,7 @@ def register():
             return apology("must provide matching password", 400)
         registered_user = db.execute("select * from users where username = ?", username)
         session["user_id"] = registered_user[0]["id"]
+        print(session["user_id"])
         return redirect("/")
     else:
         return render_template("register.html")
