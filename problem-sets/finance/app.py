@@ -42,7 +42,9 @@ def index():
     id = session["user_id"]
     """Show portfolio of stocks"""
     portofolio = db.execute("select * from purchased_stock where user_id = ?", id)
-    return render_template("index.html", portofolio = portofolio)
+    saldo = db.execute("select * from users where id = ?", id)[0]
+    print(saldo)
+    return render_template("index.html", portofolio = portofolio, balance=saldo)
 
 
 @app.route("/buy", methods=["GET", "POST"])
@@ -54,11 +56,11 @@ def buy():
         return render_template("buy.html")
     if request.method == "POST":
         if not request.form.get("symbol"):
-            return apology("must provide symbol", 403)
+            return apology("must provide symbol", 400)
         elif lookup(request.form.get("symbol")) == None:
-            return apology("Invalid symbol", 403)
+            return apology("Invalid symbol", 400)
         elif not request.form.get("shares"):
-            return apology("must provide number of shares", 403)
+            return apology("must provide number of shares", 400)
 
         current_symbol = lookup(request.form.get("symbol"))
         shares = request.form.get("shares")
@@ -74,8 +76,8 @@ def buy():
             db.execute("UPDATE users set cash = ? WHERE id = ?", new_cash, id)
             db.execute("insert into trx (user_id, symbol, name, shares, price) values (?, ?, ?, ?, ?)", id, current_symbol["symbol"], current_symbol["name"], shares, bill)
             db.execute("insert into purchased_stock (user_id, symbol, name, shares, price) values (?, ?, ?, ?, ?)", id, current_symbol["symbol"], current_symbol["name"], shares, bill)
-            flash('Following stock was sucessfully bought')
-            return render_template("index.html", symbols = current_symbol, shares = shares, bill = bill, new_cash = new_cash)
+            flash('stock was sucessfully bought')
+            return redirect("/")
         else:
             return apology("not enough cash", 403)
 
@@ -148,12 +150,12 @@ def quote():
         return render_template("quote.html")
     if request.method == "POST":
         if not request.form.get("symbol"):
-            return apology("must provide symbol", 403)
+            return apology("must provide symbol", 400)
         else:
             symbol = request.form.get("symbol")
             symbol_lookup_result = lookup(symbol)
             if not symbol_lookup_result:
-                return apology("Invalid symbol", 403)
+                return apology("Invalid symbol", 400)
             # print(symbol_lookup_result)
             return render_template("quoted.html", symbols = symbol_lookup_result)
             # print(symbols)

@@ -29,7 +29,7 @@
                 {% for hist in history %}
                 <tr>
                     <td>{{ hist["symbol"] }}</td>
-                    <td>{{ hist["price"] }}</td>
+                    <td>{{ hist["price"] | usd }}</td>
                     <td>{{ hist["shares"] }}</td>
                     <td>{{ hist["trx_time"] }}</td>
                 </tr>

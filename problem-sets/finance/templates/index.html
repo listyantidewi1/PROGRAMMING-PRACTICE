@@ -10,36 +10,15 @@
   {% if messages %}
     <ul class=flashes>
     {% for message in messages %}
-      <li>{{ message }}</li>
+
     {% endfor %}
     </ul>
   {% endif %}
 {% endwith %}
-
-
-    <div class="container">
-        <table class="table table-striped">
-            <thead>
-                <th>Symbol</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Share Bought</th>
-                <th>Total Price</th>
-            </thead>
-            <tbody>
-                <td>{{ symbols["symbol"] }}</td>
-                <td>{{ symbols["name"] }}</td>
-                <td>{{ symbols["price"] | usd }}</td>
-                <td>{{ shares }}</td>
-                <td>{{ bill }}</td>
-            </tbody>
-        </table>
+    <div class="container p-3 bg-primary text-white">
+        <h3>Your Investment Portofolio</h3>
     </div>
-    <div class="container-fluid bg-primary text-center text-white p-5">
-        <h3>Cash left: {{ new_cash }}</h3>
-    </div>
-
-    <div class="container">
+    <div class="container mt-5">
         <table class="table table-striped">
             <thead>
                 <th>Symbol</th>
@@ -48,16 +27,20 @@
 
             </thead>
             <tbody>
+
+                {% for porto in portofolio %}
                 <tr>
-                    {% for po%}
-                <td>{{ symbols["symbol"] }}</td>
-                <td>{{ symbols["name"] }}</td>
-                <td>{{ symbols["price"] | usd }}</td>
-                <td>{{ shares }}</td>
+                    <td>{{ porto["symbol"] }}</td>
+                    <td>{{ porto["name"] }}</td>
+                    <td>{{ porto["price"] | usd }}</td>
+                    <td>{{ shares }}</td>
                 </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
-
+    <div class="container bg-primary p-3 mt-5 text-white">
+        <h3>Your current cash: {{ balance["cash"] | usd }}</h3>
+    </div>
 
 {% endblock %}
