@@ -232,6 +232,11 @@ def sell():
         db.execute("update users set cash = ? where id = ?", cashback, id)
         shares = -abs(int(shares))
         db.execute("insert into trx (user_id, symbol, name, shares, price) values(?, ?, ?, ?, ?)", id, symbol_to_sell["symbol"], symbol_to_sell["name"], shares, abs(price_per_symbol * int(shares)))
+
+        # update stock shares
+        current_stock = db.execute("select shares from purchased_stock where id = ? and symbol = ?", id, symbol_to_sell["symbol"])
+        print("current stock:", current_stock)
+
         flash("Sucessfully sold")
     return redirect("/")
 
