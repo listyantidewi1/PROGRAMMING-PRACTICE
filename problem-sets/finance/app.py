@@ -163,8 +163,6 @@ def register():
     session.clear()
     """Register user"""
     # access form data
-    if request.method == "GET":
-        return redirect("register.html")
     if request.method == "POST":
         if not request.form.get("username"):
             return apology("must provide username", 400)
@@ -191,8 +189,8 @@ def register():
             return redirect("/")
         else:
             return apology("must provide matching password", 400)
-    # else:
-    #     return render_template("register.html")
+    else:
+        return render_template("register.html")
 
 
 @app.route("/sell", methods=["GET", "POST"])
