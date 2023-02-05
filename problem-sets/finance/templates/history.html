@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Transaction History
+{% endblock %}
+
+{% block main %}
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+    <!-- <p class="text-center">A share of {{ symbols["name"] }} ({{ symbols["symbol"] }}) costs {{ symbols["price"] | usd }} </p>
+    {{ symbols }} -->
+    <!-- {{ symbols }}
+    {{ shares }}
+    {{ bill }}
+    {{ new_cash }} -->
+
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Transaction Time</th>
+
+            </thead>
+            <tbody>
+                <td>{{ history["symbol"] }}</td>
+                <td>{{ name["name"] }}</td>
+                <td>{{ history["price"] | usd }}</td>
+                <td>{{ history["trx_time"] }}</td>
+
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

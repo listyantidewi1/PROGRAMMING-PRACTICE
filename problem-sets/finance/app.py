@@ -84,8 +84,11 @@ def buy():
 @login_required
 def history():
     """Show history of transactions"""
-    
-    return apology("TODO")
+    id = session["user_id"]
+
+    history = db.execute("SELECT * FROM trx where user_id = ?", id)
+    name = lookup(history[0]["symbol"])
+    return render_template("history.html", history = history, name = name)
 
 
 @app.route("/login", methods=["GET", "POST"])
