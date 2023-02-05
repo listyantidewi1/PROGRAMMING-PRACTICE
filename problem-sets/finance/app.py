@@ -39,7 +39,10 @@ def after_request(response):
 @app.route("/")
 @login_required
 def index():
+    id = session["user_id"]
     """Show portfolio of stocks"""
+    portofolio = db.execute("select * from purchased_stock where user_id = ?", id)
+    
 
     return apology("TODO")
 
