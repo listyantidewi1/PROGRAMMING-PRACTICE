@@ -144,9 +144,9 @@ def quote():
         else:
             symbol = request.form.get("symbol")
             symbol_lookup_result = lookup(symbol)
-            if symbol_lookup_result == None:
+            if not symbol_lookup_result:
                 return apology("Invalid symbol", 403)
-            print(symbol_lookup_result)
+            # print(symbol_lookup_result)
             return render_template("quoted.html", symbols = symbol_lookup_result)
             # print(symbols)
     # return render_template("quote.html")
