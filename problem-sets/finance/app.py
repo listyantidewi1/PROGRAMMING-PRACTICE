@@ -178,7 +178,8 @@ def register():
             db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
         else:
             return apology("must provide matching password", 400)
-        session["user_id"] = rows["id"]
+        registered_user = db.execute("select * from users where username = ?", username)
+        session["user_id"] = registered_user[0]["id"]
         return redirect("/")
     else:
         return render_template("register.html")
