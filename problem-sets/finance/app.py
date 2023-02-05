@@ -82,8 +82,8 @@ def buy():
             # check and update purchased stocks if necessary
             existing = db.execute("select * from purchased_stock where user_id = ? and symbol = ?", id, current_symbol["symbol"])
             if len(existing) > 0:
-                old_shares = db.execute("select shares from purchased_stock where user_id = ? and symbol = ?", id, current_symbol["symbol"])
-                new_shares = old_shares["shares"] + shares
+                old_shares = db.execute("select shares from purchased_stock where user_id = ? and symbol = ?", id, current_symbol["symbol"])[0]
+                new_shares = old_shares["shares"] + int(shares)
                 db.execute("update purchased_stock set shares = ? where user_id = ? and symbol = ?", new_shares, id, current_symbol["symbol"])
             elif len(existing) == 0:
                 db.execute("insert into purchased_stock (user_id, symbol, name, shares, price) values (?, ?, ?, ?, ?)", id, current_symbol["symbol"], current_symbol["name"], shares, bill)
@@ -244,6 +244,7 @@ def sell():
         # update stock shares
         current_stock = db.execute("select shares from purchased_stock where user_id = ? and symbol = ?", id, symbol_to_sell["symbol"])
         print("current stock:", current_stock)
+        
 
         flash("Sucessfully sold")
     return redirect("/")
