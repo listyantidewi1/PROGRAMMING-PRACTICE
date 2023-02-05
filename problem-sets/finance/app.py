@@ -159,12 +159,11 @@ def register():
     # access form data
     if request.method == "POST":
         if not request.form.get("username"):
-            return apology("must provide username")
+            return apology("must provide username", 403)
         elif not request.form.get("password"):
-            return apology("must provide password")
+            return apology("must provide password", 403)
 
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
-        print(rows)
 
         username = request.form.get("username")
         password = request.form.get("password")
@@ -172,15 +171,18 @@ def register():
 
         hash = generate_password_hash(password)
         if len(rows)==1:
-            return apology("username already taken", 200)
+            return apology("username already taken", 403)
         if password == password_repeat:
             db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
+
+            # get the newly registered user info and store in session
+
             registered_user = db.execute("select * from users where username = ?", username)
             session["user_id"] = registered_user[0]["id"]
-            print(session["user_id"])
+
             return redirect("/")
         else:
-            return apology("must provide matching password")
+            return apology("must provide matching password", 403)
     else:
         return render_template("register.html")
 
