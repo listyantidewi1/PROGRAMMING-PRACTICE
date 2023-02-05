@@ -59,7 +59,7 @@ def buy():
             return apology("must provide symbol", 400)
         elif lookup(request.form.get("symbol")) == None:
             return apology("Invalid symbol", 400)
-        elif not request.form.get("shares"):
+        elif (not request.form.get("shares")) or (request.form.get("shares").isalpha() == True) or :
             return apology("must provide number of shares", 400)
 
         current_symbol = lookup(request.form.get("symbol"))
