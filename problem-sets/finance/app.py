@@ -159,9 +159,9 @@ def register():
     # access form data
     if request.method == "POST":
         if not request.form.get("username"):
-            return apology("must provide username", 400)
+            return apology("must provide username")
         elif not request.form.get("password"):
-            return apology("must provide password", 400)
+            return apology("must provide password")
 
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
         print(rows)
@@ -177,7 +177,7 @@ def register():
         if password == password_repeat:
             db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
         else:
-            return apology("must provide matching password", 400)
+            return apology("must provide matching password")
         registered_user = db.execute("select * from users where username = ?", username)
         session["user_id"] = registered_user[0]["id"]
         print(session["user_id"])
