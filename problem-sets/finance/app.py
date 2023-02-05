@@ -79,18 +79,18 @@ def buy():
             db.execute("UPDATE users set cash = ? WHERE id = ?", new_cash, id)
             db.execute("insert into trx (user_id, symbol, name, shares, price) values (?, ?, ?, ?, ?)", id, current_symbol["symbol"], current_symbol["name"], shares, bill)
 
-            # check and update purchased stocks in necessary
+            # check and update purchased stocks if necessary
             existing = db.execute("select * from purchased_stock where user_id = ? and symbol = ?", id, current_symbol["symbol"])
             if len(existing) > 0:
-                db.execute("update purchased_stock set shares = ? where user_id = ? and symbol = ?", )
-
-            db.execute("insert into purchased_stock (user_id, symbol, name, shares, price) values (?, ?, ?, ?, ?)", id, current_symbol["symbol"], current_symbol["name"], shares, bill)
+                old_shares = db.execute("select shares from purchased_stock where user_id = ? and symbol = ?", id, current_symbol["symbol"])
+                new_shares = old_shares["shares"] + shares
+                db.execute("update purchased_stock set shares = ? where user_id = ? and symbol = ?", new_shares, id, current_symbol["symbol"])
+            elif len(existing) == 0:
+                db.execute("insert into purchased_stock (user_id, symbol, name, shares, price) values (?, ?, ?, ?, ?)", id, current_symbol["symbol"], current_symbol["name"], shares, bill)
             flash('stock was sucessfully bought')
             return redirect("/")
         else:
             return apology("not enough cash", 403)
-
-    #return apology("TODO")
 
 
 @app.route("/history")
@@ -213,7 +213,9 @@ def sell():
     id = session["user_id"]
 
     if request.method == "GET":
-        symbols = db.execute("Select symbol from trx where user_id = ?", id)
+        symbols = db.execute("Select symbol from purchased_stock where user_id = ?", id)
+        if symbols == None:
+            return apology("You have nothing to sell", 400)
         print(symbols)
         return render_template("sell.html", symbols = symbols)
 
