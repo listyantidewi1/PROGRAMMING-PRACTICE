@@ -16,13 +16,6 @@
   {% endif %}
 {% endwith %}
 
-    <!-- <p class="text-center">A share of {{ symbols["name"] }} ({{ symbols["symbol"] }}) costs {{ symbols["price"] | usd }} </p>
-    {{ symbols }} -->
-    <!-- {{ symbols }}
-    {{ shares }}
-    {{ bill }}
-    {{ new_cash }} -->
-
     <div class="container">
         <table class="table table-striped">
             <thead>
@@ -34,7 +27,7 @@
             </thead>
             <tbody>
                 <td>{{ history["symbol"] }}</td>
-                <td>{{ name["name"] }}</td>
+                <td>{{ name }}</td>
                 <td>{{ history["price"] | usd }}</td>
                 <td>{{ history["trx_time"] }}</td>
 
