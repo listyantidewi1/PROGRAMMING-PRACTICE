@@ -215,10 +215,10 @@ def sell():
 
     if request.method == "GET":
         symbols = db.execute("Select symbol from purchased_stock where user_id = ?", id)
-        if symbols == None:
+        if len(symbols) == 0:
             return apology("You have nothing to sell", 400)
-        print(symbols)
-        return render_template("sell.html", symbols = symbols)
+        else:
+            return render_template("sell.html", symbols = symbols)
 
     if request.method == "POST":
         if not request.form.get("symbol"):
@@ -228,13 +228,16 @@ def sell():
         elif not request.form.get("shares"):
             return apology("must provide number of shares", 400)
 
-        symbol = request.form.get("symbol")
+
+        symbol_to_sell = lookup(request.form.get("symbol"))
         shares = request.form.get("shares")
+        if ("-" in shares) or (shares.isalpha() == True) or ("." in shares):
+            return apology("must provide whole number of shares", 400)
 
         # check for remaining balance
         balance = db.execute("SELECT cash FROM users WHERE id = ?", id)[0]
         print(balance)
-        symbol_to_sell = lookup(symbol)
+
         price_per_symbol = symbol_to_sell["price"]
         cashback = price_per_symbol * int(shares) + float(balance["cash"])
         print(cashback)
