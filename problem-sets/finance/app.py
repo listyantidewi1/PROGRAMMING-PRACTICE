@@ -164,6 +164,7 @@ def register():
             return apology("must provide password", 400)
 
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
+        print(rows)
 
         username = request.form.get("username")
         password = request.form.get("password")
@@ -177,6 +178,7 @@ def register():
             db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
         else:
             return apology("must provide matching password", 400)
+        session["user_id"] = rows["user_id"]
         return redirect("/")
     else:
         return render_template("register.html")
