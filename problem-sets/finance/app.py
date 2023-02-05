@@ -221,6 +221,8 @@ def sell():
 
         symbol = request.form.get("symbol")
         shares = request.form.get("shares")
+
+        # check for remaining balance
         balance = db.execute("SELECT cash FROM users WHERE id = ?", id)[0]
         print(balance)
         symbol_to_sell = lookup(symbol)
@@ -229,7 +231,8 @@ def sell():
         print(cashback)
         db.execute("update users set cash = ? where id = ?", cashback, id)
         shares = -abs(int(shares))
-        db.execute("insert into trx (user_id, symbol, shares, price) values(?, ?, ?, ?)", id, symbol_to_sell["symbol"], shares, abs(price_per_symbol * int(shares)))
+        db.execute("insert into trx (user_id, symbol, name, shares, price) values(?, ?, ?, ?, ?)", id, symbol_to_sell["symbol"], symbol_to_sell["name"], shares, abs(price_per_symbol * int(shares)))
+        flash("Sucessfully sold")
     return redirect("/")
 
     #return apology("TODO")
