@@ -249,7 +249,7 @@ def sell():
             new_shares = old_shares["shares"] - int(shares)
             if new_shares < 0:
                 return apology("not enough shares", 400)
-            elif new_shares = 0:
+            elif new_shares == 0:
                 db.execute("delete from purchased_stock where user_id = ? and symbol = ?", id, symbol_to_sell["symbol"])
             else:
                 db.execute("update purchased_stock set shares = ? where user_id = ? and symbol = ?", new_shares, id, symbol_to_sell["symbol"])
