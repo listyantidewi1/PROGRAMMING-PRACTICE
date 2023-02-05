@@ -172,7 +172,7 @@ def register():
 
         hash = generate_password_hash(password)
         if len(rows)==1:
-            return apology("username already taken")
+            return apology("username already taken", 200)
         if password == password_repeat:
             db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
             registered_user = db.execute("select * from users where username = ?", username)
