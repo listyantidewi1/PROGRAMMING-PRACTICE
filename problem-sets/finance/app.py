@@ -173,15 +173,14 @@ def register():
         hash = generate_password_hash(password)
         if len(rows)==1:
             return apology("username already taken")
-
         if password == password_repeat:
             db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
+            registered_user = db.execute("select * from users where username = ?", username)
+            session["user_id"] = registered_user[0]["id"]
+            print(session["user_id"])
+            return redirect("/")
         else:
             return apology("must provide matching password")
-        registered_user = db.execute("select * from users where username = ?", username)
-        session["user_id"] = registered_user[0]["id"]
-        print(session["user_id"])
-        return redirect("/")
     else:
         return render_template("register.html")
 
