@@ -19,6 +19,7 @@
     <div class="container">
         <table class="table table-striped">
             <thead>
+                <th>Transaction Type</th>
                 <th>Symbol</th>
                 <th>Name</th>
                 <th>Price</th>
@@ -29,6 +30,7 @@
             <tbody>
                 {% for hist in history %}
                 <tr>
+                    <td>{{ hist["type"] }}</td>
                     <td>{{ hist["symbol"] }}</td>
                     <td>{{ hist["name"] }}</td>
                     <td>{{ hist["price"] | usd }}</td>
