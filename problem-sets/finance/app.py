@@ -269,5 +269,5 @@ def sell():
                 db.execute("update purchased_stock set shares = ? where user_id = ? and symbol = ?", new_shares, id, symbol_to_sell["symbol"])
                 flash("Sucessfully sold")
                 return redirect("/")
-        elif len(current_stock) == 0:
+        else:
             return apology("nothing to sell", 400)
