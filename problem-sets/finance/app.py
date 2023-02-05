@@ -78,6 +78,9 @@ def buy():
             #bill = float(bill)
             db.execute("UPDATE users set cash = ? WHERE id = ?", new_cash, id)
             db.execute("insert into trx (user_id, symbol, name, shares, price) values (?, ?, ?, ?, ?)", id, current_symbol["symbol"], current_symbol["name"], shares, bill)
+
+            # check and update purchased stocks in necessary
+
             db.execute("insert into purchased_stock (user_id, symbol, name, shares, price) values (?, ?, ?, ?, ?)", id, current_symbol["symbol"], current_symbol["name"], shares, bill)
             flash('stock was sucessfully bought')
             return redirect("/")
