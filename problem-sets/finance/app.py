@@ -78,7 +78,7 @@ def buy():
             new_cash = cash - bill
             #bill = float(bill)
             db.execute("UPDATE users set cash = ? WHERE id = ?", new_cash, id)
-            db.execute("insert into trx (user_id, symbol, name, shares, price) values (?, ?, ?, ?, ?)", id, current_symbol["symbol"], current_symbol["name"], shares, bill)
+            db.execute("insert into trx (user_id, symbol, name, shares, price) values (?, ?, ?, ?, ?)", id, current_symbol["symbol"], current_symbol["name"], shares, -abs(bill))
 
             # check and update purchased stocks if necessary
             existing = db.execute("select * from purchased_stock where user_id = ? and symbol = ?", id, current_symbol["symbol"])
@@ -254,7 +254,7 @@ def sell():
 
         # update stock shares
         current_stock = db.execute("select * from purchased_stock where user_id = ? and symbol = ?", id, symbol_to_sell["symbol"])
-       
+
         if len(current_stock) > 0:
             old_shares = db.execute("select shares from purchased_stock where user_id = ? and symbol = ?", id, symbol_to_sell["symbol"])[0]
             new_shares = old_shares["shares"] - int(shares)
