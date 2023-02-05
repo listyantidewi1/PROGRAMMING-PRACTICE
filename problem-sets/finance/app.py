@@ -59,12 +59,12 @@ def buy():
             return apology("must provide symbol", 400)
         elif lookup(request.form.get("symbol")) == None:
             return apology("Invalid symbol", 400)
-        elif (not request.form.get("shares")) or (request.form.get("shares").isalpha() == True) or (float(request.form.get("shares")) != (int(request.form.get("shares")))):
+        elif not request.form.get("shares"):
             return apology("must provide whole number of shares", 400)
 
         current_symbol = lookup(request.form.get("symbol"))
         shares = request.form.get("shares")
-        if (int(shares) < 0) or (shares.isalpha() == True) or ((float(shares)) != (int(shares))):
+        if (int(shares) < 0) or (shares.isalpha() == True) or ((float(shares)) > (int(shares))):
             return apology("must provide whole number of shares", 400)
 
         balance = db.execute("SELECT cash FROM users WHERE id = ?", id)[0]
