@@ -231,19 +231,26 @@ def sell():
 
         symbol_to_sell = lookup(request.form.get("symbol"))
         shares = request.form.get("shares")
+
+        # check for valid shares input
         if ("-" in shares) or (shares.isalpha() == True) or ("." in shares):
             return apology("must provide whole number of shares", 400)
 
         # check for remaining balance
         balance = db.execute("SELECT cash FROM users WHERE id = ?", id)[0]
-        print(balance)
 
-        price_per_symbol = symbol_to_sell["price"]
-        cashback = price_per_symbol * int(shares) + float(balance["cash"])
-        print(cashback)
+        # get price per share
+        price_per_share = symbol_to_sell["price"]
+
+        # calculate cashback
+        cashback = price_per_share * int(shares) + float(balance["cash"])
+
+        # updare user's balance
         db.execute("update users set cash = ? where id = ?", cashback, id)
+
+        # update history
         sold_shares = -abs(int(shares))
-        db.execute("insert into trx (user_id, symbol, name, shares, price) values(?, ?, ?, ?, ?)", id, symbol_to_sell["symbol"], symbol_to_sell["name"], sold_shares, abs(price_per_symbol * int(sold_shares)))
+        db.execute("insert into trx (user_id, symbol, name, shares, price) values(?, ?, ?, ?, ?)", id, symbol_to_sell["symbol"], symbol_to_sell["name"], sold_shares, price_per_share * int(sold_shares))
 
         # update stock shares
         current_stock = db.execute("select * from purchased_stock where user_id = ? and symbol = ?", id, symbol_to_sell["symbol"])
