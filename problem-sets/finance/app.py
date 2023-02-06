@@ -240,7 +240,7 @@ def sell():
         balance = db.execute("SELECT cash FROM users WHERE id = ?", id)[0]
 
         # get price per share
-        price_per_share = usd(symbol_to_sell["price"])
+        price_per_share = usd(float(symbol_to_sell["price"]))
 
         # calculate cashback
         cashback = price_per_share * int(shares) + float(balance["cash"])
