@@ -107,7 +107,7 @@ def history():
 
     history = db.execute("SELECT * FROM trx where user_id = ?", id)
     # name = lookup(history[0]["symbol"])
-    return render_template("history.html", history = history)
+    return render_template("history.html", history=history)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -172,7 +172,7 @@ def quote():
             if not symbol_lookup_result:
                 return apology("Invalid symbol", 400)
             # print(symbol_lookup_result)
-            return render_template("quoted.html", symbols = symbol_lookup_result)
+            return render_template("quoted.html", symbols=symbol_lookup_result)
             # print(symbols)
     # return render_template("quote.html")
 
@@ -195,7 +195,7 @@ def register():
         password_repeat = request.form.get("confirmation")
 
         hash = generate_password_hash(password)
-        if len(rows)==1:
+        if len(rows) == 1:
             return apology("username already taken")
         if password == password_repeat:
             db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
@@ -223,7 +223,7 @@ def sell():
         if len(symbols) == 0:
             return apology("nothing to sell", 400)
         else:
-            return render_template("sell.html", symbols = symbols)
+            return render_template("sell.html", symbols=symbols)
 
     if request.method == "POST":
         if not request.form.get("symbol"):
@@ -232,7 +232,6 @@ def sell():
             return apology("Invalid symbol", 403)
         elif not request.form.get("shares"):
             return apology("must provide number of shares", 400)
-
 
         symbol_to_sell = lookup(request.form.get("symbol"))
         shares = request.form.get("shares")
@@ -255,14 +254,18 @@ def sell():
 
         # update history
         sold_shares = -abs(int(shares))
-        db.execute("insert into trx (type, user_id, symbol, name, shares, price) values('SELL', ?, ?, ?, ?, ?)", id, symbol_to_sell["symbol"], symbol_to_sell["name"], sold_shares, price_per_share * abs(int(sold_shares)))
+        db.execute("insert into trx (type, user_id, symbol, name, shares, price) values('SELL', ?, ?, ?, ?, ?)",
+                    id, symbol_to_sell["symbol"], symbol_to_sell["name"], sold_shares, price_per_share * abs(int(sold_shares)))
 
         # update stock shares
-        current_stock = db.execute("select * from purchased_stock where user_id = ? and symbol = ?", id, symbol_to_sell["symbol"])
+        current_stock = db.execute("select * from purchased_stock where user_id = ? and symbol = ?",
+                                   id, symbol_to_sell["symbol"])
 
         if len(current_stock) > 0:
-            old_shares = db.execute("select shares from purchased_stock where user_id = ? and symbol = ?", id, symbol_to_sell["symbol"])[0]
-            old_price = db.execute("select price from purchased_stock where user_id = ? and symbol = ?", id, symbol_to_sell["symbol"])[0]
+            old_shares = db.execute("select shares from purchased_stock where user_id = ? and symbol = ?",
+                                   id, symbol_to_sell["symbol"])[0]
+            old_price = db.execute("select price from purchased_stock where user_id = ? and symbol = ?",
+                                   id, symbol_to_sell["symbol"])[0]
             new_shares = old_shares["shares"] - int(shares)
             new_price = old_price["price"] - float(symbol_to_sell["price"] * int(shares))
             print("new shares", new_shares)
@@ -273,7 +276,8 @@ def sell():
                 flash("Sucessfully sold")
                 return redirect("/")
             else:
-                db.execute("update purchased_stock set shares = ?, price = ? where user_id = ? and symbol = ?", new_shares, new_price, id, symbol_to_sell["symbol"])
+                db.execute("update purchased_stock set shares = ?, price = ? where user_id = ? and symbol = ?",
+                            new_shares, new_price, id, symbol_to_sell["symbol"])
                 flash("Sucessfully sold")
                 return redirect("/")
         else:
