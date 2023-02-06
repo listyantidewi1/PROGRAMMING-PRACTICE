@@ -10,12 +10,12 @@
         <label for="symbol">Symbol</label>
         <select name="symbol" class="form-control mx-auto w-auto">
             {% for symbol in symbols %}
-                <option value="{{ symbol.symbol }}">{{ symbol.symbol }}</option>
+                <option value="{{ symbol['symbol'] }}">{{ symbol["symbol"] }} {{ symbol["price"] | usd }}</option>
             {% endfor %}
         </select>
     </div>
     <div>
-        {{ symbol.price | usd }}
+
     </div>
     <div class="mb-3">
         <label for="shares">Shares to sell:</label>

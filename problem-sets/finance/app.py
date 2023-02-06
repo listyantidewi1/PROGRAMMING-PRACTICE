@@ -214,7 +214,7 @@ def sell():
     id = session["user_id"]
 
     if request.method == "GET":
-        symbols = db.execute("Select symbol from purchased_stock where user_id = ?", id)
+        symbols = db.execute("Select * from purchased_stock where user_id = ?", id)
         if len(symbols) == 0:
             return apology("nothing to sell", 400)
         else:
