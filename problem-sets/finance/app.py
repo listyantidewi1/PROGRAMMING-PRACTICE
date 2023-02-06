@@ -41,10 +41,11 @@ def after_request(response):
 def index():
     id = session["user_id"]
     """Show portfolio of stocks"""
-    portofolio = db.execute("select symbol, name, price, sum(shares) as shares from purchased_stock where user_id = ? group by symbol", id)
+    portofolio = db.execute(
+        "select symbol, name, price, sum(shares) as shares from purchased_stock where user_id = ? group by symbol", id)
     saldo = db.execute("select * from users where id = ?", id)[0]
     print(saldo)
-    return render_template("index.html", portofolio = portofolio, balance=saldo)
+    return render_template("index.html", portofolio=portofolio, balance=saldo)
 
 
 @app.route("/buy", methods=["GET", "POST"])
@@ -76,18 +77,22 @@ def buy():
 
         if bill < float(cash):
             new_cash = cash - bill
-            #bill = float(bill)
+            # bill = float(bill)
             db.execute("UPDATE users set cash = ? WHERE id = ?", new_cash, id)
-            db.execute("insert into trx (type, user_id, symbol, name, shares, price) values ('BUY', ?, ?, ?, ?, ?)", id, current_symbol["symbol"], current_symbol["name"], shares, -abs(bill))
+            db.execute("insert into trx (type, user_id, symbol, name, shares, price) values ('BUY', ?, ?, ?, ?, ?)",
+                        id, current_symbol["symbol"], current_symbol["name"], shares, -abs(bill))
 
             # check and update purchased stocks if necessary
             existing = db.execute("select * from purchased_stock where user_id = ? and symbol = ?", id, current_symbol["symbol"])
             if len(existing) > 0:
-                old_shares = db.execute("select shares from purchased_stock where user_id = ? and symbol = ?", id, current_symbol["symbol"])[0]
+                old_shares = db.execute("select shares from purchased_stock where user_id = ? and symbol = ?",
+                                        id, current_symbol["symbol"])[0]
                 new_shares = old_shares["shares"] + int(shares)
-                db.execute("update purchased_stock set shares = ? where user_id = ? and symbol = ?", new_shares, id, current_symbol["symbol"])
+                db.execute("update purchased_stock set shares = ? where user_id = ? and symbol = ?",
+                            new_shares, id, current_symbol["symbol"])
             elif len(existing) == 0:
-                db.execute("insert into purchased_stock (user_id, symbol, name, shares, price) values (?, ?, ?, ?, ?)", id, current_symbol["symbol"], current_symbol["name"], shares, bill)
+                db.execute("insert into purchased_stock (user_id, symbol, name, shares, price) values (?, ?, ?, ?, ?)",
+                            id, current_symbol["symbol"], current_symbol["name"], shares, bill)
             flash('stock was sucessfully bought')
             return redirect("/")
         else:
