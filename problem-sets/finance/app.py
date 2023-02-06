@@ -257,7 +257,9 @@ def sell():
 
         if len(current_stock) > 0:
             old_shares = db.execute("select shares from purchased_stock where user_id = ? and symbol = ?", id, symbol_to_sell["symbol"])[0]
+            old_price = db.execute("select price from purchased_stock where user_id = ? and symbol = ?", id, symbol_to_sell["symbol"])[0]
             new_shares = old_shares["shares"] - int(shares)
+            new_price = old_price - float(symbol_to_sell["price"])
             print("new shares", new_shares)
             if new_shares < 0:
                 return apology("not enough shares", 400)
@@ -266,7 +268,7 @@ def sell():
                 flash("Sucessfully sold")
                 return redirect("/")
             else:
-                db.execute("update purchased_stock set shares = ?  and price = ? where user_id = ? and symbol = ?", new_shares, new_price, id, symbol_to_sell["symbol"])
+                db.execute("update purchased_stock set shares = ?, set price = ? where user_id = ? and symbol = ?", new_shares, new_price, id, symbol_to_sell["symbol"])
                 flash("Sucessfully sold")
                 return redirect("/")
         else:
