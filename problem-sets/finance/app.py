@@ -266,7 +266,7 @@ def sell():
                 flash("Sucessfully sold")
                 return redirect("/")
             else:
-                db.execute("update purchased_stock set shares = ? where user_id = ? and symbol = ?", new_shares, id, symbol_to_sell["symbol"])
+                db.execute("update purchased_stock set shares = ?  and price = ? where user_id = ? and symbol = ?", new_shares, new_price, id, symbol_to_sell["symbol"])
                 flash("Sucessfully sold")
                 return redirect("/")
         else:
