@@ -38,7 +38,15 @@ def after_request(response):
 @app.route("/admin")
 
 @app.route("/admin/add/recipe")
+
 @app.route("/admin/add/unit")
-@app.route("/admin/add/spice")
-@app.route("/admin/add/recipe")
-@app.route("/admin/add/recipe")
+
+@app.route("/admin/add/ingredient")
+
+@app.route("/admin/add/origin")
+
+@app.route("/admin/add/category")
+
+@app.route("/admin/user")
+
+@app.route("/admin/profile")
