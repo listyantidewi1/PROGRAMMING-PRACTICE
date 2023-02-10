@@ -35,14 +35,22 @@ def index():
 @app.route("/member")
 def member_dashboard():
     return apology("Member dashboard beum dikerjain?", 403)
-    
-# @app.route("/member/add")
 
-# @app.route("/member/profile")
+@app.route("/member/add")
+def add():
+    return apology("Member dashboard beum dikerjain?", 403)
 
-# @app.route("/admin")
+@app.route("/member/profile")
+def profile():
+    return apology("Member dashboard beum dikerjain?", 403)
 
-# @app.route("/admin/add/recipe")
+@app.route("/admin")
+def admin_dashboard():
+    return apology("Admin dashboard beum dikerjain?", 403)
+
+@app.route("/admin/add/recipe")
+def admin_add_recipe():
+    return apology("Admin dashboard beum dikerjain?", 403)
 
 # @app.route("/admin/add/unit")
 
@@ -55,3 +63,11 @@ def member_dashboard():
 # @app.route("/admin/user")
 
 # @app.route("/admin/profile")
+
+@app.route("/register")
+def register():
+    return apology("Fitur register beum dikerjain?", 403)
+
+@app.route("/login")
+def login():
+    return apology("Fitur login beum dikerjain?", 403)
