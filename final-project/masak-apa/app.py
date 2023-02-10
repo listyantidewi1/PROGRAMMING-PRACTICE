@@ -29,7 +29,7 @@ def after_request(response):
 
 @app.route("/")
 def index():
-    return apology("must do final project", 403)
+    return apology("Final project belum dikerjain?", 403)
 
 
 # @app.route("/member")
