@@ -29,3 +29,10 @@ def after_request(response):
 
 @app.route("/")
 
+@app.route("/member")
+
+@app.route("/member/add")
+
+@app.route("/member/profile")
+
+@app.route("/admin")
