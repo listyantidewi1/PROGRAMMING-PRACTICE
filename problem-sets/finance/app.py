@@ -58,7 +58,7 @@ def buy():
 
     if request.method == "POST":
         if not request.form.get("symbol"):
-            return apology("must provide &***symbol----", 403)
+            return apology("must provide symbol", 400)
         elif lookup(request.form.get("symbol")) == None:
             return apology("Invalid symbol", 400)
         elif not request.form.get("shares"):
