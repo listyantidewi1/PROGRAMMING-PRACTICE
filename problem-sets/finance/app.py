@@ -169,6 +169,7 @@ def quote():
         else:
             symbol = request.form.get("symbol")
             symbol_lookup_result = lookup(symbol)
+            print(symbol_lookup_result)
             if not symbol_lookup_result:
                 return apology("Invalid symbol", 400)
             # print(symbol_lookup_result)
