@@ -91,7 +91,7 @@ def buy():
                                         id, current_symbol["symbol"])[0]
                 new_shares = old_shares["shares"] + int(shares)
                 db.execute("update purchased_stock set shares = ? where user_id = ? and symbol = ?",
-                          new_shares, id, current_symbol["symbol"])
+                           new_shares, id, current_symbol["symbol"])
             elif len(existing) == 0:
                 db.execute("insert into purchased_stock (user_id, symbol, name, shares, price) values (?, ?, ?, ?, ?)",
                            id, current_symbol["symbol"], current_symbol["name"], shares, bill)
