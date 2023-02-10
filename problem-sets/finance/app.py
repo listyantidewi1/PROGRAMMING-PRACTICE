@@ -65,6 +65,7 @@ def buy():
             return apology("must provide whole number of shares", 400)
 
         current_symbol = lookup(request.form.get("symbol"))
+        print(current_symbol)
         shares = request.form.get("shares")
         if ("-" in shares) or (shares.isalpha() == True) or ("." in shares):
             return apology("must provide whole number of shares", 400)
