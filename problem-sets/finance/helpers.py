@@ -7,6 +7,7 @@ from functools import wraps
 
 
 def apology(message, code=400):
+    # komentar 1 baris
     """Render message as an apology to user."""
     def escape(s):
         """
