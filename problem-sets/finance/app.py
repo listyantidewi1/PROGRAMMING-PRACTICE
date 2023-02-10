@@ -82,7 +82,7 @@ def buy():
             # bill = float(bill)
             db.execute("UPDATE users set cash = ? WHERE id = ?", new_cash, id)
             db.execute("insert into trx (type, user_id, symbol, name, shares, price) values ('BUY', ?, ?, ?, ?, ?)",
-                        id, current_symbol["symbol"], current_symbol["name"], shares, -abs(bill))
+                    id, current_symbol["symbol"], current_symbol["name"], shares, -abs(bill))
 
             # check and update purchased stocks if necessary
             existing = db.execute("select * from purchased_stock where user_id = ? and symbol = ?", id, current_symbol["symbol"])
@@ -91,10 +91,10 @@ def buy():
                                         id, current_symbol["symbol"])[0]
                 new_shares = old_shares["shares"] + int(shares)
                 db.execute("update purchased_stock set shares = ? where user_id = ? and symbol = ?",
-                            new_shares, id, current_symbol["symbol"])
+                        new_shares, id, current_symbol["symbol"])
             elif len(existing) == 0:
                 db.execute("insert into purchased_stock (user_id, symbol, name, shares, price) values (?, ?, ?, ?, ?)",
-                            id, current_symbol["symbol"], current_symbol["name"], shares, bill)
+                           id, current_symbol["symbol"], current_symbol["name"], shares, bill)
             flash('stock was sucessfully bought')
             return redirect("/")
         else:
@@ -259,7 +259,7 @@ def sell():
         # update history
         sold_shares = -abs(int(shares))
         db.execute("insert into trx (type, user_id, symbol, name, shares, price) values('SELL', ?, ?, ?, ?, ?)",
-                    id, symbol_to_sell["symbol"], symbol_to_sell["name"], sold_shares, price_per_share * abs(int(sold_shares)))
+                id, symbol_to_sell["symbol"], symbol_to_sell["name"], sold_shares, price_per_share * abs(int(sold_shares)))
 
         # update stock shares
         current_stock = db.execute("select * from purchased_stock where user_id = ? and symbol = ?",
