@@ -35,6 +35,10 @@ def after_request(response):
     response.headers["Pragma"] = "no-cache"
     return response
 
+@app.route("/")
+def login():
+    if sudah login maka return redirect ke index.html
+        else return redirect("login.html")
 
 @app.route("/")
 @login_required
