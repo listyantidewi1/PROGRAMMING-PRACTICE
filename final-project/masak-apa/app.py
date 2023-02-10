@@ -4,7 +4,7 @@ from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from helpers import login_required
+from helpers import login_required, apology
 
 # configure application
 
@@ -16,7 +16,7 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # Configure CS50 Library to use SQLite database
-db = SQL("sqlite:///masak-apa.db")
+db = SQL("sqlite:///masakapa.sqlite")
 
 @app.after_request
 def after_request(response):
@@ -28,25 +28,28 @@ def after_request(response):
 
 
 @app.route("/")
+def index():
+    return apology("must do final project", 403)
 
-@app.route("/member")
 
-@app.route("/member/add")
+# @app.route("/member")
 
-@app.route("/member/profile")
+# @app.route("/member/add")
 
-@app.route("/admin")
+# @app.route("/member/profile")
 
-@app.route("/admin/add/recipe")
+# @app.route("/admin")
 
-@app.route("/admin/add/unit")
+# @app.route("/admin/add/recipe")
 
-@app.route("/admin/add/ingredient")
+# @app.route("/admin/add/unit")
 
-@app.route("/admin/add/origin")
+# @app.route("/admin/add/ingredient")
 
-@app.route("/admin/add/category")
+# @app.route("/admin/add/origin")
 
-@app.route("/admin/user")
+# @app.route("/admin/add/category")
 
-@app.route("/admin/profile")
+# @app.route("/admin/user")
+
+# @app.route("/admin/profile")
