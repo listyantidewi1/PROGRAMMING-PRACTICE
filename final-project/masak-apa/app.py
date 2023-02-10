@@ -32,8 +32,10 @@ def index():
     return apology("Final project belum dikerjain?", 403)
 
 
-# @app.route("/member")
-
+@app.route("/member")
+def member_dashboard():
+    return apology("Member dashboard beum dikerjain?", 403)
+    
 # @app.route("/member/add")
 
 # @app.route("/member/profile")
