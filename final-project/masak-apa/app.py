@@ -33,14 +33,17 @@ def index():
 
 
 @app.route("/member")
+@login_required
 def member_dashboard():
     return apology("Member dashboard beum dikerjain?", 403)
 
 @app.route("/member/add")
+@login_required
 def add():
     return apology("Member dashboard beum dikerjain?", 403)
 
 @app.route("/member/profile")
+@login_required
 def profile():
     return apology("Member dashboard beum dikerjain?", 403)
 
@@ -56,20 +59,39 @@ def admin_dashboard():
     return render_template("admin.html", users = n_users[0], recipes=n_recipes[0], ingredients = n_ingr[0], origins=n_ori[0], categories=n_cat[0], unit =n_unit[0])
 
 @app.route("/admin/recipes")
-def admin_add_recipe():
-    return apology("Admin dashboard beum dikerjain?", 403)
+@login_admin_required
+def recipes():
+    return apology("Admin dashboard belum dikerjain?", 403)
 
 @app.route("/admin/units")
+@login_admin_required
+def units():
+    return apology("Bagian units belum dikerjain?", 403)
 
 @app.route("/admin/ingredients")
+@login_admin_required
+def ingredients():
+    return apology("Bagian ingredients belum dikerjain?", 403)
 
 @app.route("/admin/origins")
+@login_admin_required
+def origins():
+    return apology("Bagian origins belum dikerjain?", 403)
 
 @app.route("/admin/categories", methods=["GET", "POST"])
+@login_admin_required
+def categories():
+    return apology("Bagian categories belum dikerjain?", 403)
 
 @app.route("/admin/users")
+@login_admin_required
+def users():
+    return apology("Bagian users belum dikerjain?", 403)
 
 @app.route("/admin/profile")
+@login_admin_required
+def admin_profile():
+    return apology("Bagian profile belum dikerjain?", 403)
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
