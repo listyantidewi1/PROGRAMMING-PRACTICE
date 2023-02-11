@@ -80,8 +80,8 @@ def ingredients():
 @login_admin_required
 def origins():
     if request.method=="GET":
-        
-    return apology("Bagian origins belum dikerjain?", 403)
+        origins = db.execute("select id, origin from origins")
+    #return apology("Bagian origins belum dikerjain?", 403)
 
 @app.route("/admin/categories", methods=["GET", "POST"])
 @login_admin_required
