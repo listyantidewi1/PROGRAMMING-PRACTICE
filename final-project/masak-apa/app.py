@@ -46,7 +46,7 @@ def profile():
 
 @app.route("/admin")
 def admin_dashboard():
-    return apology("Admin dashboard beum dikerjain?", 403)
+    return render_template("admin.html")
 
 @app.route("/admin/recipes")
 def admin_add_recipe():

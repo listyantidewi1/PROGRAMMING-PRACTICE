@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout_admin.html" %}
 
 {% block title %}
     Index
@@ -15,34 +15,31 @@
     </ul>
   {% endif %}
 {% endwith %}
-    <div class="container p-3 bg-primary text-white">
-        <h3>Your Investment Portofolio</h3>
-    </div>
+
     <div class="container mt-5">
-        <table class="table table-striped">
-            <thead>
-                <th>Symbol</th>
-                <th>Name</th>
-                <th>Shares</th>
-                <th>Price</th>
-
-            </thead>
-            <tbody>
-
-                {% for porto in portofolio %}
-                <tr>
-                    <td>{{ porto["symbol"] }}</td>
-                    <td>{{ porto["name"] }}</td>
-                    <td>{{ porto["shares"] }}</td>
-                    <td>{{ porto["price"] | usd }}</td>
-                    <td>{{ shares }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <div class="row">
+            <div class="text-white text-center col-sm-4 bg-primary p-5">
+                <h2>Users</h2>
+            </div>
+            <div class="text-white text-center col-sm-4 bg-success p-5">
+                <h2>Recipes</h2>
+            </div>
+            <div class="text-white text-center col-sm-4 bg-warning p-5">
+                <h2>Ingredients</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="text-white text-center col-sm-4 bg-dark p-5">
+                <h2>Ingredient origins</h2>
+            </div>
+            <div class="text-white text-center col-sm-4 bg-info p-5">
+                <h2>Categories</h2>
+            </div>
+            <div class="text-white text-center col-sm-4 bg-danger p-5">
+                <h2>Measurement Units</h2>
+            </div>
+        </div>
     </div>
-    <div class="container bg-primary p-3 mt-5 text-white">
-        <h3>Your current cash: {{ balance["cash"] | usd }}</h3>
-    </div>
+
 
 {% endblock %}
