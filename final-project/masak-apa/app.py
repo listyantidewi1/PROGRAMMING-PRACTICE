@@ -117,7 +117,7 @@ def login():
             return apology("belum ngisi password", 403)
 
         rows = db.execute("SELECT * from users where username = ?", request.form.get("username"))
-        if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
+        if len(rows) != 1 or not check_password_hash(rows[0]["password"], request.form.get("password")):
             return apology("Password/username salah?", 403)
         elif len(rows) == 1:
             if rows[0]["role"] == "member":
