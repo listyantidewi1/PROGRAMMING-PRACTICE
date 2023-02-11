@@ -50,6 +50,7 @@ def profile():
 @app.route("/admin")
 @login_admin_required
 def admin_dashboard():
+    
     n_users = db.execute("select count(id) as n_users from users where role = 'member'")
     n_recipes = db.execute("select count(id) as n_recipes from recipes")
     n_ingr = db.execute("select count(id) as n_ingr from ingredients")
