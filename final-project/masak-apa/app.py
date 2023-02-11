@@ -91,6 +91,10 @@ def origins():
             return redirect("/admin/origins")
     #return apology("Bagian origins belum dikerjain?", 403)
 
+@app.route("/admin/origins/<id>/edit", methods=["GET", "POST"])
+@login_admin_required
+
+
 @app.route("/admin/categories", methods=["GET", "POST"])
 @login_admin_required
 def categories():
