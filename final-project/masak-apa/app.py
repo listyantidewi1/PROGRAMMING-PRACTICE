@@ -90,11 +90,20 @@ def register():
         if len(rows) == 1:
             return apology("Gak pilih username yang lain?")
         if password = password_repeat:
-            db.execute("insert into users (username, name, password, email) values (?, ?, ?, ?)", username, name, hash, email)
+            db.execute("insert into users (username, name, password, email, role) values (?, ?, ?, ?)", username, name, hash, email, "member")
 
         #store in session
 
-    return apology("Fitur register beum dikerjain?", 403)
+            registered_user = db.execute("select * from users where username = ?", username)
+            session["user_id"] = registered_user[0]["id"]
+            flash("You were sucessfully registered")
+            return redirect("/")
+        else:
+            return apology("Konfirmasi password nggak sama?", 400)
+    else:
+        return render_template("register.html")
+
+   # return apology("Fitur register beum dikerjain?", 403)
 
 @app.route("/login")
 def login():
