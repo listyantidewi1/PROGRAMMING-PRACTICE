@@ -69,7 +69,13 @@ def register():
     session.clear()
 
     if request.method=="POST":
-        
+        if not request.form.get("username"):
+            return apology("belum ngisi username?", 400)
+        elif not request.form.get("password"):
+            return apology("belum ngisi password?", 400)
+
+        rows = db.execute("select * from users where username = ?", request.form.get("username"))
+
     return apology("Fitur register beum dikerjain?", 403)
 
 @app.route("/login")
