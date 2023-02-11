@@ -10,7 +10,7 @@ from helpers import login_required, login_admin_required, apology
 # configure application
 
 UPLOAD_FOLDER = '/path/to/the/uploads'
-ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -22,6 +22,10 @@ Session(app)
 
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///masakapa.sqlite")
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.after_request
 def after_request(response):
@@ -109,6 +113,7 @@ def units_delete(id):
 @app.route("/admin/ingredients", methods=["GET", "POST"])
 @login_admin_required
 def ingredients():
+    
     return apology("Bagian ingredients belum dikerjain?", 403)
 
 @app.route("/admin/origins", methods=["GET", "POST"])
