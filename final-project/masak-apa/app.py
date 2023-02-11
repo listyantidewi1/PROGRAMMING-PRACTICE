@@ -45,6 +45,7 @@ def profile():
     return apology("Member dashboard beum dikerjain?", 403)
 
 @app.route("/admin")
+@login_admin_required()
 def admin_dashboard():
     n_users = db.execute("select count(id) as n_users from users where role = 'member'")
     n_recipes = db.execute("select count(id) as n_recipes from recipes")
