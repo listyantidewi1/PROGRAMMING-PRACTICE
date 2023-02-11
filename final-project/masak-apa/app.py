@@ -139,6 +139,8 @@ def ingredients():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             db.execute("insert into ingredients(image, name, origin_id, category_id, description) values(?,?,?,?,?)", url_for(filename), name, origin, category, description)
+        else:
+            return apology("pilih file dulu")
 
 @app.route("/admin/origins", methods=["GET", "POST"])
 @login_admin_required
