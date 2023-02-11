@@ -6,7 +6,17 @@
 
 {% block main %}
 
-
+<div class="container-fluid mb-3">
+    <form action="/admin/ingredients" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control" id="origin" name="origin" placeholder="Add a new origin" type="text">
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary form-control" type="submit">Add</button>
+        </div>
+    </form>
+</div>
+<hr>
 
 <div class="container-sm mt-3">
     <h2>List of Ingredients</h2>
