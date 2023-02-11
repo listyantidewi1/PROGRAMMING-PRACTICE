@@ -69,7 +69,37 @@ def recipes():
 @app.route("/admin/units", methods=["GET", "POST"])
 @login_admin_required
 def units():
-    return apology("Bagian units belum dikerjain?", 403)
+    if request.method == "GET":
+        units = db.execute("select id, name from units")
+        return render_template("units.html", units = units)
+    elif request.method == "POST":
+        if not request.form("unit"):
+            return apology("Unit belum diisi?", 400)
+        else:
+            unit = request.form.get("unit")
+            db.execute("insert into units (name) values(?)", unit)
+            return redirect("/admin/units")
+
+@app.route("/admin/units/<id>/edit", methods=["GET", "POST"])
+@login_admin_required
+def units_edit(id):
+    if request.method == "GET":
+        unit = db.execute("select * from categories where id = ?", id)[0]
+        print(unit)
+        return render_template("units_edit.html", unit = unit)
+    elif request.method == "POST":
+        unit = request.form.get("unit")
+        print(unit)
+        db.execute("update units set name = ? where id = ?", unit, id)
+        flash("The measurement unit has been successfully edited")
+        return redirect("/admin/units")
+
+@app.route("/admin/units/<id>/delete", methods=["GET"])
+@login_admin_required
+def units_delete(id):
+    db.execute("delete from units where id = ?", id)
+    flash("The measurement unit has been successfully deleted")
+    return redirect("/admin/units")
 
 @app.route("/admin/ingredients", methods=["GET", "POST"])
 @login_admin_required
