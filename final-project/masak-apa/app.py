@@ -79,7 +79,12 @@ def register():
         rows = db.execute("select * from users where username = ? or email = ?", request.form.get("username"), request.form.get("email"))
 
         username = request.form.get("username")
-        
+        password = request.form.get("password")
+        email = request.form.get("email")
+        password_repeat = request.form.get("confirmation")
+
+        hash = generate_password_hash(password)
+        if len(rows)
 
     return apology("Fitur register beum dikerjain?", 403)
 
