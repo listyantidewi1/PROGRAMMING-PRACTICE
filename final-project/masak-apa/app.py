@@ -64,7 +64,9 @@ def admin_add_recipe():
 
 @app.route("/admin/origins")
 
-@app.route("/admin/categories")
+@app.route("/admin/categories", methods=["GET", "POST"])
+def categories():
+    
 
 @app.route("/admin/users")
 
