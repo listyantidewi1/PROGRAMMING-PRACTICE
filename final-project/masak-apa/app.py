@@ -75,10 +75,13 @@ def register():
             return apology("belum ngisi password?", 400)
         elif not request.form.get("email"):
             return apology("belum ngisi email?", 400)
+        elif not request.form.get("name"):
+            return apology("belum ngisi nama?", 400)
 
         rows = db.execute("select * from users where username = ? or email = ?", request.form.get("username"), request.form.get("email"))
 
         username = request.form.get("username")
+        name = request.form.get("name")
         password = request.form.get("password")
         email = request.form.get("email")
         password_repeat = request.form.get("confirmation")
@@ -87,7 +90,9 @@ def register():
         if len(rows) == 1:
             return apology("Gak pilih username yang lain?")
         if password = password_repeat:
-            db.execute("insert into users)
+            db.execute("insert into users (username, name, password, email) values (?, ?, ?, ?)", username, name, hash, email)
+
+        #store in session
 
     return apology("Fitur register beum dikerjain?", 403)
 
