@@ -46,8 +46,8 @@ def profile():
 
 @app.route("/admin")
 def admin_dashboard():
-    n_users = db.execute("select sum(username) as n_users from users where role = 'member'")
-    return render_template("admin.html", users = n_users)
+    n_users = db.execute("select sum(id) as n_users from users where role = 'member'")
+    return render_template("admin.html", users = n_users[0])
 
 @app.route("/admin/recipes")
 def admin_add_recipe():
