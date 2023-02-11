@@ -134,10 +134,11 @@ def ingredients():
         origin = request.form.get("origin")
         category = request.form.get("category")
         file = request.files("file")
+        description = request.files("description")
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            db.execute("insert into ingredients(image, name, origin_id, category_id, description) values(?,?,?,?,?)", url_for())
+            db.execute("insert into ingredients(image, name, origin_id, category_id, description) values(?,?,?,?,?)", url_for(filename), name, origin, category, description)
 
 @app.route("/admin/origins", methods=["GET", "POST"])
 @login_admin_required
