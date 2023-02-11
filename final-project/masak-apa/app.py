@@ -4,7 +4,7 @@ from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from helpers import login_required, apology
+from helpers import login_required, login_admin_required, apology
 
 # configure application
 
@@ -45,7 +45,7 @@ def profile():
     return apology("Member dashboard beum dikerjain?", 403)
 
 @app.route("/admin")
-@login_admin_required()
+@login_admin_required
 def admin_dashboard():
     n_users = db.execute("select count(id) as n_users from users where role = 'member'")
     n_recipes = db.execute("select count(id) as n_recipes from recipes")
@@ -132,7 +132,7 @@ def login():
                 return redirect("/")
             elif rows[0]["role"] == "admin":
                 session["user_id"] = rows[0]["id"]
-                session["role"] = rows[0]["admin"]
+                session["role"] = rows[0]["role"]
                 return redirect("/admin")
             else:
                 return render_template("login.html")
