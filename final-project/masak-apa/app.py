@@ -93,7 +93,13 @@ def origins():
 
 @app.route("/admin/origins/<id>/edit", methods=["GET", "POST"])
 @login_admin_required
-
+def origins_edit(id):
+    if request.method == "GET":
+        origin = db.execute("select * from origins where id = ?", id)[0]
+        print(origin)
+        return render_template("origins_edit.html", origins=origin)
+    elif request.method == "POST":
+        
 
 @app.route("/admin/categories", methods=["GET", "POST"])
 @login_admin_required
