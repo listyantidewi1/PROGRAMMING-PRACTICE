@@ -1,6 +1,6 @@
 from cs50 import SQL
 import os
-from flask import Flask, flash, redirect, render_template, request, session
+from flask import Flask, flash, redirect, render_template, request, session, url_for
 from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
@@ -115,14 +115,11 @@ def units_delete(id):
 @login_admin_required
 def ingredients():
     if request.method == 'GET':
-        ingredients = db.execute("select ingredients.id, image, name, origin, category from ingredients inner join origins on ingredients.origin_id = origins.id inner join categories on ingredients.category_id = categories.id")
-        return render_template("ingredients.html", ingredients = ingredients)
-    elif request.method == "POST":
-
         listCat = db.execute("select category from categories")
         listOri = db.execute("select origin from origins")
-
-
+        ingredients = db.execute("select ingredients.id, image, name, origin, category, description from ingredients inner join origins on ingredients.origin_id = origins.id inner join categories on ingredients.category_id = categories.id")
+        return render_template("ingredients.html", ingredients = ingredients, listCats = listCat, listOris = listOri)
+    elif request.method == "POST":
         if not request.form.get("name"):
             return apology("name belum diisi")
         elif not request.form.get("origin"):
@@ -131,10 +128,16 @@ def ingredients():
             return apology("category belum diisi")
         elif 'file' not in request.files:
             return apology("file belum dipilih")
+        elif not request.form.get("description"):
+            return apology("description belum diisi")
         name = request.form.get("name")
         origin = request.form.get("origin")
         category = request.form.get("category")
         file = request.files("file")
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            db.execute("insert into ingredients(image, name, origin_id, category_id, description) values(?,?,?,?,?)", url_for())
 
 @app.route("/admin/origins", methods=["GET", "POST"])
 @login_admin_required
