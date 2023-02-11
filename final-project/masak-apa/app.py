@@ -84,7 +84,14 @@ def categories():
     if request.method=="GET":
         cat = db.execute("select id, category from categories")
         return render_template("categories.html", categories=cat)
-    return apology("Bagian categories belum dikerjain?", 403)
+    elif request.method=="POST":
+        if not request.form.get("category"):
+            return apology("Category belum diisi?", 400)
+        else:
+            newcat = request.form.get("category")
+            db.execute("insert into categories (category) value (?)", newcat)
+            return redirect("/admin/categories")
+    #return apology("Bagian categories belum dikerjain?", 403)
 
 @app.route("/admin/users", methods=["GET", "POST"])
 @login_admin_required

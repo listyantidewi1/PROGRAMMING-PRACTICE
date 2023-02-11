@@ -8,13 +8,16 @@
 <div class="container-fluid mb-3">
     <form action="/admin/categories" method="post">
         <div class="mb-3">
-            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="category" name="category" placeholder="Input a new ingredient category" type="text">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="category" name="category" placeholder="Add a new category" type="text">
         </div>
-        <button class="btn btn-primary" type="submit">Add</button>
+        <div class="mb-3">
+            <button class="btn btn-primary" type="submit">Add</button>
+        </div>
     </form>
 </div>
-    <div class="container-sm mt-3">
-        <h2>Ingredient Categories</h2>
+<hr>
+<div class="container-sm mt-3">
+    <h2>Ingredient Categories</h2>
     <table class="table table-striped table-hover">
         <thead>
             <tr>
@@ -31,5 +34,5 @@
             {% endfor %}
         </tbody>
     </table>
-    </div>
+</div>
 {% endblock %}
