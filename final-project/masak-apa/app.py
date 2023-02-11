@@ -58,22 +58,22 @@ def admin_dashboard():
     n_unit = db.execute("select count(id) as n_unit from units")
     return render_template("admin.html", users = n_users[0], recipes=n_recipes[0], ingredients = n_ingr[0], origins=n_ori[0], categories=n_cat[0], unit =n_unit[0])
 
-@app.route("/admin/recipes")
+@app.route("/admin/recipes", methods=["GET", "POST"])
 @login_admin_required
 def recipes():
     return apology("Admin dashboard belum dikerjain?", 403)
 
-@app.route("/admin/units")
+@app.route("/admin/units", methods=["GET", "POST"])
 @login_admin_required
 def units():
     return apology("Bagian units belum dikerjain?", 403)
 
-@app.route("/admin/ingredients")
+@app.route("/admin/ingredients", methods=["GET", "POST"])
 @login_admin_required
 def ingredients():
     return apology("Bagian ingredients belum dikerjain?", 403)
 
-@app.route("/admin/origins")
+@app.route("/admin/origins", methods=["GET", "POST"])
 @login_admin_required
 def origins():
     return apology("Bagian origins belum dikerjain?", 403)
@@ -81,14 +81,15 @@ def origins():
 @app.route("/admin/categories", methods=["GET", "POST"])
 @login_admin_required
 def categories():
+
     return apology("Bagian categories belum dikerjain?", 403)
 
-@app.route("/admin/users")
+@app.route("/admin/users", methods=["GET", "POST"])
 @login_admin_required
 def users():
     return apology("Bagian users belum dikerjain?", 403)
 
-@app.route("/admin/profile")
+@app.route("/admin/profile", methods=["GET", "POST"])
 @login_admin_required
 def admin_profile():
     return apology("Bagian profile belum dikerjain?", 403)
