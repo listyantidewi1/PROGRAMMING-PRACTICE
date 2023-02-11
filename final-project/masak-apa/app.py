@@ -114,6 +114,10 @@ def units_delete(id):
 @app.route("/admin/ingredients", methods=["GET", "POST"])
 @login_admin_required
 def ingredients():
+    if request.method == 'GET':
+        ingredients = db.execute("select id, image, name, origin, category from ingredients inner join origins on ingredients.origin_id = origins.id inner join category on ingredients.category_id = categories.id")
+        return render_template(")
+
     return apology("Bagian ingredients belum dikerjain?", 403)
 
 @app.route("/admin/origins", methods=["GET", "POST"])
