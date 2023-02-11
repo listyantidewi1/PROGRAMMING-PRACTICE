@@ -84,7 +84,10 @@ def register():
         password_repeat = request.form.get("confirmation")
 
         hash = generate_password_hash(password)
-        if len(rows)
+        if len(rows) == 1:
+            return apology("Gak pilih username yang lain?")
+        if password = password_repeat:
+            db.execute("insert into users)
 
     return apology("Fitur register beum dikerjain?", 403)
 
