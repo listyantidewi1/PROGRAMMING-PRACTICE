@@ -118,13 +118,23 @@ def ingredients():
         ingredients = db.execute("select ingredients.id, image, name, origin, category from ingredients inner join origins on ingredients.origin_id = origins.id inner join categories on ingredients.category_id = categories.id")
         return render_template("ingredients.html", ingredients = ingredients)
     elif request.method == "POST":
+
+        listCat = db.execute("select category from categories")
+        listOri = db.execute("select origin from origins")
+
+
         if not request.form.get("name"):
             return apology("name belum diisi")
         elif not request.form.get("origin"):
             return apology("origin belum diisi")
         elif not request.form.get("category"):
             return apology("category belum diisi")
-        elif not request
+        elif 'file' not in request.files:
+            return apology("file belum dipilih")
+        name = request.form.get("name")
+        origin = request.form.get("origin")
+        category = request.form.get("category")
+        file = request.files("file")
 
 @app.route("/admin/origins", methods=["GET", "POST"])
 @login_admin_required
