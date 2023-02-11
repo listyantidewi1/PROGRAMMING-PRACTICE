@@ -48,8 +48,8 @@ def profile():
 def admin_dashboard():
     n_users = db.execute("select count(id) as n_users from users where role = 'member'")
     n_recipes = db.execute("select count(id) as n_recipes from recipes")
-    n_ingr = db.execute("select count(id) ad n_ingr from ingredients")
-    return render_template("admin.html", users = n_users[0], recipes=n_recipes[0])
+    n_ingr = db.execute("select count(id) as n_ingr from ingredients")
+    return render_template("admin.html", users = n_users[0], recipes=n_recipes[0], ingredients = n_ingr[0])
 
 @app.route("/admin/recipes")
 def admin_add_recipe():
