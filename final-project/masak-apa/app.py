@@ -66,6 +66,10 @@ def admin_add_recipe():
 
 @app.route("/register")
 def register():
+    session.clear()
+
+    if request.method=="POST":
+        
     return apology("Fitur register beum dikerjain?", 403)
 
 @app.route("/login")
