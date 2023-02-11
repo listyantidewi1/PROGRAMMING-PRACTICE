@@ -178,10 +178,13 @@ def categories_delete(id):
     flash("The category has been successfully deleted")
     return redirect("/admin/categories")
 
-@app.route("/admin/users", methods=["GET", "POST"])
+@app.route("/admin/users", methods=["GET"])
 @login_admin_required
 def users():
-    return apology("Bagian users belum dikerjain?", 403)
+    users = db.execute("select id, name, username, email from users where role = 'member'")
+    return render_template("users.html", users = users)
+
+    #return apology("Bagian users belum dikerjain?", 403)
 
 @app.route("/admin/profile", methods=["GET", "POST"])
 @login_admin_required
