@@ -81,7 +81,9 @@ def origins():
 @app.route("/admin/categories", methods=["GET", "POST"])
 @login_admin_required
 def categories():
-
+    if request.method=="GET":
+        cat = db.execute("select id, category from categories")
+        return render_template("categories.html", categories=cat)
     return apology("Bagian categories belum dikerjain?", 403)
 
 @app.route("/admin/users", methods=["GET", "POST"])
