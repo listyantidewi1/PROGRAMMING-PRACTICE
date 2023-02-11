@@ -116,7 +116,7 @@ def units_delete(id):
 def ingredients():
     if request.method == 'GET':
         ingredients = db.execute("select id, image, name, origin, category from ingredients inner join origins on ingredients.origin_id = origins.id inner join category on ingredients.category_id = categories.id")
-        return render_template(")
+        return render_template("ingredients.html", ingredients = ingredients)
 
     return apology("Bagian ingredients belum dikerjain?", 403)
 
