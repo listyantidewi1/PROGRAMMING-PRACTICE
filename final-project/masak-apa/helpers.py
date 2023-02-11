@@ -44,4 +44,7 @@ def apology(message, code=400):
                          ("%", "~p"), ("#", "~h"), ("/", "~s"), ("\"", "''")]:
             s = s.replace(old, new)
         return s
-    return render_template("apology.html", top=code, bottom=escape(message)), code
+    if session.get("role") == 'admin':
+        return render_template("apology_admin.html", top=code, bottom=escape(message)), code
+    else:
+        return render_template("apology.html", top=code, bottom=escape(message)), code
