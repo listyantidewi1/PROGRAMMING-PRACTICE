@@ -89,7 +89,7 @@ def register():
         hash = generate_password_hash(password)
         if len(rows) == 1:
             return apology("Gak pilih username yang lain?")
-        if password = password_repeat:
+        if password == password_repeat:
             db.execute("insert into users (username, name, password, email, role) values (?, ?, ?, ?)", username, name, hash, email, "member")
 
         #store in session
