@@ -103,7 +103,7 @@ def categories_edit(id):
     elif request.method == "POST":
         category = request.form.get("category")
         print(category)
-        cat = db.execute("update categories set category = ? where id = ?", category, id)
+        db.execute("update categories set category = ? where id = ?", category, id)
         return redirect("/admin/categories")
 
 @app.route("/admin/categories/<id>/delete", methods=["GET"])
