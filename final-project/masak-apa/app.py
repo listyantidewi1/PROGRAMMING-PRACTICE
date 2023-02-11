@@ -50,15 +50,16 @@ def profile():
 @app.route("/admin")
 @login_admin_required
 def admin_dashboard():
-    name = session["name"]
-    id = session["id"]
+    #name = session["name"]
+    id = session["user_id"]
     n_users = db.execute("select count(id) as n_users from users where role = 'member'")
     n_recipes = db.execute("select count(id) as n_recipes from recipes")
     n_ingr = db.execute("select count(id) as n_ingr from ingredients")
     n_ori = db.execute("select count(id) as n_ori from origins")
     n_cat = db.execute("select count(id) as n_cat from categories")
     n_unit = db.execute("select count(id) as n_unit from units")
-    return render_template("admin.html", users = n_users[0], recipes=n_recipes[0], ingredients = n_ingr[0], origins=n_ori[0], categories=n_cat[0], unit =n_unit[0], name = name[0])
+    name = db.execute("select name from users where id = ?", id)
+    return render_template("admin.html", users = n_users[0], recipes=n_recipes[0], ingredients = n_ingr[0], origins=n_ori[0], categories=n_cat[0], unit =n_unit[0], name=name[0])
 
 @app.route("/admin/recipes", methods=["GET", "POST"])
 @login_admin_required
@@ -159,6 +160,7 @@ def register():
             registered_user = db.execute("select * from users where username = ?", username)
             session["user_id"] = registered_user[0]["id"]
             session["role"] = registered_user[0]["role"]
+            session["name"] = registered_user[0]["name"]
             flash("You were sucessfully registered")
             return redirect("/")
         else:
