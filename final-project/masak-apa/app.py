@@ -48,21 +48,21 @@ def profile():
 def admin_dashboard():
     return apology("Admin dashboard beum dikerjain?", 403)
 
-@app.route("/admin/add/recipe")
+@app.route("/admin/recipes")
 def admin_add_recipe():
     return apology("Admin dashboard beum dikerjain?", 403)
 
-# @app.route("/admin/add/unit")
+@app.route("/admin/units")
 
-# @app.route("/admin/add/ingredient")
+@app.route("/admin/ingredients")
 
-# @app.route("/admin/add/origin")
+@app.route("/admin/origins")
 
-# @app.route("/admin/add/category")
+@app.route("/admin/categories")
 
-# @app.route("/admin/user")
+@app.route("/admin/users")
 
-# @app.route("/admin/profile")
+@app.route("/admin/profile")
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -119,7 +119,7 @@ def login():
             return apology("Password/username salah?", 403)
         elif len(rows) == 1:
             if rows[0]["role"] == "member":
-                session["user_id"] == rows[0]["id"]
+                session["user_id"] = rows[0]["id"]
                 return redirect("/")
             elif rows[0]["role"] == "admin":
                 session["user_id"] = rows[0]["id"]
@@ -135,4 +135,4 @@ def login():
 @app.route("/logout")
 def logout():
     session.clear
-    return redirect("/login.html")
+    return redirect("/login")
