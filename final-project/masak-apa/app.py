@@ -84,7 +84,7 @@ def units():
 @login_admin_required
 def units_edit(id):
     if request.method == "GET":
-        unit = db.execute("select * from categories where id = ?", id)[0]
+        unit = db.execute("select * from units where id = ?", id)[0]
         print(unit)
         return render_template("units_edit.html", unit = unit)
     elif request.method == "POST":
