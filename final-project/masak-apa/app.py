@@ -109,9 +109,30 @@ def register():
 def login():
 
     session.clear()
-    
+    if request.method == "POST":
 
-    return apology("Fitur login beum dikerjain?", 403)
+        if not request.form.get("username"):
+            return apology("belum ngisi username?", 403)
+        elif not request.form.get("password"):
+            return apology("belum ngisi password", 403)
+
+        rows = db.execute("SELECT * from users where username = ?", request.form.get("username"))
+        if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
+            return apology("Password/username salah?", 403)
+        elif len(rows) == 1:
+            if rows[0]["role"] == "member":
+                session["user_id"] == rows[0]["id"]
+                return redirect("/")
+            elif rows[0]["role"] == "admin":
+                session["user_id"] = rows[0]["id"]
+                return redirect("/admin")
+            else:
+                return render_template("login.html")
+    else:
+        return render_template("login.html")
+
+
+   # return apology("Fitur login beum dikerjain?", 403)
 
 @app.route("/logout")
 def logout():
