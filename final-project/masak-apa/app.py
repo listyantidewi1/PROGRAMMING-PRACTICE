@@ -93,10 +93,23 @@ def categories():
             return redirect("/admin/categories")
     #return apology("Bagian categories belum dikerjain?", 403)
 
-@app.route("/admin/categories/<id>/edit", methods=["GET"])
-#@login_admin_required
-def categories_edit():
-    return apology("Edit categort belum dibuat?")
+@app.route("/admin/categories/<id>/edit", methods=["GET", "POST"])
+@login_admin_required
+def categories_edit(id):
+    if request.method == "GET":
+        cat = db.execute("select * from categories where id = ?", id)[0]
+        print(cat)
+        return render_template("categories_edit.html", categories=cat)
+    elif request.method == "POST":
+        category = request.form.get("category")
+        cat = db.execute("update categories set category = ? where id = ?", category, id)
+        return redirect("/admin/categories")
+
+@app.route("/admin/categories/<id>/delete", methods=["GET"])
+@login_admin_required
+def categories_delete(id):
+    db.execute("delete from categories where id = ?", id)
+    return redirect("/admin/categories")
 
 @app.route("/admin/users", methods=["GET", "POST"])
 @login_admin_required
