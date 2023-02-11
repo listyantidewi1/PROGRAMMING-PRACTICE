@@ -33,8 +33,8 @@
                 <td>{{ unit["id"] }}</td>
                 <td>{{ unit["name"] }}</td>
                 <td>
-                    <a href="/admin/origins/{{ unit['id'] }}/edit" class="btn btn-warning">Edit</a>
-                    <a href="/admin/origins/{{ unit['id'] }}/delete" onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-danger">Delete</a>
+                    <a href="/admin/units/{{ unit['id'] }}/edit" class="btn btn-warning">Edit</a>
+                    <a href="/admin/units/{{ unit['id'] }}/delete" onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
             {% endfor %}
