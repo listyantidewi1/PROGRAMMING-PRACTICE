@@ -73,8 +73,13 @@ def register():
             return apology("belum ngisi username?", 400)
         elif not request.form.get("password"):
             return apology("belum ngisi password?", 400)
+        elif not request.form.get("email"):
+            return apology("belum ngisi email?", 400)
 
-        rows = db.execute("select * from users where username = ?", request.form.get("username"))
+        rows = db.execute("select * from users where username = ? or email = ?", request.form.get("username"), request.form.get("email"))
+
+        username = request.form.get("username")
+        
 
     return apology("Fitur register beum dikerjain?", 403)
 
