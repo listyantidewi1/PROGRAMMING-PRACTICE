@@ -6,9 +6,9 @@
 
 {% block main %}
 <div class="container-fluid mb-3">
-    <form action="/admin/categories/{{ category['id'] }}/edit" method="post">
+    <form action="" method="post">
         <div class="mb-3">
-            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" value="{{ categories['category'] }}" id="category" name="category" type="text">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" value="{{ categories }}" id="category" name="category" type="text">
         </div>
         <div class="mb-3">
             <button class="btn btn-primary" type="submit">Edit</button>
