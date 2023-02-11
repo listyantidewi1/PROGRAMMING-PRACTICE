@@ -97,7 +97,7 @@ def categories():
 @login_admin_required
 def categories_edit(id):
     if request.method == "GET":
-        cat = db.execute("select category from categories where id = ?", id)[0]
+        cat = db.execute("select * from categories where id = ?", id)[0]
         print(cat)
         return render_template("categories_edit.html", categories=cat)
     elif request.method == "POST":
