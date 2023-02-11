@@ -50,14 +50,15 @@ def profile():
 @app.route("/admin")
 @login_admin_required
 def admin_dashboard():
-    
+    name = session["name"]
+    id = session["id"]
     n_users = db.execute("select count(id) as n_users from users where role = 'member'")
     n_recipes = db.execute("select count(id) as n_recipes from recipes")
     n_ingr = db.execute("select count(id) as n_ingr from ingredients")
     n_ori = db.execute("select count(id) as n_ori from origins")
     n_cat = db.execute("select count(id) as n_cat from categories")
     n_unit = db.execute("select count(id) as n_unit from units")
-    return render_template("admin.html", users = n_users[0], recipes=n_recipes[0], ingredients = n_ingr[0], origins=n_ori[0], categories=n_cat[0], unit =n_unit[0])
+    return render_template("admin.html", users = n_users[0], recipes=n_recipes[0], ingredients = n_ingr[0], origins=n_ori[0], categories=n_cat[0], unit =n_unit[0], name = name[0])
 
 @app.route("/admin/recipes", methods=["GET", "POST"])
 @login_admin_required
@@ -183,11 +184,13 @@ def login():
             if rows[0]["role"] == "member":
                 session["user_id"] = rows[0]["id"]
                 session["role"] = rows[0]["role"]
+                session["name"] = rows[0]["name"]
                 flash("You were sucessfully logged in")
                 return redirect("/")
             elif rows[0]["role"] == "admin":
                 session["user_id"] = rows[0]["id"]
                 session["role"] = rows[0]["role"]
+                session["name"] = rows[0]["name"]
                 flash("You were sucessfully logged in")
                 return redirect("/admin")
             else:
