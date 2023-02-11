@@ -94,7 +94,7 @@ def categories():
     #return apology("Bagian categories belum dikerjain?", 403)
 
 @app.route("/admin/categories/<int:id>/edit", methods=["GET", "POST"])
-@login_admin_required
+#@login_admin_required
 def categories_edit():
     return apology("Edit categort belum dibuat?")
 
