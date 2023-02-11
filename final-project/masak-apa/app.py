@@ -64,7 +64,7 @@ def admin_add_recipe():
 
 # @app.route("/admin/profile")
 
-@app.route("/register")
+@app.route("/register", methods=["GET", "POST"])
 def register():
     session.clear()
 
@@ -90,7 +90,7 @@ def register():
         if len(rows) == 1:
             return apology("Gak pilih username yang lain?")
         if password == password_repeat:
-            db.execute("insert into users (username, name, password, email, role) values (?, ?, ?, ?)", username, name, hash, email, "member")
+            db.execute("insert into users (username, name, password, email, role) values (?, ?, ?, ?, ?)", username, name, hash, email, "member")
 
         #store in session
 
