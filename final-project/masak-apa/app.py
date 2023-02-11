@@ -65,8 +65,6 @@ def admin_add_recipe():
 @app.route("/admin/origins")
 
 @app.route("/admin/categories", methods=["GET", "POST"])
-def categories():
-    
 
 @app.route("/admin/users")
 
@@ -104,6 +102,7 @@ def register():
 
             registered_user = db.execute("select * from users where username = ?", username)
             session["user_id"] = registered_user[0]["id"]
+            session["role"] = registered_user[0]["role"]
             flash("You were sucessfully registered")
             return redirect("/")
         else:
@@ -128,9 +127,11 @@ def login():
         elif len(rows) == 1:
             if rows[0]["role"] == "member":
                 session["user_id"] = rows[0]["id"]
+                session["role"] = rows[0]["role"]
                 return redirect("/")
             elif rows[0]["role"] == "admin":
                 session["user_id"] = rows[0]["id"]
+                session["role"] = rows[0]["admin"]
                 return redirect("/admin")
             else:
                 return render_template("login.html")
