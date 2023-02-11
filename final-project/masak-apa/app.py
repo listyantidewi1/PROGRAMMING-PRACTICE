@@ -81,6 +81,14 @@ def ingredients():
 def origins():
     if request.method=="GET":
         origins = db.execute("select id, origin from origins")
+        return render_template("origins.html", origins = origins)
+    elif request.method=="POST":
+        if not request.form.get("origin"):
+            return apology("origin belum diisi", 400)
+        else:
+            neworigin = request.form.get("origin")
+            db.execute("insert into origins (origin) values(?)", neworigin)
+            return redirect("/admin/origins")
     #return apology("Bagian origins belum dikerjain?", 403)
 
 @app.route("/admin/categories", methods=["GET", "POST"])
