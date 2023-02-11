@@ -104,6 +104,7 @@ def categories_edit(id):
         category = request.form.get("category")
         print(category)
         db.execute("update categories set category = ? where id = ?", category, id)
+        flash("The category has been successfully edited")
         return redirect("/admin/categories")
 
 @app.route("/admin/categories/<id>/delete", methods=["GET"])
@@ -180,10 +181,12 @@ def login():
             if rows[0]["role"] == "member":
                 session["user_id"] = rows[0]["id"]
                 session["role"] = rows[0]["role"]
+                flash("You were sucessfully logged in")
                 return redirect("/")
             elif rows[0]["role"] == "admin":
                 session["user_id"] = rows[0]["id"]
                 session["role"] = rows[0]["role"]
+                flash("You were sucessfully logged in")
                 return redirect("/admin")
             else:
                 return render_template("login.html")
