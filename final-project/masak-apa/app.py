@@ -49,7 +49,10 @@ def admin_dashboard():
     n_users = db.execute("select count(id) as n_users from users where role = 'member'")
     n_recipes = db.execute("select count(id) as n_recipes from recipes")
     n_ingr = db.execute("select count(id) as n_ingr from ingredients")
-    return render_template("admin.html", users = n_users[0], recipes=n_recipes[0], ingredients = n_ingr[0])
+    n_ori = db.execute("select count(id) as n_ori from origins")
+    n_cat = db.execute("select count(id) as n_cat from categories")
+    n_unit = db.execute("select count(id) as n_unit from units")
+    return render_template("admin.html", users = n_users[0], recipes=n_recipes[0], ingredients = n_ingr[0], origins=n_ori[0], categories=n_cat[0], unit =n_unit[0])
 
 @app.route("/admin/recipes")
 def admin_add_recipe():
