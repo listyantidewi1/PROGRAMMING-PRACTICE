@@ -111,6 +111,7 @@ def categories_edit(id):
 @login_admin_required
 def categories_delete(id):
     db.execute("delete from categories where id = ?", id)
+    flash("The category has been successfully deleted")
     return redirect("/admin/categories")
 
 @app.route("/admin/users", methods=["GET", "POST"])
