@@ -102,6 +102,7 @@ def categories_edit(id):
         return render_template("categories_edit.html", categories=cat)
     elif request.method == "POST":
         category = request.form.get("category")
+        print(category)
         cat = db.execute("update categories set category = ? where id = ?", category, id)
         return redirect("/admin/categories")
 
