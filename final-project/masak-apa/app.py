@@ -89,7 +89,7 @@ def categories():
             return apology("Category belum diisi?", 400)
         else:
             newcat = request.form.get("category")
-            db.execute("insert into categories (category) value (?)", newcat)
+            db.execute("insert into categories (category) values (?)", newcat)
             return redirect("/admin/categories")
     #return apology("Bagian categories belum dikerjain?", 403)
 
