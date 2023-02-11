@@ -105,6 +105,15 @@ def register():
 
    # return apology("Fitur register beum dikerjain?", 403)
 
-@app.route("/login")
+@app.route("/login", methods=["GET", "POST"])
 def login():
+
+    session.clear()
+    
+
     return apology("Fitur login beum dikerjain?", 403)
+
+@app.route("/logout")
+def logout():
+    session.clear
+    return redirect("/login.html")
