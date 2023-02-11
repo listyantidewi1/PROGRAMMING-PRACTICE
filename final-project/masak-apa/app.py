@@ -99,7 +99,18 @@ def origins_edit(id):
         print(origin)
         return render_template("origins_edit.html", origins=origin)
     elif request.method == "POST":
-        
+        origin = request.form.get("origin")
+        print(origin)
+        db.execute("update origins set origin = ? where id = ?", origin, id)
+        flash("The ingredient origin has been sucessfully edited")
+        return redirect("/admin/origins")
+
+@app.route("/admin/origins/<id>/delete", methods=["GET"])
+@login_admin_required
+def origins_delete(id):
+    db.execute("delete from origins where id = ?", id)
+    flash("The ingredient origin has been successfully deleted")
+    return redirect("/admin/origins")
 
 @app.route("/admin/categories", methods=["GET", "POST"])
 @login_admin_required
