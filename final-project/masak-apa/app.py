@@ -107,10 +107,8 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-
     session.clear()
     if request.method == "POST":
-
         if not request.form.get("username"):
             return apology("belum ngisi username?", 403)
         elif not request.form.get("password"):
