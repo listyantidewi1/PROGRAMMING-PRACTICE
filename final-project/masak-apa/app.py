@@ -83,7 +83,7 @@ def units():
         units = db.execute("select id, name from units")
         return render_template("units.html", units = units)
     elif request.method == "POST":
-        if not request.form("unit"):
+        if not request.form.get("unit"):
             return apology("Unit belum diisi?", 400)
         else:
             unit = request.form.get("unit")
