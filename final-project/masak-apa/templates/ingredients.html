@@ -9,7 +9,27 @@
 <div class="container-fluid mb-3">
     <form action="/admin/ingredients" method="post">
         <div class="mb-3">
-            <input autocomplete="off" autofocus class="form-control" id="origin" name="origin" placeholder="Add a new origin" type="text">
+            <input autocomplete="off" autofocus class="form-control" id="name" name="name" placeholder="Ingredient name" type="text">
+        </div>
+        <div>
+            <select name="origin" id="origin" class="form-control">
+                {% for origin in listOris %}
+                    <option value="origin['id']">{{ origin["origin"] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <select name="category" id="category" class="form-control">
+                {% for category in listCats %}
+                    <option value="category['id']">{{ category["category"] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <input type="file" class="form-control" name="file">
+        </div>
+        <div>
+            <textarea name="description" class="form-control" placeholder="enter description"></textarea>
         </div>
         <div class="mb-3">
             <button class="btn btn-primary form-control" type="submit">Add</button>
