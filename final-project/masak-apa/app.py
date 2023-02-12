@@ -133,7 +133,7 @@ def ingredients():
         name = request.form.get("name")
         origin = request.form.get("origin")
         category = request.form.get("category")
-        file = request.files("file")
+        file = request.files['file']
         description = request.files("description")
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
