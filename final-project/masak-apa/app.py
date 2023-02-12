@@ -126,8 +126,8 @@ def ingredients():
             return apology("origin belum diisi")
         elif not request.form.get("category"):
             return apology("category belum diisi")
-        elif 'file' not in request.files:
-            return apology("file belum dipilih")
+        # elif 'file' not in request.files:
+        #     return apology("file belum dipilih")
         elif not request.form.get("description"):
             return apology("description belum diisi")
         name = request.form.get("name")
