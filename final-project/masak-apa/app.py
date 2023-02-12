@@ -10,7 +10,7 @@ from helpers import login_required, login_admin_required, apology
 
 # configure application
 
-UPLOAD_FOLDER = '/uploads'
+UPLOAD_FOLDER = '/workspaces/89518378/final-project/masak-apa/uploads'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
 app = Flask(__name__)
@@ -115,8 +115,8 @@ def units_delete(id):
 @login_admin_required
 def ingredients():
     if request.method == 'GET':
-        listCat = db.execute("select category from categories")
-        listOri = db.execute("select origin from origins")
+        listCat = db.execute("select * from categories")
+        listOri = db.execute("select * from origins")
         ingredients = db.execute("select ingredients.id, image, name, origin, category, description from ingredients inner join origins on ingredients.origin_id = origins.id inner join categories on ingredients.category_id = categories.id")
         return render_template("ingredients.html", ingredients = ingredients, listCats = listCat, listOris = listOri)
     elif request.method == "POST":
@@ -126,21 +126,68 @@ def ingredients():
             return apology("origin belum diisi")
         elif not request.form.get("category"):
             return apology("category belum diisi")
-        # elif 'file' not in request.files:
-        #     return apology("file belum dipilih")
         elif not request.form.get("description"):
             return apology("description belum diisi")
         name = request.form.get("name")
         origin = request.form.get("origin")
         category = request.form.get("category")
-        file = request.files['file']
-        description = request.files("description")
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            db.execute("insert into ingredients(image, name, origin_id, category_id, description) values(?,?,?,?,?)", url_for(filename), name, origin, category, description)
+        f = request.files['file']
+        print(f)
+        if f.filename == '':
+            return apology('No selected file')
+        description = request.form.get("description")
+        if f and allowed_file(f.filename):
+            filename = secure_filename(f.filename)
+            f.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        #f.save(secure_filename(f.filename))
+            db.execute("insert into ingredients(image, name, origin_id, category_id, description) values(?,?,?,?,?)", 'final-project/masak-apa/uploads/' + filename, name, origin, category, description)
+            return redirect("/admin/ingredients")
         else:
             return apology("pilih file dulu")
+
+@app.route("/admin/ingredients/<id>/edit", methods=["GET", "POST"])
+@login_admin_required
+def ingredients_edit(id):
+    if request.method == "GET":
+        listCat = db.execute("select * from categories")
+        listOri = db.execute("select * from origins")
+        ingredients = db.execute("select ingredients.id, image, name, origin, category, ingredients.description from ingredients inner join origins on ingredients.origin_id = origins.id inner join categories on ingredients.category_id = categories.id where ingredients.id = ?", id)[0]
+        print(listCat, listOri, ingredients)
+        return render_template("ingredients_edit.html", ingredients = ingredients, listCats = listCat, listOris = listOri)
+    elif request.method == "POST":
+        if not request.form.get("name"):
+            return apology("name belum diisi")
+        elif not request.form.get("origin"):
+            return apology("origin belum diisi")
+        elif not request.form.get("category"):
+            return apology("category belum diisi")
+        elif not request.form.get("description"):
+            return apology("description belum diisi")
+        name = request.form.get("name")
+        origin = request.form.get("origin")
+        category = request.form.get("category")
+        f = request.files['file']
+        print(f)
+        if f.filename == '':
+            return apology('No selected file')
+        description = request.form.get("description")
+        if f and allowed_file(f.filename):
+            filename = secure_filename(f.filename)
+            f.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        #f.save(secure_filename(f.filename))
+            db.execute("update ingredients set image = ?, name = ?, origin_id = ?, category_id = ?, description = ? where id = ?", 'final-project/masak-apa/uploads/' + filename, name, origin, category, description, id)
+            flash("The ingredient has been sucessfully edited")
+            return redirect("/admin/ingredients")
+        else:
+            return apology("pilih file dulu")
+
+@app.route("/admin/ingredients/<id>/delete", methods=["GET"])
+@login_admin_required
+def ingredient_delete(id):
+    db.execute("delete from ingredients where id = ?", id)
+    flash("The ingredient has been successfully deleted")
+    return redirect("/admin/ingredients")
+
 
 @app.route("/admin/origins", methods=["GET", "POST"])
 @login_admin_required
@@ -306,4 +353,4 @@ def login():
 @app.route("/logout")
 def logout():
     session.clear
-    return redirect("/")
+    return redirect("/login")

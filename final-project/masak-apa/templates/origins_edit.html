@@ -6,7 +6,7 @@
 
 {% block main %}
 <div class="container-fluid mb-3">
-    <h2>Edit Ingredient Origins</h2>
+    <h2 class="text-center">Edit Ingredient Origins</h2>
     <form action="/admin/origins/{{ origins['id'] }}/edit" method="post">
         <div class="mb-3">
             <input autocomplete="off" autofocus class="form-control mx-auto w-auto" value="{{ origins['origin'] }}" id="origin" name="origin" type="text">

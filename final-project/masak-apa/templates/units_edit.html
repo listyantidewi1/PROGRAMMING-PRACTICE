@@ -6,7 +6,7 @@
 
 {% block main %}
 <div class="container-fluid mb-3">
-    <h2>Edit Measurement Units</h2>
+    <h2 class="text-center">Edit Measurement Units</h2>
     <form action="/admin/units/{{ unit['id'] }}/edit" method="post">
         <div class="mb-3">
             <input autocomplete="off" autofocus class="form-control mx-auto w-auto" value="{{ unit['name'] }}" id="unit" name="unit" type="text">
