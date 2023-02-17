@@ -1,0 +1,4 @@
+optimisedRandomNumber()
+{
+    return 7;
+}
