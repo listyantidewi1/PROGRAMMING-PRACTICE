@@ -6,4 +6,8 @@ if(number <= 0.1){
     console.log(2)
 }else if(number <= 0.3){
     console.log(3)
+}else if(number <= 0.4){
+    console.log(4)
+}else if(number <= 0.5){
+    console.log(5)
 }
