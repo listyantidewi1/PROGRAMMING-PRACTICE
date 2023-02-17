@@ -1,2 +1,2 @@
-for i in range(1, 501):
-    print(f"{i} I will not throw paper airplanes in class.")
+for i in range(0, 500):
+    print("I will not throw paper airplanes in class.")
