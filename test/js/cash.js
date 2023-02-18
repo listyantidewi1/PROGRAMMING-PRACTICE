@@ -1,5 +1,6 @@
 var readlineSync = require('readline-sync');
 
+//ask the user how many changes owed
 get_cents = () => {
     var cents = -1;
     while (cents < 0) {
@@ -8,21 +9,25 @@ get_cents = () => {
     return cents;
 }
 
+///calculate the number of quarters
 calculate_quarters = (cents) => {
     var quarters = Math.floor(cents / 25);
     return quarters;
 }
 
+//calculate the number of dimes
 calculate_dimes = (cents) => {
     var dimes = Math.floor(cents / 10);
     return dimes;
 }
 
+//calculate the number of nickels
 calculate_nickels = (cents) => {
     var nickels = Math.floor(cents / 5);
     return nickels;
 }
 
+//calculate the number of pennies
 calculate_pennies = (cents) => {
     return cents;
 }
