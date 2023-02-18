@@ -98,21 +98,21 @@ int get_cents(void)
 int calculate_quarters(int cents)
 {
     // TODO
-    int quarters = cents / 25;
+    int quarters = Math.floor(cents / 25);
     return quarters;
 }
 
 int calculate_dimes(int cents)
 {
     // TODO
-    int dimes = cents / 10;
+    int dimes = Math.floor(cents / 10);
     return dimes;
 }
 
 int calculate_nickels(int cents)
 {
     // TODO
-    int nickels = cents / 5;
+    int nickels = Math.floor(cents / 5);
     return nickels;
 }
 
