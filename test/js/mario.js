@@ -15,20 +15,20 @@ for (let i = 0; i < height; i++)
 {
     for (let k = height; k > i+1; k--)
     {
-        console.log(" ");
+        process.stdout.write(" ");
     }
 
     for (let j = 0; j <= i; j++)
     {
-        console.log("#");
+        process.stdout.write("#");
     }
 
-    console.log(" ");
+    process.stdout.write(" ");
 
     for (j = 0; j <= i; j++)
     {
-        console.log("#");
+        process.stdout.write("#");
     }
 
-    console.log("\n");
+    process.stdout.write("\n");
 }
