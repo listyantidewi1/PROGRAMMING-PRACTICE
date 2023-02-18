@@ -5,28 +5,23 @@ var readlineSync = require('readline-sync');
 // console.log('Hi ' + userName + '!');
 
 var height = 0;
-while((height <= 0) || (height > 8))
-{
+while ((height <= 0) || (height > 8)) {
     height = readlineSync.question("Height: ");
 }
 
 //loop for the number of rows
-for (let i = 0; i < height; i++)
-{
-    for (let k = height; k > i+1; k--)
-    {
+for (let i = 0; i < height; i++) {
+    for (let k = height; k > i + 1; k--) {
         process.stdout.write(" ");
     }
 
-    for (let j = 0; j <= i; j++)
-    {
+    for (let j = 0; j <= i; j++) {
         process.stdout.write("#");
     }
 
     process.stdout.write(" ");
 
-    for (j = 0; j <= i; j++)
-    {
+    for (j = 0; j <= i; j++) {
         process.stdout.write("#");
     }
 
