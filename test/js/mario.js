@@ -4,7 +4,7 @@ var readlineSync = require('readline-sync');
 // var userName = readlineSync.question('May I have your name?');
 // console.log('Hi ' + userName + '!');
 
-var height;
+var height = 0;
 while((height <= 0) || (height > 8))
 {
     height = readlineSync.question("Height: ");
