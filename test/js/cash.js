@@ -9,17 +9,17 @@ get_cents = () => {
 }
 
 calculate_quarters = (cents) => {
-    var quarters = cents / 25;
+    var quarters = Math.floor(cents / 25);
     return quarters;
 }
 
 calculate_dimes = (cents) => {
-    var dimes = cents / 10;
+    var dimes = Math.floor(cents / 10);
     return dimes;
 }
 
 calculate_nickels = (cents) => {
-    var nickels = cents / 5;
+    var nickels = Math.floor(cents / 5);
     return nickels;
 }
 
