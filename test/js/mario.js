@@ -11,4 +11,24 @@ while((height <= 0) || (height > 8))
 }
 
 //loop for the number of rows
-var i = 0;
+for (let i = 0; i < height; i++)
+{
+    for (let k = height; k > i+1; k--)
+    {
+        console.log(" ");
+    }
+
+    for (let j = 0; j <= i; j++)
+    {
+        console.log("#");
+    }
+
+    console.log(" ");
+
+    for (j = 0; j <= i; j++)
+    {
+        console.log("#");
+    }
+
+    console.log("\n");
+}
