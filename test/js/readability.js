@@ -12,5 +12,20 @@ const num_letters = lettersOnly.length;
 
 //count the number of words
 const words = text.split(" ");
-const num_words = words.length;
-console.log(num_words);
+const num_words = words.length - 1;
+//console.log(num_words);
+
+//count the number of sentences
+const sentences = text.split(/[.!?]+/);
+const num_sentences = sentences.length;
+console.log(num_sentences);
+
+//calculate index
+var l = num_letters / num_words * 100;
+var s = num_sentences / num_words * 100;
+var index = Math.floor(0.0588 * l - 0.296 * s - 15.8);
+
+console.log("l: ", l);
+console.log("s: ", s);
+console.log("index: ", index);
+
