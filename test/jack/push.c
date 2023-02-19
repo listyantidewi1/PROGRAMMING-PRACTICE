@@ -1,3 +1,18 @@
+// #include <stdbool.h>
+
+
+// const int CAPACITY = 50;
+
+// typedef struct
+// {
+//     int numbers[CAPACITY];
+//     int size;
+// } stack;
+
+// stack s;
+// s.size = 0;
+
+
 bool push(int n)
 {
     // TODO
@@ -7,7 +22,7 @@ bool push(int n)
         return false;
     }
 
-    //else, push n 
+    //else, push n
     s->numbers[s->size] = n;
     s->size++;
     return true;
