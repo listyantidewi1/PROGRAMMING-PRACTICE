@@ -5,7 +5,7 @@ var readlineSync = require('readline-sync');
 // console.log('Hi ' + userName + '!');
 
 var height = 0;
-while ((height <= 0) || (height > 8)) {
+while ((height <= 0) || (height > 8) || (isNaN(height))) {
     height = readlineSync.question("Height: ");
 }
 
