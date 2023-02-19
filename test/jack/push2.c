@@ -23,8 +23,10 @@ bool push(int n)
         return false;
     }
 
+    // check if the stack is full capacity
     if (s->size == sizeof(s->numbers) /  sizeof(int))
     {
+        // allocate a new capacity, double it for sufficient
         int new_capacity = sizeof(s->numbers) / sizeof(int) * 2;
         int* new_numbers = realloc(s->numbers, new_capacity * sizeof(int));
         if (new_numbers == NULL)
