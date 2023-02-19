@@ -8,3 +8,4 @@ def find_availability(item_id):
     warehouse = db.execute(
         "select warehouses.id from warehouses inner join items on warehouses.id = items.warehouse_id where stock >= 0 and items.id = ?", item_id)
     return warehouse
+
