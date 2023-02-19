@@ -23,7 +23,7 @@ const num_sentences = sentences.length;
 //calculate index
 var l = num_letters / num_words * 100;
 var s = num_sentences / num_words * 100;
-var index = Math.floor(0.0588 * l - 0.296 * s - 15.8);
+var index = Math.ceil(0.0588 * l - 0.296 * s - 15.8);
 
 // console.log("l: ", l);
 // console.log("s: ", s);
