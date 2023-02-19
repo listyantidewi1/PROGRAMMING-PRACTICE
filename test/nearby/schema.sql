@@ -1,5 +1,5 @@
 CREATE TABLE warehouses (
-    id int(5) NOT NULL AUTO_INCREMENT,
+    id int(5) NOT NULL AUTO INCREMENT,
     name varchar(255) NOT NULL,
     latitude varchar(255) NOT NULL,
     longitude varchar(255) NOT NULL,
