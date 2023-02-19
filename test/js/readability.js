@@ -18,14 +18,21 @@ const num_words = words.length - 1;
 //count the number of sentences
 const sentences = text.split(/[.!?]+/);
 const num_sentences = sentences.length;
-console.log(num_sentences);
+//console.log(num_sentences);
 
 //calculate index
 var l = num_letters / num_words * 100;
 var s = num_sentences / num_words * 100;
 var index = Math.floor(0.0588 * l - 0.296 * s - 15.8);
 
-console.log("l: ", l);
-console.log("s: ", s);
-console.log("index: ", index);
+// console.log("l: ", l);
+// console.log("s: ", s);
+// console.log("index: ", index);
 
+if (index < 1) {
+    console.log("Before Grade 1");
+} else if (index > 16) {
+    console.log("Grade 16+");
+} else {
+    console.log("Grade " + index);
+}
