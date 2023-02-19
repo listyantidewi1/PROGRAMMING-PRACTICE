@@ -10,3 +10,6 @@ const num_letters = lettersOnly.length;
 
 //console.log(num_letters);
 
+//count the number of words
+const words = text.split(" ");
+const num_words = words.length;
