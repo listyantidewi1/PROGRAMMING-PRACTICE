@@ -1,13 +1,16 @@
 CREATE TABLE warehouses (
-    id INTEGER NOT NULL AUTOINCREMENT PRIMARY KEY,
-    name TEXT NOT NULL,
-    latitude TEXT NOT NULL,
-    longitude TEXT NOT NULL
+    id int(5) NOT NULL AUTO_INCREMENT,
+    name varchar(255) NOT NULL,
+    latitude varchar(255) NOT NULL,
+    longitude varchar(255) NOT NULL,
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE items (
-    id INTEGER NOT NULL PRIMARY KEY,
-    warehouse_id INTEGER NOT NULL,
-    name TEXT NOT NULL,
-    stock INTEGER NOT NULL
-);
+    id int NOT NULL,
+    warehouse_id int(5) NOT NULL,
+    name varchar(255) NOT NULL,
+    stock int(5) NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (warehouse_id) REFERENCES warehouse (id)
+)
