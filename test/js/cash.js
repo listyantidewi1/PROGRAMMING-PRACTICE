@@ -3,7 +3,7 @@ var readlineSync = require('readline-sync');
 //ask the user how many changes owed
 get_cents = () => {
     var cents = -1;
-    while (cents < 0) {
+    while (cents < 0 || isNaN(cents)) {
         cents = readlineSync.question("Change owed: ");
     }
     return cents;
