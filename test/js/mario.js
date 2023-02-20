@@ -19,7 +19,7 @@ for (let i = 0; i < height; i++) {
         process.stdout.write("#");
     }
 
-    process.stdout.write(" ");
+    process.stdout.write("  ");
 
     for (j = 0; j <= i; j++) {
         process.stdout.write("#");
