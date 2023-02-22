@@ -1,3 +1,19 @@
+// #include <stdbool.h>
+
+
+// const int CAPACITY = 50;
+
+// typedef struct
+// {
+//     int numbers[CAPACITY];
+//     int size;
+// } stack;
+
+// stack s;
+// s.size = 0;
+
+// but why is s undefined?
+
 bool pop(int *n)
 {
     // TODO
