@@ -10,7 +10,7 @@ from helpers import login_required, login_admin_required, apology
 
 # configure application
 
-UPLOAD_FOLDER = '/workspaces/89518378/final-project/masak-apa/uploads'
+UPLOAD_FOLDER = '/workspaces/89518378/final-project/masak-apa/static/uploads'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
 app = Flask(__name__)
@@ -140,7 +140,7 @@ def ingredients():
             filename = secure_filename(f.filename)
             f.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         #f.save(secure_filename(f.filename))
-            db.execute("insert into ingredients(image, name, origin_id, category_id, description) values(?,?,?,?,?)", 'final-project/masak-apa/uploads/' + filename, name, origin, category, description)
+            db.execute("insert into ingredients(image, name, origin_id, category_id, description) values(?,?,?,?,?)", 'final-project/masak-apa/static/uploads/' + filename, name, origin, category, description)
             return redirect("/admin/ingredients")
         else:
             return apology("pilih file dulu")
