@@ -140,7 +140,7 @@ def ingredients():
             filename = secure_filename(f.filename)
             f.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         #f.save(secure_filename(f.filename))
-            db.execute("insert into ingredients(image, name, origin_id, category_id, description) values(?,?,?,?,?)", 'final-project/masak-apa/static/uploads/' + filename, name, origin, category, description)
+            db.execute("insert into ingredients(image, name, origin_id, category_id, description) values(?,?,?,?,?)", filename, name, origin, category, description)
             return redirect("/admin/ingredients")
         else:
             return apology("pilih file dulu")
@@ -175,7 +175,7 @@ def ingredients_edit(id):
             filename = secure_filename(f.filename)
             f.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         #f.save(secure_filename(f.filename))
-            db.execute("update ingredients set image = ?, name = ?, origin_id = ?, category_id = ?, description = ? where id = ?", 'final-project/masak-apa/uploads/' + filename, name, origin, category, description, id)
+            db.execute("update ingredients set image = ?, name = ?, origin_id = ?, category_id = ?, description = ? where id = ?", '/workspaces/89518378/final-project/masak-apa/static/uploads/' + filename, name, origin, category, description, id)
             flash("The ingredient has been sucessfully edited")
             return redirect("/admin/ingredients")
         else:
@@ -260,6 +260,37 @@ def categories_delete(id):
     db.execute("delete from categories where id = ?", id)
     flash("The category has been successfully deleted")
     return redirect("/admin/categories")
+
+@app.route("/admin/add/recipe", methods=["GET", "POSTS"])
+@login_admin_required
+def add_recipes():
+    if request.method == 'GET':
+        # ingredients = db.execute("select id, name from ingredients")
+        # origins = db.execute("select id, origin from origins")
+        # units = db.execute("select id, name from units")
+        # return render_template("add_recipes_admin.html", ingredients = ingredients, origins = origins, units = units)
+        print()
+    elif request.method == 'POST':
+        #get all data
+        #execute queries in loops
+        if not request.form.get("name"):
+            return apology("name belum diisi")
+        elif not request.form.get("origin"):
+            return apology("origin belum diisi")
+        name = request.form.get("name")
+        origin = request.form.get("origin")
+        f = request.files['file']
+        if f.filename == '':
+            return apology("No selected file")
+        if f and allowed_file(f.filename):
+            filename = secure_filename(f.filename)
+            f.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            db.execute("insert into recipes(name, origin_id, image) values(?,?,?)", name, origin, filename)
+            current_recipe = db.execute("select * from recipe order by id desc limit 1")
+            return render_template("edit_recipe.html", current_recipe = current_recipe)
+        else:
+            return apology("pilih file dulu")
+
 
 @app.route("/admin/users", methods=["GET"])
 @login_admin_required

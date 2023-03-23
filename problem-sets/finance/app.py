@@ -46,6 +46,7 @@ def index():
         "select symbol, name, price, sum(shares) as shares from purchased_stock where user_id = ? group by symbol", id)
     saldo = db.execute("select * from users where id = ?", id)[0]
     print(saldo)
+    print(portofolio)
     return render_template("index.html", portofolio=portofolio, balance=saldo)
 
 
