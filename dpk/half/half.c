@@ -1,6 +1,3 @@
-// Calculate your half of a restaurant bill
-// Data types, operations, type casting, return value
-
 #include <cs50.h>
 #include <stdio.h>
 
@@ -15,13 +12,10 @@ int main(void)
     printf("You will owe $%.2f each!\n", half(bill_amount, tax_percent, tip_percent));
 }
 
-// TODO: Complete the function
 float half(float bill, float tax, int tip)
 {
-    float tax_amount = (tax / 100) * bill;
-    float bill_after_tax = bill + tax_amount;
-    float tip_amount = (tip / 100) * bill_after_tax;
-    float half_amount = (bill_after_tax + tip_amount) / 2;
-
-    return 0.0;
+    float bill_after_tax = bill * ( tax / 100.0 ) + bill;
+    float bill_after_tax_tip = bill_after_tax * ( tip / 100.0 ) + bill_after_tax;
+    float split = bill_after_tax_tip / 2;
+    return split;
 }
