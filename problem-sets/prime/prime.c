@@ -1,5 +1,7 @@
 #include <cs50.h>
 #include <stdio.h>
+#include <stdbool.h>
+#include <math.h>
 
 bool prime(int number);
 
@@ -30,16 +32,27 @@ int main(void)
 
 bool prime(int number)
 {
-    int isPrime;
-    // TODO
-    for (int i = 1; i < number; i++)
+    if (number <= 1)
     {
-        isPrime = number % i;
-        printf("sisa dari %i dibagi %i : %i", number, i, isPrime);
-        if (isPrime > 0){
-            break;
-        }
-        return true;
+        return false; // 0 and 1 are not prime numbers
     }
-    return false;
+    if (number <= 3)
+    {
+        return true; // 2 and 3 are prime numbers
+    }
+    if (number % 2 == 0 || number % 3 == 0)
+    {
+        return false; // Any other multiple of 2 or 3 is not prime
+    }
+
+    // Check for prime by testing divisibility up to the square root of the number
+    for (int i = 5; i * i <= number; i += 6)
+    {
+        if (number % i == 0 || number % (i + 2) == 0)
+        {
+            return false;
+        }
+    }
+
+    return true;
 }
